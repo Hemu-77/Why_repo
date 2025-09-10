@@ -18,7 +18,7 @@ export default function Home() {
             <div className="w-80 h-96 flex items-center justify-center">
               {/* Image placeholder - replace src with your image */}
               <img 
-                src={img2}
+                src="../../../public/img2.png"
                 alt="Character" 
                 className="w-full h-full object-contain hover:scale-105 transition-transform duration-500"
               />
