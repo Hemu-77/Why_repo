@@ -16,7 +16,7 @@ export default function ReflectedTestimonials() {
       name: "Sophia Johnson",
       role: "Product Manager",
       img: "/images/user2.png",
-      title: "Smooth Transactions",
+      title: "Best of Best Media",
       rating: 5,
       text: "This service has transformed how I manage payments for my team. The ease of use and reliability are unmatched. Highly recommend to anyone who values efficiency.",
     },
@@ -24,7 +24,7 @@ export default function ReflectedTestimonials() {
       name: "Liam Brown",
       role: "Business Owner",
       img: "/images/user3.png",
-      title: "Reliable & Transparent",
+      title: "Best of Best Media",
       rating: 5,
       text: "Finally, a platform I can trust. No hidden surprises, just clear and reliable service every time. My customers love it too.",
     },
@@ -50,13 +50,13 @@ export default function ReflectedTestimonials() {
           <h2 className="text-4xl font-bold leading-snug mb-3">
             We’ve built trust with <br /> reviews from real users
           </h2>
-          <p className="text-gray-400 mb-4 text-sm">
-            Boost your credibility by featuring genuine testimonials from real users, showcasing their positive experiences and satisfaction.
+          <p className="text-white mb-4 text-sm">
+            Boost your credibility by featuring genuine testimonials from real users, showcasing their positive experiences and satisfaction with Monks Pay services.
           </p>
         </div>
 
         {/* Right Carousel */}
-        <div className="flex-1 relative overflow-hidden h-[360px]">
+        <div className="flex-2 relative overflow-hidden h-[360px]">
           <div
             className="flex transition-transform duration-700 ease-in-out"
             style={{ transform: `translateX(-${index * 100}%)` }}
@@ -69,7 +69,7 @@ export default function ReflectedTestimonials() {
                   className={`min-w-full flex justify-center`}
                 >
                   <div
-                    className={`w-[320px] rounded-2xl p-6 shadow-xl transition-all duration-700 ${
+                    className={`w-[420px] rounded-2xl p-6 shadow-xl transition-all duration-700 ${
                       isActive
                         ? "bg-gradient-to-b from-gray-900 to-black scale-105 opacity-100 blur-0 z-10"
                         : "bg-gray-800 scale-95 opacity-50 blur-sm"

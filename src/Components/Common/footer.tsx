@@ -9,7 +9,7 @@ export default function NewsletterFooter() {
               <div className="w-12 h-12 flex items-center justify-center bg-red-600 rounded-full mb-6">
                 <span className="text-2xl">📩</span>
               </div>
-              <h2 className="text-4xl font-bold leading-tight mb-2">
+              <h2 className="text-6xl font-extrabold leading-tight mb-2">
                 Keep up with the latest
               </h2>
               <p className="text-gray-400 text-sm">
@@ -19,7 +19,7 @@ export default function NewsletterFooter() {
   
             {/* Right Side */}
             <div>
-              <p className="text-sm mb-3">Stay up to date</p>
+              <p className="text-m font-bold mb-3">Stay up to date</p>
               <form className="flex gap-2">
                 <input
                   type="email"
@@ -35,7 +35,7 @@ export default function NewsletterFooter() {
               </form>
               <p className="text-xs text-gray-500 mt-2">
                 By subscribing you agree to our{" "}
-                <a href="#" className="underline">
+                <a href="#" className="underline text-white" >
                   Privacy Policy
                 </a>
               </p>
@@ -46,7 +46,7 @@ export default function NewsletterFooter() {
           <div className="border-t border-gray-700 my-10"></div>
   
           {/* Footer Links */}
-          <div className="grid grid-cols-2 md:grid-cols-6 gap-8 text-sm">
+          <div className="grid grid-cols-2 md:grid-cols-8 gap-8 text-sm">
             <div>
               <h4 className="font-semibold mb-3">WHYMEDIA</h4>
               <p className="text-gray-500">Make your complicated</p>
