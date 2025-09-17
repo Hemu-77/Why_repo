@@ -1,6 +1,6 @@
 export default function NewsletterFooter() {
     return (
-      <footer className="bg-[#111] text-white">
+      <footer className="bg-[#111] text-white mx-20 my-10 rounded-2xl">
         <div className="max-w-7xl mx-auto p-10 md:p-16">
           {/* Top Section */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">

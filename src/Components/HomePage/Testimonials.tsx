@@ -40,7 +40,7 @@ export default function ReflectedTestimonials() {
   }, [testimonials.length]);
 
   return (
-    <section className="relative flex items-center justify-center bg-black text-white py-12 px-6 overflow-hidden transform scale-x-[-1]">
+    <section className="relative flex items-center justify-center bg-black text-white py-30 px-6 overflow-hidden transform scale-x-[-1]">
       {/* Flip children back */}
       <div className="flex flex-col lg:flex-row items-center w-full max-w-7xl mx-auto transform scale-x-[-1]">
         
@@ -56,7 +56,7 @@ export default function ReflectedTestimonials() {
         </div>
 
         {/* Right Carousel */}
-        <div className="flex-2 relative overflow-hidden h-[360px]">
+        <div className="flex-2 relative overflow-hidden h-[300px]">
           <div
             className="flex transition-transform duration-700 ease-in-out"
             style={{ transform: `translateX(-${index * 100}%)` }}

@@ -37,16 +37,16 @@ const Navbar = ({ isDark = true }: { isDark?: boolean }) => {
 
 const NavLinks = [
   { name: "Home", href: "/" },
-  { name: "AboutUs", href: "/Shop" },
-  { name: "Portfolio", href: "/GenZ" },
-  { name: "Contact Us", href: "/AboutUs" },
-  { name: "Studio ", href: "/ContactUs" },
+  { name: "AboutUs", href: "/about" },
+  { name: "Portfolio", href: "/portfolio" },
+  { name: "Contact Us", href: "/contact" },
+  { name: "Studios ", href: "/studios" },
   
 ];
 
 	const hoverText = isDark ? "hover:text-black" : "hover:text-black";
-	const textColor = isDark ? "text-gray-700" : "text-gray-800";
-	const activeTextColor = isDark ? "text-red-700" : "text-gray-900";
+	const textColor = isDark ? "text-white" : "text-white";
+	const activeTextColor = isDark ? "text-red-700" : "text-white";
 
 	const handleSearchMouseEnter = () => {
 		setIsSearchOpen(true);

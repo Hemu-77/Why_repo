@@ -13,7 +13,7 @@ const HeroSection: FC = () => {
     >
    <div
   className="relative container px-2 lg:px-16 grid grid-cols-1 lg:grid-cols-6 items-center w-full
-  [background:linear-gradient(to_bottom,black_1%,transparent_20%),linear-gradient(to_right,black_1%,transparent_20%),linear-gradient(to_left,black_1%,transparent_20%),radial-gradient(circle_at_top_left,black_5%,transparent_30%),radial-gradient(circle_at_top_right,black_5%,transparent_20%)]"
+  [background:linear-gradient(to_bottom,black_1%,transparent_20%),linear-gradient(to_right,black_3%,transparent_20%),linear-gradient(to_left,black_3%,transparent_40%),radial-gradient(circle_at_top_left,black_5%,transparent_30%),radial-gradient(circle_at_top_right,black_5%,transparent_20%)]"
 >
 
   

@@ -8,7 +8,7 @@ import step4Img from "@/../public/Sitting.png";
 
 export default function ValuesSection() {
   return (
-    <section className="relative bg-black text-white py-20 px-6 overflow-hidden">
+    <section className="relative bg-black text-white py-20 overflow-hidden">
       {/* Title */}
       <div className="text-center mb-16">
         <h2 className="text-7xl md:text-[22rem] font-black bg-gradient-to-t from-red-600 to-white bg-clip-text text-transparent">
