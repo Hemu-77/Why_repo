@@ -13,7 +13,7 @@ export default function ContactSection() {
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/60"></div>
 
-      <div className="relative z-10">
+      <div className="relative z-10 py-20">
         {/* Top grid: Heading + Form */}
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Left Section */}

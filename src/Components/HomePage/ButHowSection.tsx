@@ -4,7 +4,7 @@ import character from "../../../public/cirkitgautam 1.png"; // replace with your
 
 const HowSection = () => {
   return (
-    <section className="relative bg-black text-white px-6 overflow-hidden">
+    <section className="relative bg-black text-white px-4 sm:px-6 lg:px-16 overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-10">
         
         {/* Left Character */}
@@ -12,20 +12,21 @@ const HowSection = () => {
           <Image
             src={character}
             alt="Character"
-            className="w-[550px] lg:w-[1040px] object-contain"
+            className="w-[250px] sm:w-[350px] md:w-[450px] lg:w-[1040px] object-contain"
             priority
           />
         </div>
 
         {/* Right Content */}
-        <div className="space-y-6 lg:text-left">
+        <div className="space-y-6 text-center lg:text-left">
           {/* Title */}
-          <h2 className="text-6xl lg:text-[10rem] font-black tracking-wide -ml-95 text-outline text-stroke">
-            BUT <span className="text-red-500 outline-text">HOW ?</span>
+          <h2 className="text-6xl sm:text-5xl md:text-6xl lg:text-[10rem] font-black tracking-wide lg:-ml-95 text-outline text-stroke">
+            <span className="text-black/50 stroke-white">BUT</span>{" "}
+            <span className="outline-text text-black/50 stroke-red">HOW ?</span>
           </h2>
 
           {/* Subtitle */}
-          <p className="text-lg font-semibold text-red-500 uppercase -ml-90 lg:text-[1.75rem]">
+          <p className="text-base sm:text-lg md:text-xl lg:text-[1.75rem] font-semibold text-red-500 uppercase lg:-ml-90">
             BHAI NE BOLA KARNE KA, TO KARNE KA !!
           </p>
 
@@ -39,7 +40,7 @@ const HowSection = () => {
             ].map((label, idx) => (
               <button
                 key={idx}
-                className="relative w-full lg:w-[550px] px-8 py-6 rounded-full font-black text-white uppercase shadow-lg overflow-hidden transition-transform hover:scale-105 text-2xl mt-2 -ml-50"
+                className="relative w-full sm:w-[350px] md:w-[450px] lg:w-[550px] px-6 sm:px-8 py-4 sm:py-6 rounded-full font-black text-white uppercase shadow-lg overflow-hidden transition-transform hover:scale-105 text-lg sm:text-xl lg:text-2xl mt-2 lg:-ml-50"
               >
                 {/* Red gradient background */}
                 <span className="absolute inset-0 bg-gradient-to-r from-red-500 to-red-600"></span>
@@ -51,32 +52,35 @@ const HowSection = () => {
                 <span className="absolute inset-0 bg-gradient-to-b from-white/40 to-transparent opacity-30 rounded-full mix-blend-overlay pointer-events-none"></span>
 
                 {/* Button Label */}
-                <span className="relative ">{label}</span>
+                <span className="relative">{label}</span>
               </button>
             ))}
           </div>
+
+          {/* Play Sample */}
           <div className="relative flex flex-col items-center justify-center w-full h-full">
-  {/* Glow background */}
-  <div className="absolute inset-0 flex items-center justify-center -mt-120 ml-90">
-    <div className="w-[250px] h-[250px] rounded-full bg-[radial-gradient(circle,rgba(255,87,34,0.8)_0%,black_80%)]"></div>
-  </div>
+            {/* Glow background */}
+            <div className="absolute inset-0 flex items-center justify-center lg:-mt-120 lg:ml-90">
+              <div className="w-[150px] sm:w-[200px] md:w-[220px] lg:w-[250px] h-[150px] sm:h-[200px] md:h-[220px] lg:h-[250px] rounded-full bg-[radial-gradient(circle,rgba(255,87,34,0.8)_0%,black_80%)]"></div>
+            </div>
 
-  {/* Play button */}
-  <div className="relative z-10 w-26 h-26 rounded-full bg-red-500 border-4 border-white flex items-center justify-center  -mt-110 ml-90">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-12 h-12 text-white"
-      fill="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <path d="M8 5v14l11-7z" />
-    </svg>
-  </div>
+            {/* Play button */}
+            <div className="relative z-10 w-16 sm:w-20 md:w-24 lg:w-26 h-16 sm:h-20 md:h-24 lg:h-26 rounded-full bg-red-500 border-4 border-white flex items-center justify-center lg:-mt-110 lg:ml-90">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-8 sm:w-10 md:w-12 h-8 sm:h-10 md:h-12 text-white"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
 
-  {/* Label */}
-  <p className="mt-6 text-white text-2xl font-medium z-10 ml-90">Play Sample</p>
-</div>
-
+            {/* Label */}
+            <p className="mt-6 text-base sm:text-lg md:text-xl lg:text-2xl font-medium z-10 lg:ml-90">
+              Play Sample
+            </p>
+          </div>
         </div>
       </div>
     </section>

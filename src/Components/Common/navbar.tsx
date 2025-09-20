@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { PT_Mono } from "next/font/google";
 import { Menu, X } from "lucide-react";
-import logo from "../../../public/header.png";
+import logo from "../../../public/whymedialogo.avif";
 
 
 
@@ -107,7 +107,7 @@ const NavLinks = [
 					/>
 				</div>
 
-				<div className="hidden lg:flex gap-6">
+				<div className="hidden lg:flex gap-6 ml-40">
 					{NavLinks.map((link, index) => (
 						<motion.div
 							key={link.href}
@@ -134,7 +134,7 @@ const NavLinks = [
 				{/* Icons Section */}
 				<div className="flex gap-4 items-center">
 					<div
-						className="relative hidden md:flex items-center"
+						className="relative hidden md:flex items-center ml-8"
 						ref={searchContainerRef}
 						onMouseEnter={handleSearchMouseEnter}
 						onMouseLeave={handleSearchMouseLeave}
@@ -208,7 +208,7 @@ const NavLinks = [
 					>
 						<div className="p-4 space-y-1">
 							{/* Mobile Search */}
-							<div className="mb-4 md:hidden">
+							<div className="mb-4 md:hidden ">
 								<input
 									type="text"
 									placeholder="Search..."

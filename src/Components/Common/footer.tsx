@@ -1,6 +1,6 @@
 export default function NewsletterFooter() {
     return (
-      <footer className="bg-[#111] text-white mx-20 my-10 rounded-2xl">
+      <footer className="bg-[#111] text-white mx-4 my-10 rounded-2xl md:mx-20">
         <div className="max-w-7xl mx-auto p-10 md:p-16">
           {/* Top Section */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
@@ -9,7 +9,7 @@ export default function NewsletterFooter() {
               <div className="w-12 h-12 flex items-center justify-center bg-red-600 rounded-full mb-6">
                 <span className="text-2xl">📩</span>
               </div>
-              <h2 className="text-6xl font-extrabold leading-tight mb-2">
+              <h2 className="text-3xl font-extrabold leading-tight mb-2 md:text-6xl">
                 Keep up with the latest
               </h2>
               <p className="text-gray-400 text-sm">
@@ -20,7 +20,7 @@ export default function NewsletterFooter() {
             {/* Right Side */}
             <div>
               <p className="text-m font-bold mb-3">Stay up to date</p>
-              <form className="flex gap-2">
+              <form className="flex flex-col gap-2 md:flex-row">
                 <input
                   type="email"
                   placeholder="Enter your email"
@@ -111,4 +111,3 @@ export default function NewsletterFooter() {
       </footer>
     );
   }
-  
