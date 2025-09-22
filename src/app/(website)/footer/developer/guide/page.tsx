@@ -19,9 +19,9 @@ export default function GuidePage() {
         <li><span className="text-red-500">Create Your First Project:</span> Jump right in and bring your ideas to life.</li>
       </ul>
 
-      <h3 className="text-xl font-semibold mt-6 mb-2">✨ Core Features You'll Love</h3>
+      <h3 className="text-xl font-semibold mt-6 mb-2">✨ Core Features You&apos;ll Love</h3>
       <p>
-        Here's a quick look at the main features that will help you succeed.
+        Here&apos;s a quick look at the main features that will help you succeed.
       </p>
       <ul className="list-disc pl-6 space-y-2 text-gray-300">
         <li><span className="text-red-500">Dashboard:</span> Your central hub for an overview of all your activity.</li>
@@ -31,7 +31,7 @@ export default function GuidePage() {
 
       <h3 className="text-xl font-semibold mt-6 mb-2">💡 Tips for a Smooth Workflow</h3>
       <p>
-        To get the most out of our platform, we've put together a few pro-tips for a more efficient workflow.
+        To get the most out of our platform, we&apos;ve put together a few pro-tips for a more efficient workflow.
       </p>
       <ul className="list-disc pl-6 space-y-2 text-gray-300">
         <li><span className="text-red-500">Use Shortcuts:</span> Speed up your tasks with our keyboard shortcuts.</li>

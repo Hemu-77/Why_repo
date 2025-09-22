@@ -6,13 +6,13 @@ export default function CareersPage() {
       <p>
         Join a team that’s passionate about innovation and dedicated to
         making a real impact. At <span className="text-red-500 font-semibold">Your Company Name</span>,
-        we're building the future, and we're looking for talented people to help us get there.
+        we&apos;re building the future, and we&apos;re looking for talented people to help us get there.
       </p>
 
       <h3 className="text-xl font-semibold mt-6 mb-2">🌟 Our Mission & Culture</h3>
       <p>
         We believe in a collaborative, supportive, and inclusive environment
-        where every voice is heard. We're a team of thinkers, doers, and problem-solvers
+        where every voice is heard. We&apos;re a team of thinkers, doers, and problem-solvers
         who are passionate about learning and growing together.
       </p>
 
@@ -33,9 +33,9 @@ export default function CareersPage() {
         </span>
       </p>
 
-      <h3 className="text-xl font-semibold mt-6 mb-2">❓ Can't Find Your Role?</h3>
+      <h3 className="text-xl font-semibold mt-6 mb-2">❓ Can&apos;t Find Your Role?</h3>
       <p>
-        If you're interested in joining our team but don't see a role that fits your
+        If you&apos;re interested in joining our team but don&apos;t see a role that fits your
         expertise, we’d still love to hear from you.{" "}
         <a href="/contact" className="text-red-500 underline">
           Send us your resume

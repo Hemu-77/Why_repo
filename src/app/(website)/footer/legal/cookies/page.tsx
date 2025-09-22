@@ -38,14 +38,14 @@ export default function CookiesPage() {
       <h4 className="font-semibold mt-4">Essential Cookies</h4>
       <p className="text-gray-300">
         These cookies are strictly necessary for the website to function. Without them,
-        you wouldn't be able to log in or add items to your shopping cart.
+        you wouldn&apos;t be able to log in or add items to your shopping cart.
         They do not collect any personal information for marketing purposes.
       </p>
 
       <h4 className="font-semibold mt-4">Performance & Analytics Cookies</h4>
       <p className="text-gray-300">
         These cookies help us understand how visitors interact with our website. The
-        information is aggregated and anonymous, and is used to improve the website's
+        information is aggregated and anonymous, and is used to improve the website&apos;s
         performance and design.
       </p>
 

@@ -9,7 +9,7 @@ export default function PrivacyPolicyPage() {
 
       <p>
         Your privacy is important to us. This <span className="text-red-500 font-semibold">Privacy Policy</span> explains how [Your Company Name]
-        ("we," "us," or "our") collects, uses, and discloses information about you when you
+        (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) collects, uses, and discloses information about you when you
         use our website and services.
       </p>
 
@@ -58,7 +58,7 @@ export default function PrivacyPolicyPage() {
       <h3 className="text-xl font-semibold mt-6 mb-2">5. Changes to This Privacy Policy</h3>
       <p>
         We may update this Privacy Policy from time to time. We will notify you of any
-        changes by posting the new policy on this page and updating the "Effective Date"
+        changes by posting the new policy on this page and updating the &quot;Effective Date&quot;
         at the top.
       </p>
       

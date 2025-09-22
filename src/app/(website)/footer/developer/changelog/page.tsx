@@ -5,8 +5,8 @@ export default function ChangeLogPage() {
     <FooterPageLayout title="Change Log">
       <p>
         Welcome to our official <span className="text-red-500 font-semibold">Change Log</span>. This is where we document all the new
-        features, improvements, and bug fixes we've released to make our
-        platform even better. We're committed to transparency and continuous improvement.
+        features, improvements, and bug fixes we&apos;ve released to make our
+        platform even better. We&apos;re committed to transparency and continuous improvement.
       </p>
 
       <h3 className="text-xl font-semibold mt-6 mb-2">🚀 August 2025 - Version 1.2.0</h3>
@@ -48,7 +48,7 @@ export default function ChangeLogPage() {
 
       <h3 className="text-xl font-semibold mt-6 mb-2">➡️ Looking Ahead</h3>
       <p>
-        We're constantly working on new features and improvements. Stay tuned to our blog or join our community to see what's coming next.
+        We&apos;re constantly working on new features and improvements. Stay tuned to our blog or join our community to see what&apos;s coming next.
       </p>
     </FooterPageLayout>
   );

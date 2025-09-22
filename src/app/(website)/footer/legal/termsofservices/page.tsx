@@ -8,7 +8,7 @@ export default function TermsOfServicesPage() {
       </p>
 
       <p>
-        These <span className="text-red-500 font-semibold">Terms of Services</span> ("Terms") govern your access to and use of the website, products, and services ("Services") provided by [Your Company Name] ("we," "us," or "our"). By accessing or using our Services, you agree to be bound by these Terms.
+        These <span className="text-red-500 font-semibold">Terms of Services</span> (&quot;Terms&quot;) govern your access to and use of the website, products, and services (&quot;Services&quot;) provided by [Your Company Name] (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;). By accessing or using our Services, you agree to be bound by these Terms.
       </p>
 
       <h3 className="text-xl font-semibold mt-6 mb-2">1. Acceptance of Terms</h3>
@@ -19,7 +19,7 @@ export default function TermsOfServicesPage() {
       <h3 className="text-xl font-semibold mt-6 mb-2">2. Your Account</h3>
       <ul className="list-disc pl-6 space-y-2 text-gray-300">
         <li><span className="text-red-500 font-semibold">Eligibility:</span> You must be at least 18 years old to use our Services. By agreeing to these Terms, you represent and warrant that you are of legal age.</li>
-        <li><span className="text-red-500 font-semibold">Account Security:</span> You are responsible for safeguarding your account password and for any activities or actions under your account. We encourage you to use "strong" passwords and protect your login information.</li>
+        <li><span className="text-red-500 font-semibold">Account Security:</span> You are responsible for safeguarding your account password and for any activities or actions under your account. We encourage you to use &quot;strong&quot; passwords and protect your login information.</li>
       </ul>
 
       <h3 className="text-xl font-semibold mt-6 mb-2">3. Use of Service</h3>
@@ -39,7 +39,7 @@ export default function TermsOfServicesPage() {
 
       <h3 className="text-xl font-semibold mt-6 mb-2">5. Disclaimers & Limitation of Liability</h3>
       <p className="text-gray-300">
-        The Services are provided on an "as-is" and "as-available" basis without any warranties of any kind. To the fullest extent permitted by law, [Your Company Name] disclaims all warranties, express or implied.
+        The Services are provided on an &quot;as-is&quot; and &quot;as-available&quot; basis without any warranties of any kind. To the fullest extent permitted by law, [Your Company Name] disclaims all warranties, express or implied.
       </p>
 
       <h3 className="text-xl font-semibold mt-6 mb-2">6. Termination</h3>

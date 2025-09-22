@@ -6,7 +6,7 @@ export default function FAQPage() {
       <p>
         Got questions? We have answers. Check out our list of{" "}
         <span className="text-red-500 font-semibold">Frequently Asked Questions</span>{" "}
-        to get the information you need quickly. If you can't find your answer here,
+        to get the information you need quickly. If you can&apos;t find your answer here,
         feel free to{" "}
         <a href="/help" className="text-red-500 underline">
           contact our support team.
@@ -17,7 +17,7 @@ export default function FAQPage() {
       
       <h4 className="font-semibold mt-4">How do I update my payment information?</h4>
       <p className="text-gray-300">
-        You can update your billing details anytime from the "Billing" section
+        You can update your billing details anytime from the &quot;Billing&quot; section
         within your account settings.
       </p>
 
@@ -49,8 +49,8 @@ export default function FAQPage() {
 
       <h4 className="font-semibold mt-4">How do I get started with a new project?</h4>
       <p className="text-gray-300">
-        After logging in, simply click the "New Project" button on your dashboard.
-        You'll be guided through the setup process.
+        After logging in, simply click the &quot;New Project&quot; button on your dashboard.
+        You&apos;ll be guided through the setup process.
       </p>
 
       <h3 className="text-xl font-semibold mt-6 mb-2">🔒 Security & Privacy</h3>

@@ -12,7 +12,7 @@ export default function PressKitPage() {
       <h3 className="text-xl font-semibold mt-6 mb-2">📖 Our Story & Mission</h3>
       <p>
         Founded in [Year], Your Company Name is a leading provider of [Product/Service].
-        Our mission is to [Mission Statement]. We are dedicated to [Company's core mission].
+        Our mission is to [Mission Statement]. We are dedicated to [Company&apos;s core mission].
       </p>
 
       <h3 className="text-xl font-semibold mt-6 mb-2">📊 Key Facts at a Glance</h3>

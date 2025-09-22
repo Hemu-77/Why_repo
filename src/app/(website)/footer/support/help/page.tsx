@@ -4,7 +4,7 @@ export default function HelpPage() {
   return (
     <FooterPageLayout title="Help">
       <p>
-        If you have a question or an issue, you've come to the right place. Our goal
+        If you have a question or an issue, you&apos;ve come to the right place. Our goal
         is to get you the support you need as quickly as possible. You can find
         answers to common questions and get in touch with our team on this{" "}
         <span className="text-red-500 font-semibold">Help</span> page.
@@ -33,7 +33,7 @@ export default function HelpPage() {
 
       <h3 className="text-xl font-semibold mt-6 mb-2">📧 Still Need Help? Contact Us</h3>
       <p>
-        If you can't find the answer you're looking for, our support team is ready to
+        If you can&apos;t find the answer you&apos;re looking for, our support team is ready to
         assist you. For the fastest response, please use the email below to send
         us your inquiry.
       </p>
