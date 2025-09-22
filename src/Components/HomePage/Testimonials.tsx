@@ -40,7 +40,7 @@ export default function ReflectedTestimonials() {
   }, [testimonials.length]);
 
   return (
-    <section className="relative flex items-center justify-center bg-black text-white py-30 px-6 overflow-hidden transform scale-x-[-1]">
+    <section className="relative flex items-center justify-center bg-black text-white lg:py-30 px-6 overflow-hidden transform scale-x-[-1]">
       {/* Flip children back */}
       <div className="flex flex-col lg:flex-row items-center w-full max-w-7xl mx-auto transform scale-x-[-1]">
         
@@ -69,7 +69,7 @@ export default function ReflectedTestimonials() {
                   className={`min-w-full flex justify-center`}
                 >
                   <div
-                    className={`w-[420px] rounded-2xl p-6 shadow-xl transition-all duration-700 ${
+                    className={`w-[280px] sm:w-[320px] md:w-[380px] lg:w-[420px] rounded-2xl p-6 shadow-xl transition-all duration-700 ${
                       isActive
                         ? "bg-gradient-to-b from-gray-900 to-black scale-105 opacity-100 blur-0 z-10"
                         : "bg-gray-800 scale-95 opacity-50 blur-sm"

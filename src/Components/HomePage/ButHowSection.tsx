@@ -12,13 +12,13 @@ const HowSection = () => {
           <Image
             src={character}
             alt="Character"
-            className="w-[250px] sm:w-[350px] md:w-[450px] lg:w-[1040px] object-contain"
+            className="w-[250px] sm:w-[350px] md:w-[450px] lg:w-[1040px] object-contain -ml-15 mt-20"
             priority
           />
         </div>
 
         {/* Right Content */}
-        <div className="space-y-6 text-center lg:text-left">
+        <div className="space-y-6 text-center lg:text-left relative">
           {/* Title */}
           <h2 className="text-6xl sm:text-5xl md:text-6xl lg:text-[10rem] font-black tracking-wide lg:-ml-95 text-outline text-stroke">
             <span className="text-black/50 stroke-white">BUT</span>{" "}
@@ -60,12 +60,12 @@ const HowSection = () => {
           {/* Play Sample */}
           <div className="relative flex flex-col items-center justify-center w-full h-full">
             {/* Glow background */}
-            <div className="absolute inset-0 flex items-center justify-center lg:-mt-120 lg:ml-90">
+            <div className="absolute inset-0 flex items-center justify-center lg:-mt-110 lg:ml-90">
               <div className="w-[150px] sm:w-[200px] md:w-[220px] lg:w-[250px] h-[150px] sm:h-[200px] md:h-[220px] lg:h-[250px] rounded-full bg-[radial-gradient(circle,rgba(255,87,34,0.8)_0%,black_80%)]"></div>
             </div>
 
             {/* Play button */}
-            <div className="relative z-10 w-16 sm:w-20 md:w-24 lg:w-26 h-16 sm:h-20 md:h-24 lg:h-26 rounded-full bg-red-500 border-4 border-white flex items-center justify-center lg:-mt-110 lg:ml-90">
+            <div className="relative z-10 w-16 -pt-10 sm:w-20 md:w-24 lg:w-26 h-16 sm:h-20 md:h-24 lg:h-26 rounded-full bg-red-500 border-4 border-white flex items-center justify-center lg:-mt-110 lg:ml-90">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-8 sm:w-10 md:w-12 h-8 sm:h-10 md:h-12 text-white"
@@ -77,9 +77,9 @@ const HowSection = () => {
             </div>
 
             {/* Label */}
-            <p className="mt-6 text-base sm:text-lg md:text-xl lg:text-2xl font-medium z-10 lg:ml-90">
+            {/* <p className="mt-6 text-base sm:text-lg md:text-xl lg:text-2xl font-medium z-10 lg:ml-90">
               Play Sample
-            </p>
+            </p> */}
           </div>
         </div>
       </div>

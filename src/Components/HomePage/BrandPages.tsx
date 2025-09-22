@@ -7,17 +7,16 @@ import bg from "@/../public/second.png";
 export default function BrandsSection() {
   return (
     <section
-      className="relative min-h-screen flex flex-col items-center justify-center text-white overflow-hidden bg-cover bg-center px-4 sm:px-6 lg:px-12"
+      className="relative min-h-screen flex flex-col items-center justify-center text-white overflow-hidden bg-cover bg-center px-4 sm:px-6 lg:px-12 -mt-15"
       style={{ backgroundImage: `url(${bg.src})` }}
     >
-      {/* Dark overlay for readability */}
+      {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/50"></div>
 
       {/* Main Content */}
       <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between w-full max-w-7xl gap-10">
         {/* Left: Character + Heading */}
-        <div className="w-full lg:w-[70rem] flex flex-col items-center lg:items-start space-y-6 z-10 lg:-ml-14">
-          {/* Character Image */}
+        <div className="w-full lg:w-[70rem] flex flex-col items-center lg:items-start z-10 lg:-ml-14">
           <Image
             src={character}
             alt="Character"
@@ -27,44 +26,44 @@ export default function BrandsSection() {
             priority
           />
 
-          {/* Heading below image */}
-          <h2 className="text-3xl sm:text-5xl lg:text-[5rem] font-extrabold outlined-text text-center leading-tight lg:text-left -mt-10 lg:-mt-38 lg:ml-14 pl-2.5 -z-10 text-black/50 stroke-white">
-            <span>Brands That <br /> Trust Us !</span>
+          <h2 className="text-6xl sm:text-5xl lg:text-[5rem] font-extrabold text-center leading-tight lg:text-left -mt-10 lg:-mt-38 lg:ml-14 pl-2.5 text-black/50 stroke-white">
+            <span>
+              Brands That <br /> Trust Us !
+            </span>
           </h2>
         </div>
 
         {/* Right: Circles */}
-        <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start space-y-10 mt-10 lg:mt-0">
+        <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start space-y-10 -mt-12 lg:mt-0">
           <div className="flex flex-col items-center space-y-6 lg:-ml-18 mt-10 lg:mt-18 z-10">
             {/* Top Circle */}
-            <div className="w-48 h-48 sm:w-56 sm:h-56 lg:w-65 lg:h-65 p-6 rounded-full text-center flex flex-col justify-center items-center relative z-10 
+            <div className="w-48 h-48 sm:w-52 sm:h-52 lg:w-65 lg:h-65 p-6 rounded-full flex flex-col justify-center items-center mb-10 
               backdrop-blur-md bg-white/10 border-t-2 border-b-2 border-white/40">
               <p className="text-4xl sm:text-6xl lg:text-8xl font-extrabold">3+</p>
               <p className="text-sm sm:text-base lg:text-lg">Years of Experience</p>
             </div>
 
             {/* Bottom 3 Circles */}
-            <div className="flex flex-col lg:flex-row justify-center gap-6 lg:-space-x-6 -mt-6 lg:-mt-12 relative z-0">
-              <div className="w-44 h-44 sm:w-52 sm:h-52 lg:w-70 lg:h-70 p-6 rounded-full text-center flex flex-col justify-center items-center
-                backdrop-blur-md bg-white/10 border-t-2 border-b-2 border-white/40">
-                <p className="text-3xl sm:text-5xl lg:text-8xl font-bold">50+</p>
-                <p className="text-sm sm:text-base lg:text-lg">Successful Projects</p>
-              </div>
-              <div className="w-44 h-44 sm:w-52 sm:h-52 lg:w-70 lg:h-70 p-6 rounded-full text-center flex flex-col justify-center items-center
-                backdrop-blur-md bg-white/10 border-t-2 border-b-2 border-white/40">
-                <p className="text-3xl sm:text-5xl lg:text-8xl font-bold">40+</p>
-                <p className="text-sm sm:text-base lg:text-lg">Happy Clients</p>
-              </div>
-              <div className="w-44 h-44 sm:w-52 sm:h-52 lg:w-70 lg:h-70 p-6 rounded-full text-center flex flex-col justify-center items-center
-                backdrop-blur-md bg-white/10 border-t-2 border-b-2 border-white/40">
-                <p className="text-3xl sm:text-5xl lg:text-8xl font-semibold">40+</p>
-                <p className="text-sm sm:text-base lg:text-lg">5 Star Reviews</p>
-              </div>
+            <div className="flex flex-col lg:flex-row justify-center gap-6 lg:-space-x-6 -mt-6 lg:-mt-12">
+              {[
+                { number: "50+", label: "Successful Projects" },
+                { number: "40+", label: "Happy Clients" },
+                { number: "40+", label: "5 Star Reviews" },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="w-48 h-48 sm:w-52 sm:h-52 lg:w-70 lg:h-70 p-6 rounded-full flex flex-col justify-center items-center
+                  backdrop-blur-md bg-white/10 border-t-2 border-b-2 border-white/40"
+                >
+                  <p className="text-3xl sm:text-5xl lg:text-8xl font-bold">{item.number}</p>
+                  <p className="text-sm sm:text-base lg:text-lg">{item.label}</p>
+                </div>
+              ))}
             </div>
           </div>
 
           {/* Tagline */}
-          <p className="italic text-lg sm:text-2xl lg:text-[2.6rem] text-white text-center lg:text-left lg:-ml-13">
+          <p className="italic text-xl sm:text-2xl lg:text-[2.6rem] text-white text-center lg:text-left lg:-ml-13">
             Picture abhi baaki hai mere doooost!
           </p>
         </div>

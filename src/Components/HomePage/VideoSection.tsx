@@ -22,7 +22,7 @@ export default function VideoSection() {
 
       {/* Mobile: Single video */}
       <div className="block md:hidden w-full">
-        <div className="w-full border border-white rounded-2xl overflow-hidden relative">
+        <div className="w-full border border-white rounded-2xl overflow-hidden relative -mt-25">
           <Image
             src={img2}
             alt="Video"

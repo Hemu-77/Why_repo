@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function NewsletterFooter() {
     return (
       <footer className="bg-[#111] text-white mx-4 my-10 rounded-2xl md:mx-20">
@@ -35,7 +37,7 @@ export default function NewsletterFooter() {
               </form>
               <p className="text-xs text-gray-500 mt-2">
                 By subscribing you agree to our{" "}
-                <a href="#" className="underline text-white" >
+                <a href="/footer/legal/privacypolicy" className="underline text-white" >
                   Privacy Policy
                 </a>
               </p>
@@ -47,66 +49,73 @@ export default function NewsletterFooter() {
   
           {/* Footer Links */}
           <div className="grid grid-cols-2 md:grid-cols-8 gap-8 text-sm">
-            <div>
-              <h4 className="font-semibold mb-3">WHYMEDIA</h4>
-              <p className="text-gray-500">Make your complicated</p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-3">Kindernest</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li>Payment</li>
-                <li>Card</li>
-                <li>Pricing</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-3">Products</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li>Personal</li>
-                <li>Business</li>
-                <li>Invoices</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-3">Company</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li>About</li>
-                <li>Careers</li>
-                <li>Press Kit</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-3">Developer</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li>API Documentation</li>
-                <li>Guide</li>
-                <li>Change Log</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-3">Community</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li>Refer a Friend</li>
-                <li>Gift</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-3">Support</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li>Help</li>
-                <li>FAQ</li>
-                <li>Contact</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-3">Legal</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li>Privacy Policy</li>
-                <li>Terms of Services</li>
-                <li>Cookies</li>
-              </ul>
-            </div>
-          </div>
+      <div>
+        <h4 className="font-semibold mb-3">WHYMEDIA</h4>
+        <p className="text-gray-500">Make your complicated</p>
+      </div>
+
+      <div>
+        <h4 className="font-semibold mb-3">Kindernest</h4>
+        <ul className="space-y-2 text-gray-400">
+          <li><Link href="/footer/kindernest/payment">Payment</Link></li>
+          <li><Link href="/footer/kindernest/card">Card</Link></li>
+          <li><Link href="/footer/kindernest/pricing">Pricing</Link></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 className="font-semibold mb-3">Products</h4>
+        <ul className="space-y-2 text-gray-400">
+          <li><Link href="/footer/products/personal">Personal</Link></li>
+          <li><Link href="/footer/products/business">Business</Link></li>
+          <li><Link href="/footer/products/invoices">Invoices</Link></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 className="font-semibold mb-3">Company</h4>
+        <ul className="space-y-2 text-gray-400">
+          <li><Link href="/about">About</Link></li>
+          <li><Link href="/footer/company/careers">Careers</Link></li>
+          <li><Link href="/footer/company/presskit">Press Kit</Link></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 className="font-semibold mb-3">Developer</h4>
+        <ul className="space-y-2 text-gray-400">
+          <li><Link href="/footer/developer/document">API Documentation</Link></li>
+          <li><Link href="/footer/developer/guide">Guide</Link></li>
+          <li><Link href="/footer/developer/changelog">Change Log</Link></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 className="font-semibold mb-3">Community</h4>
+        <ul className="space-y-2 text-gray-400">
+          <li><Link href="/footer/community/referfriend">Refer a Friend</Link></li>
+          <li><Link href="/footer/community/gift">Gift</Link></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 className="font-semibold mb-3">Support</h4>
+        <ul className="space-y-2 text-gray-400">
+          <li><Link href="/footer/support/help">Help</Link></li>
+          <li><Link href="/footer/support/faq">FAQ</Link></li>
+          <li><Link href="/contact">Contact</Link></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 className="font-semibold mb-3">Legal</h4>
+        <ul className="space-y-2 text-gray-400">
+          <li><Link href="/footer/legal/privacypolicy">Privacy Policy</Link></li>
+          <li><Link href="/footer/legal/termsofservices">Terms of Services</Link></li>
+          <li><Link href="/footer/legal/cookies">Cookies</Link></li>
+        </ul>
+      </div>
+    </div>
         </div>
       </footer>
     );

@@ -60,9 +60,9 @@ export default function FAQSection() {
             >
               {faq.question}
               {openIndex === index ? (
-                <Minus className="text-red-500 w-5 h-5" />
+                <Minus className="text-red-500 w-4 h-4 lg:w-5 lg:h-5" />
               ) : (
-                <Plus className="text-red-500 w-5 h-5" />
+                <Plus className="text-red-500 w-4 h-4 lg:w-5 lg:h-5" />
               )}
             </button>
             {openIndex === index && (
