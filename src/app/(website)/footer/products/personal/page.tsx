@@ -9,14 +9,14 @@ export default function PersonalPage() {
         yet simple, set of tools to bring their ideas to life.
       </p>
 
-      <h3 className="text-xl font-semibold mt-6 mb-2">🚀 Why It's Perfect for You</h3>
+      <h3 className="text-xl font-semibold mt-6 mb-2">🚀 Why It&apos;s Perfect for You</h3>
       <p>
         We believe everyone should have access to the best tools. This plan is
         designed for those just getting started, providing everything you need
         without the complexity of a team or enterprise-level solution.
       </p>
 
-      <h3 className="text-xl font-semibold mt-6 mb-2">✨ What's Included</h3>
+      <h3 className="text-xl font-semibold mt-6 mb-2">✨ What&apos;s Included</h3>
       <ul className="list-disc pl-6 space-y-2 text-gray-300">
         <li><span className="text-red-500">Core Tools:</span> Access to all essential features to get you started.</li>
         <li><span className="text-red-500">Community Access:</span> Connect with other users and share ideas.</li>
@@ -27,7 +27,7 @@ export default function PersonalPage() {
       <p>
         The Personal plan is a stepping stone. As your projects grow and your
         needs evolve, you can easily upgrade to our Growth or Pro plans
-        with no hassle. We're here to support your journey, every step of the way.
+        with no hassle. We&apos;re here to support your journey, every step of the way.
       </p>
 
       <h3 className="text-xl font-semibold mt-6 mb-2">✅ Ready to Start?</h3>

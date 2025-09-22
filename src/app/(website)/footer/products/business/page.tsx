@@ -17,7 +17,7 @@ export default function BusinessPage() {
         align your entire team and make data-driven decisions to drive growth.
       </p>
 
-      <h3 className="text-xl font-semibold mt-6 mb-2">💼 What's Included for Businesses</h3>
+      <h3 className="text-xl font-semibold mt-6 mb-2">💼 What&apos;s Included for Businesses</h3>
       <ul className="list-disc pl-6 space-y-2 text-gray-300">
         <li><span className="text-red-500">Team Accounts:</span> Easily grant access to multiple team members.</li>
         <li><span className="text-red-500">Advanced Analytics:</span> Unlock deeper insights into your data and user behavior.</li>
@@ -29,7 +29,7 @@ export default function BusinessPage() {
       <p>
         The Business plan provides the flexibility you need to grow without
         friction. Add or remove users, access more resources, and seamlessly upgrade
-        to our Pro plan as your company's needs expand.
+        to our Pro plan as your company&apos;s needs expand.
       </p>
 
       <h3 className="text-xl font-semibold mt-6 mb-2">✅ Ready to Transform Your Workflow?</h3>
