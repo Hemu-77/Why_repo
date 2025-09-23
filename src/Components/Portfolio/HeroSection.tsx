@@ -71,7 +71,7 @@ export default function PortfolioSection() {
           <h3 className="text-white font-black text-2xl md:text-5xl pr-0 md:pr-10 pt-0 md:pt-35">
             EXPLORE ALL OUR PORTFOLIO
           </h3>
-          <div className="relative w-[280px] h-[350px] md:w-[420px] md:h-[520px] -mt-40 -mr-50">
+          <div className="relative w-[280px] h-[350px] md:w-[420px] md:h-[520px] -mt-40 -mr-50 lg:mt-0 lg:mr-0">
             <Image
               src={character}
               alt="Character"
