@@ -6,7 +6,7 @@ import img2 from "../../../public/youtube.png"
 
 export default function VideoSection() {
   return (
-    <section className="px-4 md:px-12 lg:px-20 py-12 bg-black flex flex-col items-center">
+    <section className="px-4 md:px-12 lg:px-20 lg:py-12 bg-black flex flex-col items-center mb-20">
       
       {/* Character image */}
       <div className="relative flex justify-center items-center w-full mb-8">
@@ -21,7 +21,7 @@ export default function VideoSection() {
       </div>
 
       {/* Mobile: Single video */}
-      <div className="block md:hidden w-full">
+      <div className="block md:hidden w-full -mt-20">
         <div className="w-full border border-white rounded-2xl overflow-hidden relative">
           <Image
             src={img2}

@@ -7,7 +7,7 @@ import img3 from "@/../public/img7.png"
 
 const PodcastLayout = () => {
   return (
-    <div className="grid grid-cols-2 gap-4 p-4 bg-black px-10 py-5">
+    <div className="grid grid-cols-2 gap-4 p-4 bg-black px-10 lg:py-5 mb-7">
       {/* Top Left */}
       <div className="rounded-3xl overflow-hidden lg:rounded-tr-[10rem] lg:rounded-tl-3xl lg:rounded-bl-[5rem]">
         <Image

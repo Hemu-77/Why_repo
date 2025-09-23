@@ -49,7 +49,7 @@ export default function PortfolioSection() {
           </p>
 
           {/* Circles with text */}
-          <div className="relative flex items-center justify-center -ml-20 mt-4 md:ml-20 md:-mt-20 lg:ml-120">
+          <div className="relative lg:flex hidden items-center justify-center -ml-20 mt-4 md:ml-20 md:-mt-20 lg:ml-120">
             {/* Red solid circle */}
             <div className="w-20 h-20 md:w-50 md:h-50 rounded-full bg-red-500 -ml-12 -mt-6 md:-ml-30 md:-mt-12"></div>
 
@@ -71,7 +71,7 @@ export default function PortfolioSection() {
           <h3 className="text-white font-black text-2xl md:text-5xl pr-0 md:pr-10 pt-0 md:pt-35">
             EXPLORE ALL OUR PORTFOLIO
           </h3>
-          <div className="relative w-[280px] h-[350px] md:w-[420px] md:h-[520px]">
+          <div className="relative w-[280px] h-[350px] md:w-[420px] md:h-[520px] -mt-40 -mr-50">
             <Image
               src={character}
               alt="Character"
@@ -84,17 +84,18 @@ export default function PortfolioSection() {
       </div>
 
       {/* Top Navigation Pills (visible on medium and larger screens) */}
-      <div className="absolute top-10 left-1/2 transform -translate-x-1/2 gap-4 mt-15 z-20 flex hidden md:flex">
-        <span className="px-6 py-2 rounded-full bg-red-500 text-white font-medium ">
-          Portfolio
-        </span>
-        <span className="px-6 py-2 rounded-full bg-black/40 backdrop-blur-lg text-white">
-          Case Studies
-        </span>
-        <span className="px-6 py-2 rounded-full bg-black/40 backdrop-blur-lg text-white">
-          Gallery
-        </span>
-      </div>
+      <div className="absolute top-10 left-1/2 -translate-x-1/2 gap-4 mt-30 lg:mt-15 z-20 lg:flex hidden md:block">
+  <span className="px-6 py-2 rounded-full bg-red-500 text-white font-medium">
+    Portfolio
+  </span>
+  <span className="px-6 py-2 rounded-full bg-black/40 backdrop-blur-lg text-white">
+    Case Studies
+  </span>
+  <span className="px-6 py-2 rounded-full bg-black/40 backdrop-blur-lg text-white">
+    Gallery
+  </span>
+</div>
+
       </section>
   );
 }

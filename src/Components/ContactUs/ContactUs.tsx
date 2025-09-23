@@ -7,7 +7,7 @@ import img1 from "../../../public/header.png"
 export default function ContactSection() {
   return (
     <section
-      className="relative bg-cover bg-center bg-no-repeat text-white py-24 px-6 md:px-20"
+      className="relative bg-cover bg-center bg-no-repeat text-white lg:py-24 px-6 md:px-20"
       style={{ backgroundImage: `url(${img1.src})` }}
     >
       {/* Overlay */}
