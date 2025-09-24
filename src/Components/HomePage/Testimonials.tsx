@@ -90,8 +90,8 @@ export default function ReflectedTestimonials() {
               "absolute p-[2px] rounded-2xl bg-gradient-to-b from-[#000000] to-[#F52727] transition-all duration-700 ease-in-out w-[280px] sm:w-[320px] md:w-[360px] lg:w-[400px]";
 
             // // Inner card: fully transparent + backdrop blur
-            // let innerClasses =
-            //   "rounded-2xl p-6 shadow-xl bg-black transition-all duration-700";
+            let innerClasses =
+              "rounded-2xl p-6 shadow-xl bg-black transition-all duration-700";
 
             if (position === 0) {
               wrapperClasses += " z-20 scale-105 opacity-100";
