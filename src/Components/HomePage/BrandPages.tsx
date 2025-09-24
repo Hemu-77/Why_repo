@@ -7,7 +7,7 @@ import bg from "@/../public/second.png";
 export default function BrandsSection() {
   return (
     <section
-      className="relative min-h-screen flex flex-col items-center justify-center text-white overflow-hidden bg-cover bg-center px-4 sm:px-6 lg:px-12 -mt-15"
+      className="relative min-h-screen flex flex-col items-center justify-center text-white overflow-hidden bg-cover bg-center px-4 sm:px-6 lg:px-12 -mt-15 lg:-ml-20"
       style={{ backgroundImage: `url(${bg.src})` }}
     >
       {/* Dark overlay */}
@@ -16,7 +16,7 @@ export default function BrandsSection() {
       {/* Main Content */}
       <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between w-full max-w-7xl gap-10">
         {/* Left: Character + Heading */}
-        <div className="w-full lg:w-[70rem] flex flex-col items-center lg:items-start z-10 lg:-ml-14">
+        <div className="w-full lg:w-[70rem] flex flex-col items-center lg:items-start z-20 lg:-ml-14">
           <Image
             src={character}
             alt="Character"
@@ -26,7 +26,7 @@ export default function BrandsSection() {
             priority
           />
 
-          <h2 className="text-6xl sm:text-5xl lg:text-[5rem] font-extrabold text-center leading-tight lg:text-left -mt-10 lg:-mt-38 lg:ml-14 pl-2.5 text-black/50 stroke-white">
+          <h2 className="text-6xl sm:text-5xl lg:text-[5rem] font-semibold text-center stroke-blur leading-tight lg:text-left lg:-mt-30 lg:ml-8 pl-2.5 text-black/50 stroke-white -z-10">
             <span>
               Brands That <br /> Trust Us !
             </span>
@@ -63,9 +63,10 @@ export default function BrandsSection() {
           </div>
 
           {/* Tagline */}
-          <p className="italic text-xl sm:text-2xl lg:text-[2.6rem] text-white text-center lg:text-left lg:-ml-13">
-            Picture abhi baaki hai mere doooost!
-          </p>
+          <p className="italic text-xl sm:text-2xl lg:text-[40px] font-[800] font-urbanist tracking-normal 
+  bg-gradient-to-r from-white to-[#FF9494] bg-clip-text text-transparent lg:-mr-70">
+  Picture abhi baaki hai mere doooost!
+</p>
         </div>
       </div>
     </section>

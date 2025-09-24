@@ -46,7 +46,10 @@ export default function FAQSection() {
           Got Questions?
           <br />
           We’ve Got{" "}
-          <span className="bg-red-600 px-2 text-white shadow-md">Answers!</span>
+          <span></span>
+          <span className="bg-gradient-to-r from-red-600 to-transparent px-2 text-white shadow-md">
+  Answers!
+</span>
         </h2>
       </div>
 

@@ -6,7 +6,7 @@ import img2 from "../../../public/youtube.png"
 
 export default function VideoSection() {
   return (
-    <section className="px-4 md:px-12 lg:px-20 py-12 bg-black flex flex-col items-center">
+    <section className="px-4 md:px-12 lg:px-20 py-12 bg-black flex flex-col items-center mb-10">
       
       {/* Character image */}
       <div className="relative flex justify-center items-center w-full mb-8">
@@ -60,17 +60,17 @@ export default function VideoSection() {
             priority
           />
         </div>
-        <div className="max-w-[76rem] flex flex-col blur-xs -px-2 items-center justify-center relative ml-10 -mt-155 border-1 border-white rounded-3xl z-10">
+        <div className="max-w-[76rem] flex flex-col blur-xs -px-2  px-5 backdrop-blur-2xl glow-box items-center justify-center relative ml-10 -mt-155 border-1 border-white rounded-3xl z-10 py-5">
           <Image
             src={img2}
             alt="Videos"
             width={1200}
             height={400}
-            className="object-contain"
+            className="object-contain rounded"
             priority
           />
         </div>
-        <div className="max-w-[70rem] flex flex-col blur-xs -px-2 items-center justify-center relative ml-18 -mt-140 border-1 border-white rounded-3xl">
+        <div className="max-w-[70rem] flex flex-col glow-box  blur-xs -px-2 px-5 items-center justify-center relative ml-18 -mt-140 border-1 border-white rounded-3xl py-5">
           <Image
             src={img2}
             alt="Videos"

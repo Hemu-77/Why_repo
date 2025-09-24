@@ -12,7 +12,7 @@ const HeroSection: FC = () => {
       style={{ backgroundImage: `url(${bg.src})` }}
     >
       <div
-        className="relative container px-4 sm:px-6 lg:px-16 grid grid-cols-1 lg:grid-cols-6 items-center w-full pt-20 lg:pt-0
+        className="relative container px-4 sm:px-6 lg:px-16 lg:pt-16 grid grid-cols-1 lg:grid-cols-6 items-center w-full pt-20 
         [background:linear-gradient(to_bottom,black_1%,transparent_20%),linear-gradient(to_right,black_3%,transparent_20%),linear-gradient(to_left,black_3%,transparent_40%),radial-gradient(circle_at_top_left,black_5%,transparent_30%),radial-gradient(circle_at_top_right,black_5%,transparent_20%)]"
       >
         {/* Right Character (Top on mobile, Right on desktop) */}

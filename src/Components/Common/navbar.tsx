@@ -4,12 +4,12 @@ import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { PT_Mono } from "next/font/google";
+import { Outfit } from "next/font/google";
 import { Menu, X } from "lucide-react";
 import logo from "../../../public/whymedialogo.avif";
 
-const ptMono = PT_Mono({
-  weight: ["400"],
+const ptMono = Outfit({
+  weight: ["500"],
   subsets: ["latin"],
   display: "swap",
 });
@@ -82,7 +82,7 @@ const Navbar = ({ isDark = true }: { isDark?: boolean }) => {
     <div
       className={`absolute top-0 left-0 right-0 w-full z-50 my-4 bg-transparent ${ptMono.className}`}
     >
-      <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-4 py-6 flex justify-between items-center ">
         {/* LEFT SIDE: Hamburger + Logo */}
         <div className="flex items-center gap-4">
           {/* Mobile Menu Button */}
@@ -105,7 +105,7 @@ const Navbar = ({ isDark = true }: { isDark?: boolean }) => {
             src={logo}
             alt="whymedia logo"
             width={120}
-            className="w-24 md:w-[120px]"
+            className="w-24 md:w-[120px] lg:-ml-5"
           />
         </div>
 

@@ -44,3 +44,34 @@ body {
     text-shadow: 0 0 6px rgba(0,0,0,0.5);
   }
 }
+
+.gradient-stroke {
+  color: black; /* make text invisible */
+  -webkit-text-stroke: 2px transparent; /* transparent stroke */
+  background: linear-gradient(to right, #ffffff, #f52727);
+  -webkit-background-clip: text; /* apply gradient to stroke */
+  background-clip: text;
+  paint-order: stroke fill;
+}
+
+.gradient-strokes {
+  color: transparent; /* make text invisible */
+  -webkit-text-stroke: 2px transparent; /* transparent stroke */
+  background: linear-gradient(to right, #ffffff, #f52727);
+  -webkit-background-clip: text; /* apply gradient to stroke */
+  background-clip: text;
+  paint-order: stroke fill;
+}
+
+
+.stroke-blur {
+  color: rgba(255, 255, 255, 0.2); /* faint fill so blur shows */
+  -webkit-text-stroke: 2px #ffffff; /* solid stroke */
+  
+}
+
+.glow-box {
+  background: black;
+  border-radius: 1rem;
+  box-shadow: 0 0 50px rgba(245, 39, 39, 1); /* glow */
+}

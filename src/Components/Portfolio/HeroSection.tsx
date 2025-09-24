@@ -24,7 +24,7 @@ export default function PortfolioSection() {
       <div className="relative flex flex-col md:flex-row items-center justify-between w-full max-w-7xl px-4 md:px-8 py-8 md:py-16 mt-2 z-20">
 
         {/* Top Navigation Pills (moved here for mobile) */}
-        <div className="absolute top-4 left-1/2 transform -translate-x-1/2 flex gap-2 md:gap-4 z-20 md:hidden">
+        {/* <div className="absolute top-4 left-1/2 transform -translate-x-1/2 flex gap-2 md:gap-4 z-20 md:hidden">
           <span className="px-4 py-1 md:px-6 md:py-2 rounded-full bg-red-500 text-white font-medium text-sm">
             Portfolio
           </span>
@@ -34,7 +34,7 @@ export default function PortfolioSection() {
           <span className="px-4 py-1 md:px-6 md:py-2 rounded-full bg-black/40 backdrop-blur-lg text-white text-sm">
             Gallery
           </span>
-        </div>
+        </div> */}
 
         {/* Left Content */}
         <div className="flex flex-col space-y-4 md:space-y-6 pt-12 md:pt-0">
@@ -68,7 +68,7 @@ export default function PortfolioSection() {
 
         {/* Right side Character */}
         <div className="flex flex-col items-center space-y-4 md:space-y-6 -z-10 mt-8 md:mt-0">
-          <h3 className="text-white font-black text-2xl md:text-5xl pr-0 md:pr-10 pt-0 md:pt-35">
+          <h3 className="relative text-white font-black text-2xl md:text-5xl pr-0 md:pr-10 pt-0 md:pt-35 lg:text-[48px] lg:-ml-80px">
             EXPLORE ALL OUR PORTFOLIO
           </h3>
           <div className="relative w-[280px] h-[350px] md:w-[420px] md:h-[520px] -mt-40 -mr-50 lg:mt-0 lg:mr-0">

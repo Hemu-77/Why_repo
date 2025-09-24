@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import character from "../../../public/cirkitgautam 1.png"; // replace with your actual image
+import character from "../../../public/cirkitgautam 1.png";
+
 
 const HowSection = () => {
   return (
@@ -12,22 +13,21 @@ const HowSection = () => {
           <Image
             src={character}
             alt="Character"
-            className="w-[250px] sm:w-[350px] md:w-[450px] lg:w-[1040px] object-contain -ml-15 mt-20"
+            className="w-[250px] sm:w-[350px] md:w-[450px] lg:w-[1040px] object-contain -ml-15 "
             priority
           />
         </div>
 
         {/* Right Content */}
-        <div className="space-y-6 text-center lg:text-left relative">
+        <div className="space-y-6 text-center lg:text-left relative ">
           {/* Title */}
-          <h2 className="text-6xl sm:text-5xl md:text-6xl lg:text-[10rem] font-black tracking-wide lg:-ml-95 text-outline text-stroke">
-            <span className="text-black/50 stroke-white">BUT</span>{" "}
-            <span className="outline-text text-black/50 stroke-red">HOW ?</span>
-          </h2>
+          <h2 className="text-6xl sm:text-5xl md:text-6xl lg:text-[10rem] font-black tracking-wide lg:-ml-95">
+  <span className="gradient-stroke">BUT HOW ?</span>
+</h2>
 
           {/* Subtitle */}
           <p className="text-base sm:text-lg md:text-xl lg:text-[1.75rem] font-semibold text-red-500 uppercase lg:-ml-90">
-            BHAI NE BOLA KARNE KA, TO KARNE KA !!
+            <span className="gradient-strokes">BHAI NE BOLA KARNE KA, TO KARNE KA !!</span>
           </p>
 
           {/* Buttons */}

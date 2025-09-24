@@ -24,8 +24,8 @@ const AboutCompany = () => {
   return (
     <section className="bg-black text-white py-16 px-6">
       <div className="max-w-[84rem] mx-auto text-center">
-        <h2 className="text-4xl md:text-6xl font-black mb-12 relative inline-block">
-          <span className="bg-gradient-to-r from-white via-gray-300 to-gray-500 bg-clip-text text-transparent">
+        <h2 className="text-4xl md:text-6xl lg:text-[64px] font-[600] mb-12 relative inline-block font-Konnect text-black/50 stroke-white">
+          <span className="stroke-blur">
             About Our Company
           </span>
         </h2>
@@ -34,12 +34,16 @@ const AboutCompany = () => {
           {items.map((item) => (
             <div
               key={item.id}
-              className="rounded-xl border border-gray-700 bg-gradient-to-b from-black via-gray-900 to-red-900 p-6 text-left shadow-lg hover:shadow-red-600/30 transition"
+              className="relative rounded-xl p-[2px] shadow-lg 
+               bg-gradient-to-b from-[#80FBFF] to-black"
             >
+              <div className="rounded-xl bg-gradient-to-br from-black via-black to-[#5b0808] 
+//                  p-6 text-left hover:shadow-red-600/30 transition duration-300 lg:h-[200px]">
               <h3 className="text-3xl font-bold mb-3 ">
                 {item.id}. {item.title}
               </h3>
               <p className="text-sm text-gray-300 leading-relaxed font-semibold">{item.desc}</p>
+                </div>
             </div>
           ))}
         </div>
@@ -49,3 +53,27 @@ const AboutCompany = () => {
 };
 
 export default AboutCompany;
+
+{/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+{items.map((item) => (
+  // This outer div creates the gradient border effect.
+  <div
+    key={item.id}
+    className="relative rounded-xl p-[2px] shadow-lg
+               bg-gradient-to-b from-[#80FBFF] to-black"
+  >
+    {/* This inner div contains the content and the inner gradient. */}
+//     <div
+//       className="rounded-xl bg-gradient-to-br from-black via-black to-[#5b0808] 
+//                  p-6 text-left hover:shadow-red-600/30 transition duration-300"
+//     >
+//       <h3 className="text-3xl font-bold mb-3 text-white">
+//         {item.id}. {item.title}
+//       </h3>
+//       <p className="text-sm text-gray-300 leading-relaxed font-semibold">
+//         {item.desc}
+//       </p>
+//     </div>
+//   </div>
+// ))}
+// </div> */}
