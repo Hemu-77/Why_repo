@@ -5,7 +5,7 @@ import character from "../../../public/cirkitgautam 1.png";
 
 const HowSection = () => {
   return (
-    <section className="relative bg-black text-white px-4 sm:px-6 lg:px-16 overflow-hidden">
+    <section className="relative bg-black text-white px-4 sm:px-6 lg:px-16 overflow-hidden mx-auto max-w-7xl lg:max-w-full w-full">
       <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-10">
         
         {/* Left Character */}

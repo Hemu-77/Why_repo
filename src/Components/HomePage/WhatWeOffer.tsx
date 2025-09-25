@@ -89,9 +89,9 @@ export default function ReflectedServices() {
       </div>
       
       {/* 🔹 Desktop View (hidden on smaller screens) */}
-      <div className="hidden lg:flex flex-col lg:flex-row items-center w-full gap-8">
+      <div className="hidden lg:flex flex-col lg:flex-row items-center w-full gap-8 mx-auto max-w-7xl">
         {/* Left Heading (Desktop) */}
-        <div className="flex-1 text-left px-6">
+        <div className="flex-1 text-left px-6 -ml-25">
           <h2 className="text-9xl font-bold leading-tight">
             <span className="stroke-blur">What <br /> we <br /> Offer</span>
           </h2>

@@ -4,16 +4,18 @@ import Image from "next/image";
 import { FC } from "react";
 import character from "../../../public/gautamleaningwall 1.png";
 import bg from "../../../public/header.png";
+import microphone from "@/../public/microphone.png"
 
 const HeroSection: FC = () => {
   return (
     <section
-      className="relative min-h-screen flex text-white overflow-hidden bg-cover bg-center"
+      className="relative min-h-screen flex text-white overflow-hidden bg-cover bg-center  mx-auto"
       style={{ backgroundImage: `url(${bg.src})` }}
     >
+      <div className="w-full max-w-7xl mx-auto my-auto">
       <div
-        className="relative container px-4 sm:px-6 lg:px-16 lg:pt-16 grid grid-cols-1 lg:grid-cols-6 items-center w-full pt-20 
-        [background:linear-gradient(to_bottom,black_1%,transparent_20%),linear-gradient(to_right,black_3%,transparent_20%),linear-gradient(to_left,black_3%,transparent_40%),radial-gradient(circle_at_top_left,black_5%,transparent_30%),radial-gradient(circle_at_top_right,black_5%,transparent_20%)]"
+        className="relative  container px-4 lg:px-16 lg:pt-16 grid grid-cols-1 lg:grid-cols-6 items-center pt-20 -ml-20
+        "
       >
         {/* Right Character (Top on mobile, Right on desktop) */}
         <div className="relative mx-auto lg:mx-0 mt-8 lg:mt-0 w-[220px] sm:w-[280px] md:w-[320px] lg:w-[450px] lg:col-span-1 pl-0 lg:pl-4 order-1 lg:order-2">
@@ -30,7 +32,12 @@ const HeroSection: FC = () => {
           <p className="text-xl sm:text-2xl md:text-3xl lg:text-[2.7rem] font-extrabold">
             We’re Not A{" "}
             <span className="text-yellow px-2 py-1 rounded-md inline-flex items-center">
-              Studio 🎤
+              Studio 
+              <Image
+              src={microphone}
+              alt="microphone"
+              className="w-13 h-13 object-contain ml-3"
+              />
             </span>
           </p>
 
@@ -50,6 +57,7 @@ const HeroSection: FC = () => {
             DOWNLOAD PORTFOLIO
           </button>
         </div>
+      </div>
       </div>
     </section>
   );

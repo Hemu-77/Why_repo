@@ -21,15 +21,15 @@ export default function HeroSection() {
 
       {/* Main content */}
       <div
-        className="relative z-10 flex items-center w-full max-w-9xl pt-20 sm:pt-28 md:pt-32 lg:pt-40
-        [background:linear-gradient(to_bottom,black_1%,transparent_20%),linear-gradient(to_right,black_1%,transparent_20%),linear-gradient(to_left,black_1%,transparent_20%),radial-gradient(circle_at_top_left,black_5%,transparent_30%),radial-gradient(circle_at_top_right,black_5%,transparent_20%)]"
+        className="relative z-10 flex items-center w-full max-w-7xl mx-auto pt-20 sm:pt-28 md:pt-32 lg:pt-60
+"
       >
         {/* Studio text */}
         <h1
-          className="relative font-black whitespace-nowrap -z-10 text-black/50 stroke-white
-          text-9xl sm:text-7xl md:text-9xl lg:text-[25rem]
-          ml-2 sm:ml-6 md:ml-12 lg:ml-35
-          mt-2 sm:mt-6 md:mt-10 lg:mt-16"
+          className="stroke-blur relative font-semibold whitespace-nowrap -z-10 font-konnect
+          text-9xl sm:text-7xl md:text-9xl lg:text-[440px]
+          ml-2 sm:ml-6 md:ml-12 lg:mr-20 lg:-ml-10
+          mt-2 sm:mt-6 md:mt-10 lg:-mt-10"
         >
           Studio
         </h1>
@@ -39,7 +39,7 @@ export default function HeroSection() {
           className="relative z-20 
           w-120 h-84 sm:w-80 sm:h-80 md:w-72 md:h-[420px]
           lg:w-full lg:h-[970px] mt-15
-          -ml-95 sm:-ml-10 md:-ml-20 lg:-ml-255 lg:-mt-10"
+          -ml-95 sm:-ml-10 md:-ml-20 lg:-ml-280 lg:-mt-10"
         >
           <Image
             src={character}

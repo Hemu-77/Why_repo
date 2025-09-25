@@ -17,15 +17,13 @@ export default function HeroSection() {
       />
 
       {/* ---------- Desktop Version ---------- */}
-      <div
-        className="hidden lg:flex relative z-10 flex-nowrap w-full max-w-9xl overflow-hidden
-        [background:linear-gradient(to_bottom,black_1%,transparent_20%),linear-gradient(to_right,black_1%,transparent_20%),linear-gradient(to_left,black_1%,transparent_20%),radial-gradient(circle_at_top_left,black_5%,transparent_30%),radial-gradient(circle_at_top_right,black_5%,transparent_20%)]"
-      >
-        <h1 className="text-[4.8rem] font-extrabold text-white whitespace-nowrap ml-15 mt-86">
+     <div className="w-full max-w-7xl mx-auto">
+     <div className="hidden lg:flex relative z-10 flex-nowrap -ml-10 overflow-hidden mt-30">
+        <h1 className="text-[4.8rem] font-extrabold text-white whitespace-nowrap mt-86">
           Where The
         </h1>
 
-        <div className="relative w-full h-[970px] overflow-hidden -mt-30 -ml-10">
+        <div className="relative w-full h-[970px] overflow-hidden -mt-30 -ml-20">
           <Image
             src={character}
             alt="Character"
@@ -35,10 +33,17 @@ export default function HeroSection() {
           />
         </div>
 
-        <h1 className="text-[4.8rem] font-extrabold text-white w-full -ml-36 mt-86">
-          Brand Go <span className="text-red-500">Viral</span>
+        <h1 className="relative text-[4.8rem] font-extrabold text-white -ml-55 mt-86">
+          <span>Brand</span> 
+        </h1>
+        <h1 className="relative text-[4.8rem] font-extrabold text-white mt-86 mr-4 ml-4">
+          <span>Go</span> 
+        </h1>
+        <h1 className="text-[4.8rem] font-extrabold text-white mt-86 -pr-20 ">
+        <span className=" text-red-500 ">Viral</span>
         </h1>
       </div>
+     </div>
 
       {/* ---------- Mobile Version ---------- */}
       <div className="block lg:hidden relative z-10 flex flex-col items-center text-center px-4">

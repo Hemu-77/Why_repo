@@ -25,7 +25,7 @@ const AboutCompany = () => {
     <section className="bg-black text-white py-16 px-6">
       <div className="max-w-[84rem] mx-auto text-center">
         <h2 className="text-4xl md:text-6xl lg:text-[64px] font-[600] mb-12 relative inline-block font-Konnect text-black/50 stroke-white">
-          <span className="stroke-blur">
+          <span className="stroke-blur font-konnect">
             About Our Company
           </span>
         </h2>
