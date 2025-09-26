@@ -60,7 +60,7 @@ export default function VideoSection() {
             priority
           />
         </div>
-        <div className="max-w-[76rem] flex flex-col blur-xs -px-2 items-center justify-center relative ml-10 -mt-155 border-1 border-white rounded-3xl z-10">
+        <div className="max-w-[76rem] flex flex-col glow-box blur-xs px-4 py-4 items-center justify-center relative ml-10 -mt-155 border-1 border-white rounded-3xl z-10">
           <Image
             src={img2}
             alt="Videos"
@@ -70,7 +70,7 @@ export default function VideoSection() {
             priority
           />
         </div>
-        <div className="max-w-[70rem] flex flex-col blur-xs -px-2 items-center justify-center relative ml-18 -mt-140 border-1 border-white rounded-3xl">
+        <div className="max-w-[70rem] flex flex-col glow-box blur-xs px-4 py-4 items-center justify-center relative ml-18 -mt-140 border-1 border-white rounded-3xl">
           <Image
             src={img2}
             alt="Videos"

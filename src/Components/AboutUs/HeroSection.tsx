@@ -4,6 +4,7 @@ import Image from "next/image";
 import character from "@/../public/Sitting.png";
 import bg from "@/../public/header.png";
 
+
 export default function HeroSection() {
   return (
     <section className="relative h-[800px] flex flex-col items-center justify-center overflow-hidden">

@@ -5,23 +5,23 @@ import character from "../../../public/cirkitgautam 1.png";
 
 const HowSection = () => {
   return (
-    <section className="relative bg-black text-white px-4 sm:px-6 lg:px-16 overflow-hidden mx-auto max-w-7xl lg:max-w-full w-full">
-      <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-10">
+    <section className="relative bg-black text-white px-4 sm:px-6 lg:px-16 ">
+      <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-10 mx-auto  w-full max-w-7xl">
         
         {/* Left Character */}
         <div className="flex justify-center lg:justify-start">
           <Image
             src={character}
             alt="Character"
-            className="w-[250px] sm:w-[350px] md:w-[450px] lg:w-[1040px] object-contain -ml-15 "
+            className="w-[250px] sm:w-[350px] md:w-[450px] lg:w-[1400px] object-contain -ml-15 "
             priority
           />
         </div>
 
         {/* Right Content */}
-        <div className="space-y-6 text-center lg:text-left relative ">
+        <div className="space-y-6 text-center lg:text-left relative">
           {/* Title */}
-          <h2 className="text-6xl sm:text-5xl md:text-6xl lg:text-[10rem] font-black tracking-wide lg:-ml-95">
+          <h2 className="font-konnect text-6xl sm:text-5xl md:text-6xl lg:text-[10rem] font-black tracking-wide lg:-ml-95 lg:-mr-20">
   <span className="gradient-stroke">BUT HOW ?</span>
 </h2>
 

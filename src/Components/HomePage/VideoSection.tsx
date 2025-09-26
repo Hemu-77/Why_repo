@@ -9,7 +9,7 @@ export default function VideoSection() {
     <section className="px-4 md:px-12 lg:px-20 py-12 bg-black flex flex-col items-center mb-10">
       
       {/* Character image */}
-      <div className="relative flex justify-center items-center w-full mb-8">
+      <div className="relative flex justify-center items-center w-full mb-8 backdro pt-10">
         <Image
           src={img1}
           alt="Character"

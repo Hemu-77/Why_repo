@@ -82,51 +82,50 @@ export default function ReflectedTestimonials() {
 
         {/* Right Carousel */}
         <div className="relative flex-2 flex justify-center items-center h-[380px]">
-          {testimonials.map((t, i) => {
-            const position = (i - index + testimonials.length) % testimonials.length;
+  {testimonials.map((t, i) => {
+    const position = (i - index + testimonials.length) % testimonials.length;
 
-            // Gradient border wrapper
-            let wrapperClasses =
-              "absolute p-[2px] rounded-2xl bg-gradient-to-b from-[#000000] to-[#F52727] transition-all duration-700 ease-in-out w-[280px] sm:w-[320px] md:w-[360px] lg:w-[400px]";
+    let wrapperClasses =
+      "absolute rounded-2xl card-wrapper w-[280px] sm:w-[320px] md:w-[360px] lg:w-[400px] transition-all duration-700 ease-in-out";
 
-            // // Inner card: fully transparent + backdrop blur
-            const innerClasses =
-              "rounded-2xl p-6 shadow-xl bg-black transition-all duration-700";
+    const innerClasses =
+      "rounded-[inherit] w-full h-full p-6 bg-black/30 card-inner shadow-xl flex flex-col justify-between";
 
-            if (position === 0) {
-              wrapperClasses += " z-20 scale-105 opacity-100";
-            } else if (position === 1) {
-              wrapperClasses += " z-10 translate-x-1/2 scale-90 opacity-50";
-            } else {
-              wrapperClasses += " z-10 -translate-x-1/2 scale-90 opacity-50";
-            }
+    if (position === 0) {
+      wrapperClasses += " z-20 scale-105 opacity-100";
+    } else if (position === 1) {
+      wrapperClasses += " z-10 translate-x-1/2 scale-90 opacity-50";
+    } else {
+      wrapperClasses += " z-10 -translate-x-1/2 scale-90 opacity-50";
+    }
 
-            return (
-              <div key={i} className={wrapperClasses}>
-                <div className={innerClasses}>
-                  <div className="flex items-center gap-3 mb-4">
-                    <Image
-                      src={t.img}
-                      alt={t.name}
-                      width={50}
-                      height={50}
-                      className="rounded-full"
-                    />
-                    <div>
-                      <p className="font-semibold text-red-400">{t.name}</p>
-                      <p className="text-sm text-gray-400">{t.role}</p>
-                    </div>
-                  </div>
-                  <h3 className="text-3xl font-bold mb-2">{t.title}</h3>
-                  <div className="flex text-yellow-400 mb-3">
-                    {"★".repeat(t.rating)}
-                  </div>
-                  <p className="text-gray-300 text-[15px] font-outfit font-[400]">{t.text}</p>
-                </div>
-              </div>
-            );
-          })}
+    return (
+      <div key={i} className={wrapperClasses}>
+        <div className={innerClasses}>
+          <div className="flex items-center gap-3 mb-4">
+            <Image
+              src={t.img}
+              alt={t.name}
+              width={50}
+              height={50}
+              className="rounded-full"
+            />
+            <div>
+              <p className="font-semibold text-red-400">{t.name}</p>
+              <p className="text-sm text-gray-400">{t.role}</p>
+            </div>
+          </div>
+          <h3 className="text-3xl font-bold mb-2">{t.title}</h3>
+          <div className="flex text-yellow-400 mb-3">
+            {"★".repeat(t.rating)}
+          </div>
+          <p className="text-gray-300 text-[15px] font-outfit font-[400]">{t.text}</p>
         </div>
+      </div>
+    );
+  })}
+</div>
+
       </div>
     </section>
   );

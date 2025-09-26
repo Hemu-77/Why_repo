@@ -82,7 +82,7 @@ const Navbar = ({ isDark = true }: { isDark?: boolean }) => {
     <div
       className={`absolute top-0 left-0 right-0 w-full z-50 my-4 bg-transparent ${ptMono.className}`}
     >
-      <div className="max-w-7xl mx-auto py-6 flex justify-between items-center ">
+      <div className="max-w-7xl mx-auto flex justify-between items-center ">
         {/* LEFT SIDE: Hamburger + Logo */}
         <div className="flex items-center gap-4">
           {/* Mobile Menu Button */}
@@ -101,12 +101,19 @@ const Navbar = ({ isDark = true }: { isDark?: boolean }) => {
           </motion.button>
 
           {/* Logo */}
-          <Image
+         <motion.div
+         initial={{ opacity: 0, y: -10 }}
+         animate={{ opacity: 1, y: 0 }}
+         transition={{ delay: 0.1, duration: 0.3 }}
+         whileHover={{ y: -2 }}
+         whileTap={{ scale: 0.95 }}>
+         <Image
             src={logo}
             alt="whymedia logo"
             width={120}
             className="w-24 md:w-[120px] lg:-ml-5"
           />
+         </motion.div>
         </div>
 
         {/* CENTER: NavLinks (hidden on mobile) */}
@@ -116,7 +123,7 @@ const Navbar = ({ isDark = true }: { isDark?: boolean }) => {
               key={link.href}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1, duration: 0.3 }}
+              transition={{ delay: index * 0.1 + 0.1, duration: 0.3 }}
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -135,9 +142,16 @@ const Navbar = ({ isDark = true }: { isDark?: boolean }) => {
         </div>
 
         {/* RIGHT SIDE: Let's Talk Button */}
-        <button className="bg-gray-900 p-2 rounded-lg text-sm">
+       <motion.div
+       initial={{ opacity: 0, y: -10 }}
+       animate={{ opacity: 1, y: 0 }}
+       transition={{delay:0.7, duration: 0.3 }}
+       whileHover={{ y: -2 }}
+       whileTap={{ scale: 0.95 }}>
+       <button className="bg-gray-900 p-2 rounded-lg text-sm">
           <span className="text-white p-5 pt-2">Lets Talk</span>
         </button>
+       </motion.div>
       </div>
 
       {/* Mobile Menu Overlay */}

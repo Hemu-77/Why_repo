@@ -108,7 +108,7 @@ export default function ReflectedServices() {
     </div>
 
         {/* Right Carousel (Desktop) */}
-        <div className="flex-4 relative h-[700px] flex items-center justify-center ml-50">
+        <div className="flex-4 relative h-[700px] flex items-center justify-center ml-80">
   {cards.map((card, i) => {
     const pos = getPosition(i);
     if (pos === 99) return null; // skip hidden ones

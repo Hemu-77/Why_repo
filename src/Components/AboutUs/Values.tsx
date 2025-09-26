@@ -39,12 +39,10 @@ export default function ValuesSection() {
           
         </div>
 
-        <div className="absolute top-0 left-0 w-1 border-r-2 border-dashed border-red-500 h-[20vh] ml-48 mt-95 hidden md:block"></div>
-        <div className="absolute top-[70vh] left-0 w-[40vw] h-1 border-t-2 border-dashed border-amber-500 ml-48 hidden md:block"></div>
-
+       
 
         {/* Step 2 */}
-        <div className="relative flex flex-col md:flex-row items-center gap-8 md:flex-row-reverse">
+        <div className="relative flex flex-col items-center gap-8 md:flex-row-reverse">
           <div className="flex-1">
             <span className="inline-block px-4 py-1 text-sm font-medium rounded-full border border-red-500 text-red-500 mb-4">
               Step 2
