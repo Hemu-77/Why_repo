@@ -233,7 +233,7 @@ const HeroSection: FC = () => {
               id="small-heading"
               className="text-xl opacity-0 sm:text-2xl md:text-3xl lg:text-[2.7rem] font-extrabold"
             >
-              We're Not A{" "}
+              We&apos;re Not A{" "}
               <span className="text-yellow px-2 py-1 rounded-md inline-flex items-center">
                 Studio
                 <Image
@@ -249,7 +249,7 @@ const HeroSection: FC = () => {
               id="main-heading"
               className="text-3xl  sm:text-4xl md:text-5xl lg:text-[5.3rem] font-black leading-tight tracking-tight"
             >
-              <div className="line opacity-0">We're the reason</div>
+              <div className="line opacity-0">We&apos;re the reason</div>
               <div className="line opacity-0">your competitors panic.</div>
             </h1>
             <p
