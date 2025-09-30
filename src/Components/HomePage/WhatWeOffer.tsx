@@ -35,19 +35,30 @@ export default function ReflectedServices() {
     return () => clearInterval(interval);
   }, [cards.length]);
 
-  // GSAP animation for mobile
+  // 🔹 Mobile animation
   useEffect(() => {
     mobileRefs.current.forEach((el, i) => {
       if (!el) return;
+
       if (i === index) {
-        gsap.to(el, { opacity: 1, x: 0, scale: 1, duration: 0.7 });
+        gsap.fromTo(
+          el,
+          { x: 300, opacity: 0, scale: 0.9 },
+          { x: 0, opacity: 1, scale: 1, duration: 0.8, ease: "power3.out" }
+        );
       } else {
-        gsap.to(el, { opacity: 0, x: 200, scale: 0.9, duration: 0.7 });
+        gsap.to(el, {
+          x: -300,
+          opacity: 0,
+          scale: 0.9,
+          duration: 0.8,
+          ease: "power3.in",
+        });
       }
     });
   }, [index]);
 
-  // GSAP animation for desktop
+  // 🔹 Desktop animation
   useEffect(() => {
     desktopRefs.current.forEach((el, i) => {
       if (!el) return;
@@ -62,15 +73,13 @@ export default function ReflectedServices() {
           : 99;
 
       if (pos === 99) {
-        gsap.to(el, { opacity: 0, x: 300, scale: 0.8, duration: 0.7 });
+        gsap.to(el, { opacity: 0, x: 600, scale: 0.8, duration: 0.7 });
       } else {
         const isCenter = pos === 0;
         gsap.to(el, {
-          x: pos * 260,
+          x: pos * 280,
           scale: isCenter ? 1.1 : 0.9,
           opacity: isCenter ? 1 : 0.5,
-          width: isCenter ? 500 : 480,
-          height: isCenter ? 670 : 650,
           zIndex: isCenter ? 20 : 10,
           duration: 0.7,
           ease: "power3.out",
@@ -81,7 +90,7 @@ export default function ReflectedServices() {
 
   return (
     <section className="relative flex items-center justify-center bg-black text-white py-16 overflow-hidden mb-20">
-      {/* Mobile View */}
+      {/* 🔹 Mobile View */}
       <div className="flex flex-col items-center w-full px-4 lg:hidden">
         <div className="w-full text-center px-6">
           <h2 className="text-7xl font-bold leading-tight text-black/50 stroke-white">
@@ -99,7 +108,9 @@ export default function ReflectedServices() {
               className="absolute w-11/12 rounded-2xl p-[2px] bg-gradient-to-b from-[#80FBFF] to-black"
             >
               <div className="rounded-2xl p-6 flex flex-col items-center justify-center backdrop-blur-3xl bg-black">
-                <h3 className="text-2xl font-black uppercase mb-2 text-center mt-3">{card.title}</h3>
+                <h3 className="text-2xl font-black uppercase mb-2 text-center mt-3">
+                  {card.title}
+                </h3>
                 <p className="text-gray-300 text-sm text-center">{card.desc}</p>
                 <h1 className="mt-5 text-6xl text-black/50 stroke-white font-extrabold">
                   <span className="stroke-blur">STUDIO</span>
@@ -117,14 +128,17 @@ export default function ReflectedServices() {
         </div>
       </div>
 
-      {/* Desktop View */}
+      {/* 🔹 Desktop View */}
       <div className="hidden lg:flex flex-col lg:flex-row items-center w-full gap-8 mx-auto max-w-7xl">
         <div className="flex-1 text-left px-6 -ml-25">
           <h2 className="text-9xl font-bold leading-tight">
-            <span className="stroke-blur">What <br /> we <br /> Offer</span>
+            <span className="stroke-blur">
+              What <br /> we <br /> Offer
+            </span>
           </h2>
         </div>
 
+        {/* dots */}
         <div className="flex justify-start gap-3 mt-160 relative -ml-70">
           {cards.map((_, i) => (
             <span
@@ -136,6 +150,7 @@ export default function ReflectedServices() {
           ))}
         </div>
 
+        {/* card slider */}
         <div className="flex-4 relative h-[700px] flex items-center justify-center ml-80">
           {cards.map((card, i) => (
             <div
@@ -146,7 +161,9 @@ export default function ReflectedServices() {
               className="absolute w-[480px] h-[650px] rounded-2xl p-[2px] bg-gradient-to-b from-[#80FBFF] to-black"
             >
               <div className="w-full h-full rounded-2xl shadow-lg backdrop-blur-3xl p-6 flex flex-col items-center justify-center overflow-hidden bg-black">
-                <h3 className="text-4xl font-black uppercase mb-2 text-left mt-3">{card.title}</h3>
+                <h3 className="text-4xl font-black uppercase mb-2 text-left mt-3">
+                  {card.title}
+                </h3>
                 <p className="text-gray-300">{card.desc}</p>
                 <h1 className="mt-5 text-9xl stroke-blur">STUDIO</h1>
                 <Image
