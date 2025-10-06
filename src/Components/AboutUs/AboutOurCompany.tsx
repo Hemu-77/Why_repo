@@ -1,32 +1,33 @@
 "use client";
 
-import React from "react";
-import { Montserrat,Outfit, DM_Sans } from "next/font/google";
+import React, { useRef, useEffect } from "react";
+import { Montserrat, Outfit, DM_Sans } from "next/font/google";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-
+gsap.registerPlugin(ScrollTrigger);
 
 const montserrat = Montserrat({
-  weight : ["500"],
+  weight: ["500"],
   subsets: ["latin"],
   display: "swap",
-
-})
+});
 
 const outfit = Outfit({
-  weight : ["500"],
+  weight: ["500"],
   subsets: ["latin"],
   display: "swap",
-
-})
+});
 
 const inter = DM_Sans({
-  weight : ["600"],
+  weight: ["600"],
   subsets: ["latin"],
   display: "swap",
-
-})
+});
 
 const AboutCompany = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+
   const items = [
     {
       id: "01",
@@ -45,29 +46,66 @@ const AboutCompany = () => {
     },
   ];
 
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const ctx = gsap.context(() => {
+      // Animate heading
+      gsap.from(".about-heading", {
+        y: 50,
+        opacity: 0,
+        duration: 2.0,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".about-heading",
+          start: "top 95%",
+        },
+      });
+
+      // Animate cards
+      gsap.from(".about-card", {
+        y: 100,
+        opacity: 0,
+        duration: 2.0,
+        ease: "power3.out",
+        stagger: 0.3,
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 90%",
+        },
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="bg-black text-white py-16 px-6">
+    <section ref={sectionRef} className="bg-black text-white py-16 px-6">
       <div className="max-w-[84rem] mx-auto text-center">
-        <h2 className="text-4xl md:text-6xl lg:text-[64px] font-[600] mb-12 relative inline-block font-Konnect text-black/50 stroke-white">
-          <span className={`stroke-blur ${inter.className}`}>
-            About Our Company
-          </span>
+        <h2
+          className={`about-heading text-4xl md:text-6xl lg:text-[64px] font-[600] mb-12 relative inline-block text-black/50 stroke-white ${inter.className}`}
+        >
+          <span className="stroke-blur">About Our Company</span>
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {items.map((item) => (
             <div
               key={item.id}
-              className="relative rounded-xl p-[2px] shadow-lg 
-               bg-gradient-to-b from-[#80FBFF] to-black"
+              className="about-card relative rounded-xl p-[2px] shadow-lg bg-gradient-to-b from-[#80FBFF] to-black"
             >
-              <div className="rounded-xl bg-gradient-to-br from-black via-black to-[#5b0808] 
-//                  p-6 text-left hover:shadow-red-600/30 transition duration-300 lg:h-[230px]">
-              <h3 className={`text-[36px] font-bold mb-3 ${montserrat.className}`}>
-                {item.id}. {item.title}
-              </h3>
-              <p className={`text-base text-gray-500 leading-relaxed font-semibold ${outfit.className}`}>{item.desc}</p>
-                </div>
+              <div className="rounded-xl bg-gradient-to-br from-black via-black to-[#5b0808] p-6 text-left hover:shadow-red-600/30 transition duration-300 lg:h-[230px]">
+                <h3
+                  className={`text-[36px] font-bold mb-3 ${montserrat.className}`}
+                >
+                  {item.id}. {item.title}
+                </h3>
+                <p
+                  className={`text-base text-gray-500 leading-relaxed font-semibold ${outfit.className}`}
+                >
+                  {item.desc}
+                </p>
+              </div>
             </div>
           ))}
         </div>
@@ -77,27 +115,3 @@ const AboutCompany = () => {
 };
 
 export default AboutCompany;
-
-{/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-{items.map((item) => (
-  // This outer div creates the gradient border effect.
-  <div
-    key={item.id}
-    className="relative rounded-xl p-[2px] shadow-lg
-               bg-gradient-to-b from-[#80FBFF] to-black"
-  >
-    {/* This inner div contains the content and the inner gradient. */}
-//     <div
-//       className="rounded-xl bg-gradient-to-br from-black via-black to-[#5b0808] 
-//                  p-6 text-left hover:shadow-red-600/30 transition duration-300"
-//     >
-//       <h3 className="text-3xl font-bold mb-3 text-white">
-//         {item.id}. {item.title}
-//       </h3>
-//       <p className="text-sm text-gray-300 leading-relaxed font-semibold">
-//         {item.desc}
-//       </p>
-//     </div>
-//   </div>
-// ))}
-// </div> */}

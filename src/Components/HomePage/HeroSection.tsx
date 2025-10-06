@@ -10,9 +10,16 @@ import microphone from "@/../public/microphone.png";
 
 const HeroSection: FC = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const smallHeadingRef = useRef<HTMLParagraphElement>(null);
+  const mainHeadingRef = useRef<HTMLHeadingElement>(null);
 
   useGSAP(() => {
     const cursor = cursorRef.current;
+    const container = containerRef.current;
+    const smallHeading = smallHeadingRef.current;
+    const mainHeading = mainHeadingRef.current;
+
     if (cursor) {
       const moveCursor = (e: MouseEvent) => {
         gsap.to(cursor, {
@@ -27,12 +34,30 @@ const HeroSection: FC = () => {
 
       gsap.set(cursor, { opacity: 1, scale: 1 });
     }
-    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+    // Calculate dynamic center offset
+    const getCenterOffset = () => {
+      if (!container || !smallHeading) return 0;
+      
+      const containerRect = container.getBoundingClientRect();
+      const headingRect = smallHeading.getBoundingClientRect();
+
+      const containerCenter = containerRect.left + containerRect.width / 2;
+      const headingLeft = headingRect.left;
+      const headingCenter = headingRect.width / 2;
+      
+      return containerCenter - headingLeft - headingCenter;
+    };
+
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" },
+    delay:2.8 });
+    const centerOffset = getCenterOffset();
+
     gsap.set("#small-heading", {
       y: "100vh",
-      x: "50vw",
-      xPercent: -65,
-      scale: 1.5,
+      x: centerOffset,
+      xPercent: 0,
+      scale: 1.2,
       opacity: 0,
       fontSize: "5rem",
       zIndex: 1000,
@@ -40,11 +65,11 @@ const HeroSection: FC = () => {
 
     gsap.set("#main-heading .line", {
       y: "100vh",
-      x: "50vw",
-      xPercent: -50,
-      scale: 1.8,
+      x: centerOffset,
+      xPercent: 15,
+      scale: 1.5,
       opacity: 0,
-      fontSize: "5rem",
+      fontSize: "4.5rem",
       zIndex: 1000,
     });
 
@@ -65,35 +90,35 @@ const HeroSection: FC = () => {
 
     tl.to("#small-heading", {
       opacity: 1,
-      duration: 1.2,
+      duration: 1,
       
       ease: "power3.out",
     });
 
     tl.to("#main-heading .line:first-child", {
       opacity: 1,
-      duration: 1.5,
+      duration: 1.2,
       ease: "power3.out",
     }, "-=0.3")
     .to("#small-heading", {
       y: "60vh",
-      duration: 1.5,
+      duration: 1.2,
       ease: "power3.out",
     }, "<");
 
     tl.to("#main-heading .line:last-child", {
       opacity: 1,
-      duration: 1.8,
+      duration: 1.5,
       ease: "power3.out",
     }, "-=0.5")
     .to("#small-heading", {
       y: "30vh",
-      duration: 1.8,
+      duration: 1.5,
       ease: "power3.out",
     }, "<")
     .to("#main-heading .line:first-child", {
       y: "40vh",
-      duration: 1.8,
+      duration: 1.5,
       ease: "power3.out",
     }, "<");
 
@@ -207,7 +232,7 @@ const HeroSection: FC = () => {
         </div>
       </div>
 
-      <section className="relative min-h-screen flex text-white overflow-hidden bg-cover bg-center mx-auto">
+      <section className="relative h-screen flex text-white overflow-hidden  bg-center mx-auto">
       <Image
         src={bg}
         alt="Background"
@@ -216,8 +241,8 @@ const HeroSection: FC = () => {
         quality={100}
         className="object-cover z-10"
       />
-      <div className="w-full max-w-7xl mx-auto my-auto z-20">
-        <div className="relative container px-4 lg:px-16 lg:pt-16 grid grid-cols-1 lg:grid-cols-6 items-center pt-20 -ml-20">
+      <div ref={containerRef} className="w-full max-w-7xl mx-auto my-auto z-20">
+        <div className="relative container px-4 lg:px-16 lg:pt-10 grid grid-cols-1 lg:grid-cols-6 items-center pt-20 -ml-20">
           {/* Right Character */}
           <div
             id="character"
@@ -230,6 +255,7 @@ const HeroSection: FC = () => {
           <div className="lg:col-span-5 space-y-6 text-center lg:text-left order-2 lg:order-1">
             {/* Small heading */}
             <p
+              ref={smallHeadingRef}
               id="small-heading"
               className="text-xl opacity-0 sm:text-2xl md:text-3xl lg:text-[2.7rem] font-extrabold"
             >
@@ -246,15 +272,16 @@ const HeroSection: FC = () => {
 
             {/* Main heading  */}
             <h1
+              ref={mainHeadingRef}
               id="main-heading"
-              className="text-3xl  sm:text-4xl md:text-5xl lg:text-[5.3rem] font-black leading-tight tracking-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[75px] font-black leading-tight tracking-tight"
             >
               <div className="line opacity-0">We&apos;re the reason</div>
               <div className="line opacity-0">your competitors panic.</div>
             </h1>
             <p
               id="description"
-              className="text-sm  sm:text-base md:text-lg lg:text-[1.3rem] text-white max-w-full lg:max-w-[60rem] font-[150] pt-1 mt-6 lg:mt-14"
+              className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-[1.3rem] text-white max-w-full lg:max-w-[60rem] font-light"
             >
               {[
                 "From", "high-converting", "ads", "to", "studio-grade", "videos,", 

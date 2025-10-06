@@ -2,7 +2,10 @@
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import pod from "@/../public/gautampodcast 1.png";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function ReflectedServices() {
   const cards = [
@@ -26,6 +29,7 @@ export default function ReflectedServices() {
   const [index, setIndex] = useState(0);
   const mobileRefs = useRef<HTMLDivElement[]>([]);
   const desktopRefs = useRef<HTMLDivElement[]>([]);
+  const headingRef = useRef<HTMLHeadingElement>(null);
 
   // Auto-slide every 4s
   useEffect(() => {
@@ -35,11 +39,44 @@ export default function ReflectedServices() {
     return () => clearInterval(interval);
   }, [cards.length]);
 
-  // 🔹 Mobile animation
+  // Scroll-triggered sequence
+  useEffect(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: headingRef.current,
+        start: "top 80%",
+        end: "bottom 70%",
+        toggleActions: "play none none reverse",
+      },
+    });
+
+    // Step 1: animate heading
+    tl.fromTo(
+      headingRef.current,
+      { y: -200, opacity: 0 },
+      { y: 0, opacity: 1, duration: 2, ease: "power3.out" }
+    );
+
+    // Step 2: animate cards (both mobile + desktop refs)
+    tl.fromTo(
+      [...mobileRefs.current, ...desktopRefs.current],
+      { y: -1150, opacity: 0, scale: 0.9 },
+      {
+        y: 0,
+        opacity: 1,
+        scale: 1,
+        duration: 0.8,
+        stagger: 0.25,
+        ease: "power3.out",
+      },
+      "+=0.2" // delay after heading
+    );
+  }, []);
+
+  // 🔹 Keep your existing mobile + desktop animation useEffects unchanged
   useEffect(() => {
     mobileRefs.current.forEach((el, i) => {
       if (!el) return;
-
       if (i === index) {
         gsap.fromTo(
           el,
@@ -58,7 +95,6 @@ export default function ReflectedServices() {
     });
   }, [index]);
 
-  // 🔹 Desktop animation
   useEffect(() => {
     desktopRefs.current.forEach((el, i) => {
       if (!el) return;
@@ -93,7 +129,10 @@ export default function ReflectedServices() {
       {/* 🔹 Mobile View */}
       <div className="flex flex-col items-center w-full px-4 lg:hidden">
         <div className="w-full text-center px-6">
-          <h2 className="text-7xl font-bold leading-tight text-black/50 stroke-white">
+          <h2
+            ref={headingRef}
+            className="text-7xl font-bold leading-tight text-black/50 stroke-white"
+          >
             What we Offer
           </h2>
         </div>
@@ -131,7 +170,10 @@ export default function ReflectedServices() {
       {/* 🔹 Desktop View */}
       <div className="hidden lg:flex flex-col lg:flex-row items-center w-full gap-8 mx-auto max-w-7xl">
         <div className="flex-1 text-left px-6 -ml-25">
-          <h2 className="text-9xl font-bold leading-tight">
+          <h2
+            ref={headingRef}
+            className="text-9xl font-bold leading-tight"
+          >
             <span className="stroke-blur">
               What <br /> we <br /> Offer
             </span>
