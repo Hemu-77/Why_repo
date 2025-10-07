@@ -69,7 +69,7 @@ export default function ReflectedServices() {
         stagger: 0.25,
         ease: "power3.out",
       },
-      "+=0.2" // delay after heading
+       // delay after heading
     );
   }, []);
 

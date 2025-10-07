@@ -1,15 +1,18 @@
 "use client";
-import { useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import gsap from "gsap";
 import { usePathname } from "next/navigation";
 
-const PageTransitionWrapper = ({ children }) => {
+interface PageTransitionWrapperProps {
+  children: ReactNode;  // 👈 this allows any valid React children
+}
+
+const PageTransitionWrapper: React.FC<PageTransitionWrapperProps> = ({ children }) => {
   const [showAnimation, setShowAnimation] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
     const timer = setTimeout(() => setShowAnimation(true), 10);
-
     return () => clearTimeout(timer);
   }, [pathname]);
 

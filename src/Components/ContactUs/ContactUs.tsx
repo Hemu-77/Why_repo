@@ -17,8 +17,8 @@ export default function ContactSection() {
       // Fade + rise heading
       gsap.from(".contact-heading", {
         opacity: 0,
-        y: 30,
-        duration: 0.8,
+        y: 180,
+        duration: 1.8,
         ease: "power2.out",
         scrollTrigger: {
           trigger: ".contact-heading",
@@ -29,8 +29,8 @@ export default function ContactSection() {
       // Left content (smooth fade from left)
       gsap.from(".contact-left", {
         opacity: 0,
-        x: -40,
-        duration: 1,
+        x: -180,
+        duration: 2,
         ease: "power2.out",
         scrollTrigger: {
           trigger: ".contact-left",
@@ -41,8 +41,8 @@ export default function ContactSection() {
       // Right form (smooth fade from right)
       gsap.from(".contact-form", {
         opacity: 0,
-        x: 40,
-        duration: 1,
+        x: 180,
+        duration: 2,
         ease: "power2.out",
         scrollTrigger: {
           trigger: ".contact-form",
@@ -53,8 +53,8 @@ export default function ContactSection() {
       // Bottom contact info (fade in staggered)
       gsap.from(".contact-info > div", {
         opacity: 0,
-        y: 30,
-        duration: 0.8,
+        y: 180,
+        duration: 1.8,
         stagger: 0.2,
         ease: "power2.out",
         scrollTrigger: {
