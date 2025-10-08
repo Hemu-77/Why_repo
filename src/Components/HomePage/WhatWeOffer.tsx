@@ -168,8 +168,8 @@ export default function ReflectedServices() {
       </div>
 
       {/* 🔹 Desktop View */}
-      <div className="hidden lg:flex flex-col lg:flex-row items-center w-full gap-8 mx-auto max-w-7xl">
-        <div className="flex-1 text-left px-6 -ml-25">
+      <div className="hidden lg:flex flex-col lg:flex-row items-center w-full gap-8 mx-auto max-w-7xl md:max-w-6xl">
+        <div className="flex-1 text-left px-6 lg:-ml-35">
           <h2
             ref={headingRef}
             className="text-9xl font-bold leading-tight"
@@ -200,14 +200,14 @@ export default function ReflectedServices() {
               ref={(el) => {
                 if (el) desktopRefs.current[i] = el;
               }}
-              className="absolute w-[480px] h-[650px] rounded-2xl p-[2px] bg-gradient-to-b from-[#80FBFF] to-black"
+              className="absolute lg:w-[480px] h-[650px] md:w-[380px] rounded-2xl p-[2px] bg-gradient-to-b from-[#80FBFF] to-black"
             >
-              <div className="w-full h-full rounded-2xl shadow-lg backdrop-blur-3xl p-6 flex flex-col items-center justify-center overflow-hidden bg-black">
+              <div className="w-full h-full rounded-2xl shadow-lg backdrop-blur-3xl p-6 flex flex-col   overflow-hidden bg-black">
                 <h3 className="text-4xl font-black uppercase mb-2 text-left mt-3">
                   {card.title}
                 </h3>
                 <p className="text-gray-300">{card.desc}</p>
-                <h1 className="mt-5 text-9xl stroke-blur">STUDIO</h1>
+                <h1 className="mt-5 lg:text-9xl stroke-blur md:text-7xl md:-ml-6">STUDIO</h1>
                 <Image
                   src={card.img}
                   alt={card.title}

@@ -148,16 +148,16 @@ export default function BrandsSection() {
             alt="Character"
             width={800}
             height={400}
-            className="object-contain w-[90%] sm:w-[600px] lg:w-[800px]"
+            className="object-contain w-[90%]  md:w-[600px] md:ml-10"
             priority
           />
 
           <h2
             ref={headingRef}
-            className="text-6xl sm:text-5xl lg:text-[5rem] font-semibold text-center stroke-blur leading-tight lg:text-left lg:-mt-30 lg:ml-8 pl-2.5 text-black/50 stroke-white -z-10"
+            className="text-6xl lg:text-[5rem] font-semibold text-center stroke-blur leading-tight lg:text-left lg:-mt-30 lg:ml-8 pl-2.5 md:ml-20 text-black/50 stroke-white -z-10"
           >
-            <span>
-              Brands That <br /> Trust Us !
+            <span className="md:ml-10">
+              Brands That <br /> <span className="md:ml-10">Trust Us !</span>
             </span>
           </h2>
         </div>
@@ -166,24 +166,24 @@ export default function BrandsSection() {
         <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start space-y-10 -mt-12 lg:mt-0">
           <div className="flex flex-col items-center space-y-6 lg:-ml-18 mt-10 lg:mt-18 z-10">
             {/* Top Circle */}
-            <div className="circle-top w-48 h-48 sm:w-52 sm:h-52 lg:w-65 lg:h-65 p-6 rounded-full flex flex-col justify-center items-center mb-10 z-20 backdrop-blur-md bg-white/0 border-t-2 border-b-2 border-white/40">
+            <div className="circle-top w-48 h-48 sm:w-52 sm:h-52 md:h-60 md:w-60 lg:w-65 lg:h-65 p-6 rounded-full flex flex-col justify-center items-center mb-10 z-20 backdrop-blur-md bg-white/0 border-t-2 border-b-2 border-white/40">
               <p className="text-4xl sm:text-6xl lg:text-8xl font-extrabold">3+</p>
               <p className="text-sm sm:text-base lg:text-lg">Years of Experience</p>
             </div>
 
             {/* Bottom Circles */}
             <div className="flex flex-col lg:flex-row justify-center gap-6 lg:-space-x-12 -mt-6 lg:-mt-12">
-              <div className="circle-left w-48 h-48 sm:w-52 sm:h-52 lg:w-70 lg:h-70 p-6 rounded-full flex flex-col justify-center items-center backdrop-blur-md bg-white/0 border-t-2 border-b-2 border-white/40">
+              <div className="circle-left w-48 h-48 sm:w-52 sm:h-52 md:h-60 md:w-60 lg:w-70 lg:h-70 p-6 rounded-full flex flex-col justify-center items-center backdrop-blur-md bg-white/0 border-t-2 border-b-2 border-white/40">
                 <p className="text-3xl sm:text-5xl lg:text-8xl font-bold">50+</p>
                 <p className="text-sm sm:text-base lg:text-lg">Successful Projects</p>
               </div>
 
-              <div className="circle-middle w-48 h-48 sm:w-52 sm:h-52 lg:w-70 lg:h-70 p-6 rounded-full flex flex-col justify-center items-center backdrop-blur-md bg-white/0 border-t-2 border-b-2 border-white/40">
+              <div className="circle-middle w-48 h-48 sm:w-52 sm:h-52 md:h-60 md:w-60 lg:w-70 lg:h-70 p-6 rounded-full flex flex-col justify-center items-center backdrop-blur-md bg-white/0 border-t-2 border-b-2 border-white/40">
                 <p className="text-3xl sm:text-5xl lg:text-8xl font-bold">40+</p>
                 <p className="text-sm sm:text-base lg:text-lg">Happy Clients</p>
               </div>
 
-              <div className="circle-right w-48 h-48 sm:w-52 sm:h-52 lg:w-70 lg:h-70 p-6 rounded-full flex flex-col justify-center items-center backdrop-blur-md bg-white/0 border-t-2 border-b-2 border-white/40">
+              <div className="circle-right w-48 h-48 sm:w-52 sm:h-52 md:h-60 md:w-60 lg:w-70 lg:h-70 p-6 rounded-full flex flex-col justify-center items-center backdrop-blur-md bg-white/0 border-t-2 border-b-2 border-white/40">
                 <p className="text-3xl sm:text-5xl lg:text-8xl font-bold">40+</p>
                 <p className="text-sm sm:text-base lg:text-lg">5 Star Reviews</p>
               </div>
