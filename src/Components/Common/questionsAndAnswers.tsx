@@ -104,7 +104,7 @@ export default function FAQSection() {
   return (
     <section
       ref={faqRef}
-      className="bg-black text-white py-16 px-6 md:px-20"
+      className="bg-black text-white lg:py-16 px-6 md:px-20"
     >
       {/* Heading */}
       <div className="text-center mb-12 faq-heading">

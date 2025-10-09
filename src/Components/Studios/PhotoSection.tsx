@@ -20,7 +20,7 @@ const PodcastLayout = () => {
     const ctx = gsap.context(() => {
       // Top left image
       gsap.from(".podcast-img1", {
-        x: -150,
+        y: -150,
         opacity: 0,
         duration: 3.2,
         ease: "power3.out",
@@ -33,7 +33,7 @@ const PodcastLayout = () => {
 
       // Top right image
       gsap.from(".podcast-img2", {
-        x: 150,
+        y: -150,
         opacity: 0,
         duration: 3.2,
         ease: "power3.out",

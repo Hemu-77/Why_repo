@@ -24,73 +24,74 @@ export default function PortfolioSection() {
   useGSAP(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
-        defaults: { ease: "power2.out", duration: 2 }, // slower animations
+        defaults: { ease: "power2.out", duration: 2 },
       });
 
-      // Title slides in smoothly
+      // Title slides down gently from top
       tl.from(".heading-title", {
-        x: -100,
-        opacity: 0,
+        y: -100,
+        opacity: 1,
       });
 
-      // Paragraph fades up slowly
+      // Paragraph fades in from bottom
       tl.from(
         ".intro-text",
         {
           y: 60,
           opacity: 0,
-          duration: 2.5,
+          duration: 2.2,
         },
         "-=1.2"
       );
 
-      // Pills fade-in one by one
+      // Pills fade up one by one
       tl.from(
         ".nav-pill",
         {
-          y: 30,
+          y: 40,
           opacity: 0,
-          stagger: 0.4,
+          stagger: 0.3,
         },
-        "-=1.5"
+        "-=1.4"
       );
 
-      // Circles appear gently
+      // Red circle fades up softly
       tl.from(
         ".circle-red",
         {
-          scale: 0.4,
+          y: 60,
           opacity: 0,
-          duration: 1.8,
+          duration: 1.5,
           ease: "power3.out",
         },
         "-=1"
       );
 
+      // Circle outline fades in after
       tl.from(
         ".circle-outline",
         {
-          scale: 0.5,
+          y: 40,
           opacity: 0,
-          duration: 2,
+          duration: 1.8,
           ease: "power2.out",
         },
-        "-=1.4"
+        "-=1.2"
       );
 
-      // Character slides in slowly from right
+      // Character image comes up from bottom
       tl.from(
         ".character-image",
         {
-          x: 180,
+          y: 120,
           opacity: 0,
-          duration: 2.5,
+          duration: 2.4,
           ease: "power3.out",
         },
         "-=1.8"
       );
 
-      // Explore text fades in
+      // "EXPLORE ALL OUR PORTFOLIO" text fades up
       tl.from(
         ".explore-text",
         {
@@ -101,7 +102,7 @@ export default function PortfolioSection() {
         "-=1.2"
       );
 
-      // Parallax: character moves subtly on scroll
+      // Parallax scroll effect (character moves upward on scroll)
       gsap.to(".character-image", {
         y: -60,
         ease: "none",
@@ -109,14 +110,14 @@ export default function PortfolioSection() {
           trigger: sectionRef.current,
           start: "top bottom",
           end: "bottom top",
-          scrub: 1.5, // smoother
+          scrub: 1.5,
         },
       });
 
       // Heading slow float on scroll
       gsap.to(".heading-title", {
         y: 40,
-        opacity: 0.7,
+        opacity: 1,
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top center",
@@ -125,10 +126,10 @@ export default function PortfolioSection() {
         },
       });
 
-      // Infinite slow rotation for circular text
+      // Infinite rotation for circular text
       gsap.to(".circle-text", {
         rotate: 360,
-        duration: 40, 
+        duration: 40,
         repeat: -1,
         ease: "linear",
       });
@@ -142,7 +143,7 @@ export default function PortfolioSection() {
       ref={sectionRef}
       className="relative min-h-screen flex flex-col items-center justify-start md:justify-center overflow-visible py-5 mb-10"
     >
-      {/* Background (unchanged) */}
+      {/* Background */}
       <Image
         src={bg}
         alt="Background"
@@ -156,7 +157,7 @@ export default function PortfolioSection() {
 
       {/* Content */}
       <div className="relative flex flex-col md:flex-row items-center justify-between w-full max-w-7xl px-4 md:px-8 py-8 md:py-16 mt-25 z-20">
-        {/* Left content */}
+        {/* Left Content */}
         <div className="flex flex-col space-y-4 md:space-y-6 pt-12 md:pt-0 z-10">
           <h1 className="heading-title text-white text-7xl md:text-[11rem] font-extrabold leading-none">
             Our <br /> Portfolio
@@ -180,8 +181,8 @@ export default function PortfolioSection() {
           </div>
         </div>
 
-        {/* Right character */}
-        <div className="flex flex-col h-[1000px] w-screen rounded-4xl items-center space-y-4 md:space-y-6 -mb-120 md:mt-0 -ml-90 pl-10 overflow-visible backdrop">
+        {/* Right Character */}
+        <div className="flex flex-col h-[1000px] w-screen rounded-4xl items-center space-y-4 md:space-y-6 lg:-mb-120 md:mt-0 lg:-ml-90 lg:pl-10 overflow-visible backdrop">
           <h3
             className={`explore-text relative text-white font-bold text-2xl md:text-5xl pr-0 md:pr-10 md:pt-35 lg:text-[48px] lg:-ml-80px lg:-mt-25 ${ptMono.className}`}
           >

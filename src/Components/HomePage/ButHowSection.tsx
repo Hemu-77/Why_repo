@@ -116,7 +116,7 @@ const HowSection = () => {
           </p>
 
           {/* Buttons */}
-          <div className="flex flex-col relative left-15 gap-4 lg:gap-5 mt-4 lg:mt-6">
+          <div className="flex flex-col relative left-15 gap-4 lg:gap-5 lg:mt-6 md:-mt-30 md:-pt-15">
             {[
               "STRATEGY FIRST",
               "CONVERSION COPY",
@@ -125,7 +125,7 @@ const HowSection = () => {
             ].map((label, idx) => (
               <button
                 key={idx}
-                className="how-btn relative w-full text-center max-w-[500px] lg:max-w-[500px] px-6 py-4 lg:py-5 rounded-full font-black text-white uppercase shadow-lg overflow-hidden transition-transform hover:scale-105 text-base md:text-lg lg:text-xl flex items-center gap-3 lg:gap-4"
+                className="how-btn relative w-full text-center max-w-[500px] lg:max-w-[500px]  px-6 lg:py-5 rounded-full font-black text-white uppercase shadow-lg overflow-hidden transition-transform hover:scale-105 text-base md:text-lg lg:text-xl flex items-center gap-3 lg:gap-4"
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-red-500 to-red-600"></span>
                 <span className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.15)_25%,transparent_25%,transparent_50%,rgba(255,255,255,0.15)_50%,rgba(255,255,255,0.15)_75%,transparent_75%,transparent)] bg-[length:20px_20px] opacity-20"></span>

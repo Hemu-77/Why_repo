@@ -14,22 +14,23 @@ export default function ContactSection() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Fade + rise heading
+      // Heading - fade in from top
       gsap.from(".contact-heading", {
         opacity: 0,
-        y: 180,
+        y: -100, // comes from top
         duration: 1.8,
         ease: "power2.out",
+        stagger: 0.2,
         scrollTrigger: {
           trigger: ".contact-heading",
           start: "top 85%",
         },
       });
-
-      // Left content (smooth fade from left)
+  
+      // Left Section - fade in from top
       gsap.from(".contact-left", {
         opacity: 0,
-        x: -180,
+        y: -120, // from top
         duration: 2,
         ease: "power2.out",
         scrollTrigger: {
@@ -37,11 +38,11 @@ export default function ContactSection() {
           start: "top 85%",
         },
       });
-
-      // Right form (smooth fade from right)
+  
+      // Right Section (Form) - fade in from bottom
       gsap.from(".contact-form", {
         opacity: 0,
-        x: 180,
+        y: 120, // from bottom
         duration: 2,
         ease: "power2.out",
         scrollTrigger: {
@@ -49,13 +50,13 @@ export default function ContactSection() {
           start: "top 85%",
         },
       });
-
-      // Bottom contact info (fade in staggered)
+  
+      // Bottom contact info - staggered from bottom
       gsap.from(".contact-info > div", {
         opacity: 0,
-        y: 180,
+        y: 100,
         duration: 1.8,
-        stagger: 0.2,
+        stagger: 0.3,
         ease: "power2.out",
         scrollTrigger: {
           trigger: ".contact-info",
@@ -63,9 +64,10 @@ export default function ContactSection() {
         },
       });
     }, sectionRef);
-
+  
     return () => ctx.revert();
   }, []);
+  
 
   return (
     <section

@@ -43,9 +43,9 @@ export default function NewsletterFooter() {
   return (
     <footer
       ref={footerRef}
-      className="bg-[#111] text-white mx-4 lg:my-10 rounded-2xl md:mx-20 -my-7"
+      className="bg-[#111] text-white mx-4  rounded-2xl md:mx-20 -my-7"
     >
-      <div className="max-w-7xl mx-auto p-10 md:p-16">
+      <div className="max-w-7xl mx-auto pt-10 md:p-16">
         {/* Top Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center footer-top">
           {/* Left Side */}

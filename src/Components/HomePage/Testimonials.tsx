@@ -97,7 +97,7 @@ export default function ReflectedTestimonials() {
   return (
     <section
       ref={sectionRef}
-      className="relative flex flex-col items-center justify-center bg-black text-white lg:py-30 px-6 overflow-hidden transform scale-x-[-1]"
+      className="relative flex flex-col items-center justify-center bg-black text-white lg:pt-30 px-6 overflow-hidden transform scale-x-[-1]"
     >
       <div className="flex flex-col lg:flex-row items-center w-full max-w-7xl mx-auto transform scale-x-[-1]">
         {/* Left Text Content */}
