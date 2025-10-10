@@ -24,7 +24,7 @@ export default function PortfolioSection() {
   useGSAP(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
-        defaults: { ease: "power2.out", duration: 1 }, // ⏩ was 2 → now 1 (global speed-up)
+        defaults: { ease: "power2.out", duration: 1 }, // was 2 → now 1 (global speed-up)
       });
   
       // Title slides down gently from top
@@ -186,7 +186,7 @@ export default function PortfolioSection() {
         </div>
 
         {/* Right Character */}
-        <div className="flex flex-col lg:h-[1000px] w-screen rounded-4xl items-center space-y-4 md:space-y-6 lg:-mb-120 md:mt-0 lg:-ml-90 lg:pl-10 overflow-visible lg:backdrop">
+        <div className="flex flex-col lg:h-[1000px] w-screen rounded-4xl items-center space-y-4 md:space-y-6 lg:-mb-120 md:mt-0 lg:-ml-90 lg:pl-10 overflow-visible backdrop">
           <h3
             className={`explore-text relative text-white font-bold text-2xl md:text-5xl pr-0 md:pr-10 md:pt-35 lg:text-[48px] lg:-ml-80px lg:-mt-25 ${ptMono.className}`}
           >
