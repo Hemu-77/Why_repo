@@ -98,14 +98,14 @@ export default function VideoSection() {
   return (
     <div>
       <h1 className={`${publicSans.className} text-8xl stroke-blur text-center py-4 mb-6`}>Portfolio</h1>
-      <section className="px-4 md:px-12 lg:px-20 py-12 bg-black flex flex-col items-center mb-10 backdro">
+      <section className="px-4 md:px-12 lg:px-20 py-12 bg-black flex flex-col items-center mb-10 ">
       {/* Character image */}
 
      
 
 
 
-      <div ref={charRef} className="relative flex justify-center items-center w-full mb-8 pt-10">
+      <div ref={charRef} className="relative flex justify-center items-center w-full mb-8 pt-10 backdro">
         <Image
           src={img1}
           alt="Character"
