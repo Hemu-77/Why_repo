@@ -6,6 +6,16 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import img1 from "../../../public/gautampodcast 1.png";
 import img2 from "../../../public/youtube.png";
+import img3 from "@/../public/video2.png"
+import img4 from "@/../public/video3.png"
+import { Public_Sans } from "next/font/google";
+
+
+const publicSans = Public_Sans({
+  weight: ["600"],
+  subsets: ["latin"],
+  display: "swap",
+});
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -86,8 +96,15 @@ export default function VideoSection() {
   }, []);
 
   return (
-    <section className="px-4 md:px-12 lg:px-20 py-12 bg-black flex flex-col items-center mb-10">
+    <div>
+      <h1 className={`${publicSans.className} text-8xl stroke-blur text-center py-4 mb-6`}>Portfolio</h1>
+      <section className="px-4 md:px-12 lg:px-20 py-12 bg-black flex flex-col items-center mb-10 backdro">
       {/* Character image */}
+
+     
+
+
+
       <div ref={charRef} className="relative flex justify-center items-center w-full mb-8 pt-10">
         <Image
           src={img1}
@@ -140,13 +157,13 @@ export default function VideoSection() {
           ref={(el: HTMLDivElement | null): void => { desktopVideoRefs.current[1] = el; }}
           className="max-w-[76rem] flex flex-col blur-xs px-5 backdrop-blur-2xl glow-box items-center justify-center relative ml-10 -mt-155 border-1 border-white rounded-3xl z-10 py-5"
         >
-          <Image src={img2} alt="Videos" width={1200} height={400} className="object-contain rounded" priority />
+          <Image src={img3} alt="Videos" width={1200} height={400} className="object-contain rounded" priority />
         </div>
         <div
           ref={(el: HTMLDivElement | null): void => { desktopVideoRefs.current[2] = el; }}
           className="max-w-[70rem] flex flex-col glow-box blur-xs px-5 items-center justify-center relative ml-18 -mt-140 border-1 border-white rounded-3xl py-5"
         >
-          <Image src={img2} alt="Videos" width={1200} height={400} className="object-contain" priority />
+          <Image src={img4} alt="Videos" width={1200} height={400} className="object-contain" priority />
         </div>
 
         <div className="relative flex items-center justify-center -mt-50 z-30">
@@ -165,5 +182,6 @@ export default function VideoSection() {
         </div>
       </div>
     </section>
+    </div>
   );
 }

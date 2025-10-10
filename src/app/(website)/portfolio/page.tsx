@@ -10,9 +10,7 @@ const Portfolio = () => {
         <div className="bg-black">
             <PortfolioSection/>
             <VideoSection/>
-            <div>
-            <NewsletterFooter/>
-            </div>
+           
             
         </div>
     )

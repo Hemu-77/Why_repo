@@ -42,7 +42,7 @@ export default function ContactSection() {
       // Right Section (Form) - fade in from bottom
       gsap.from(".contact-form", {
         opacity: 0,
-        y: 120, // from bottom
+        y: -120, // from bottom
         duration: 2,
         ease: "power2.out",
         scrollTrigger: {
@@ -54,7 +54,7 @@ export default function ContactSection() {
       // Bottom contact info - staggered from bottom
       gsap.from(".contact-info > div", {
         opacity: 0,
-        y: 100,
+        y: -100,
         duration: 1.8,
         stagger: 0.3,
         ease: "power2.out",

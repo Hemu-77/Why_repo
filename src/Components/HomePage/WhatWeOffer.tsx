@@ -4,6 +4,34 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import pod from "@/../public/gautampodcast 1.png";
+import { Inter,Outfit, Poppins,Public_Sans  } from "next/font/google";
+
+
+
+const publicSans = Public_Sans({
+  weight: ["600"],
+  subsets: ["latin"],
+  display: "swap",
+});
+
+
+const inter = Inter({
+  weight: ["400"],
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const outfit = Outfit({
+  weight: ["600"],
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const poppins = Poppins({
+  weight: ["600"],
+  subsets: ["latin"],
+  display: "swap",
+});
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,17 +39,17 @@ export default function ReflectedServices() {
   const cards = [
     {
       title: "Podcast Services",
-      desc: "Navigate the ever-evolving digital landscape with finesse. Our expert social media gurus curate and orchestrate your online presence, ensuring your brand shines bright across platforms.",
+      desc: "Navigate the ever-evolving digital landscape with finesse. Our expert social media gurus curate and orchestrate your online presence, ensuring your brand shines bright across platforms. Say goodbye to social media stress; we've got this covered.",
       img: pod,
     },
     {
       title: "Product Analysis",
-      desc: "Unlock insights with in-depth analysis to help optimize your product performance and reach the right audience effectively.",
+      desc: "Navigate the ever-evolving digital landscape with finesse. Our expert social media gurus curate and orchestrate your online presence, ensuring your brand shines bright across platforms. Say goodbye to social media stress; we've got this covered.",
       img: pod,
     },
     {
       title: "Brand Strategy",
-      desc: "Build a compelling story for your brand with strategies tailored to enhance visibility, trust, and long-term growth.",
+      desc: "Navigate the ever-evolving digital landscape with finesse. Our expert social media gurus curate and orchestrate your online presence, ensuring your brand shines bright across platforms. Say goodbye to social media stress; we've got this covered.",
       img: pod,
     },
   ];
@@ -73,7 +101,7 @@ export default function ReflectedServices() {
     );
   }, []);
 
-  // 🔹 Keep your existing mobile + desktop animation useEffects unchanged
+  //  Keep your existing mobile + desktop animation useEffects unchanged
   useEffect(() => {
     mobileRefs.current.forEach((el, i) => {
       if (!el) return;
@@ -113,9 +141,10 @@ export default function ReflectedServices() {
       } else {
         const isCenter = pos === 0;
         gsap.to(el, {
-          x: pos * 280,
+          x: pos * 200,
           scale: isCenter ? 1.1 : 0.9,
           opacity: isCenter ? 1 : 0.5,
+          filter: isCenter ? "blur(0px)" : "blur(4px)",
           zIndex: isCenter ? 20 : 10,
           duration: 0.7,
           ease: "power3.out",
@@ -125,8 +154,8 @@ export default function ReflectedServices() {
   }, [index]);
 
   return (
-    <section className="relative flex items-center justify-center bg-black text-white py-16 overflow-hidden mb-20">
-      {/* 🔹 Mobile View */}
+    <section className="relative flex items-center justify-center bg-black text-white lg:py-10 px-16 overflow-hidden mb-20">
+      {/*  Mobile View */}
       <div className="flex flex-col items-center w-full px-4 lg:hidden">
         <div className="w-full text-center px-6">
           <h2
@@ -147,12 +176,12 @@ export default function ReflectedServices() {
               className="absolute w-11/12 rounded-2xl p-[2px] bg-gradient-to-b from-[#80FBFF] to-black"
             >
               <div className="rounded-2xl p-6 flex flex-col items-center justify-center backdrop-blur-3xl bg-black">
-                <h3 className="text-2xl font-black uppercase mb-2 text-center mt-3">
+                <h3 className={`text-2xl uppercase mb-2 text-center mt-3 ${poppins.className}`}>
                   {card.title}
                 </h3>
-                <p className="text-gray-300 text-sm text-center">{card.desc}</p>
+                <p className={`text-gray-300 text-[10px] text-center ${outfit.className}`}>{card.desc}</p>
                 <h1 className="mt-5 text-6xl text-black/50 stroke-white font-extrabold">
-                  <span className="stroke-blur">STUDIO</span>
+                  <span className={`stroke-blur ${outfit.className}`}>STUDIO</span>
                 </h1>
                 <Image
                   src={card.img}
@@ -167,12 +196,12 @@ export default function ReflectedServices() {
         </div>
       </div>
 
-      {/* 🔹 Desktop View */}
-      <div className="hidden lg:flex flex-col lg:flex-row items-center w-full gap-8 mx-auto max-w-7xl md:max-w-6xl">
+      {/*  Desktop View */}
+      <div className="hidden lg:flex flex-col lg:flex-row items-center w-full gap-8 mx-auto lg:max-w-6xl md:max-w-6xl px-8">
         <div className="flex-1 text-left px-6 lg:-ml-35">
           <h2
             ref={headingRef}
-            className="text-9xl font-bold leading-tight"
+            className={`text-9xl font-bold leading-tight ${publicSans.className}`}
           >
             <span className="stroke-blur">
               What <br /> we <br /> Offer
@@ -181,7 +210,7 @@ export default function ReflectedServices() {
         </div>
 
         {/* dots */}
-        <div className="flex justify-start gap-3 mt-160 relative -ml-70">
+        <div className="flex justify-start gap-3 mt-160 relative -ml-90">
           {cards.map((_, i) => (
             <span
               key={i}
@@ -193,32 +222,41 @@ export default function ReflectedServices() {
         </div>
 
         {/* card slider */}
-        <div className="flex-4 relative h-[700px] flex items-center justify-center ml-80">
-          {cards.map((card, i) => (
-            <div
-              key={i}
-              ref={(el) => {
-                if (el) desktopRefs.current[i] = el;
-              }}
-              className="absolute lg:w-[480px] h-[650px] md:w-[380px] rounded-2xl p-[2px] bg-gradient-to-b from-[#80FBFF] to-black"
-            >
-              <div className="w-full h-full rounded-2xl shadow-lg backdrop-blur-3xl p-6 flex flex-col   overflow-hidden bg-black">
-                <h3 className="text-4xl font-black uppercase mb-2 text-left mt-3">
-                  {card.title}
-                </h3>
-                <p className="text-gray-300">{card.desc}</p>
-                <h1 className="mt-5 lg:text-9xl stroke-blur md:text-7xl md:-ml-6">STUDIO</h1>
-                <Image
-                  src={card.img}
-                  alt={card.title}
-                  width={450}
-                  height={350}
-                  className="rounded-xl object-contain -mt-15"
-                />
-              </div>
-            </div>
-          ))}
+        <div className="flex-4 relative h-[750px] flex items-center justify-center ml-80 px-4 py-4 max-w-4xl">
+  {cards.map((card, i) => (
+    <div
+      key={i}
+      ref={(el) => {
+        if (el) desktopRefs.current[i] = el;
+      }}
+      className="absolute lg:w-[580px] h-[750px] md:w-[380px] rounded-2xl p-[2px] bg-gradient-to-b from-[#80FBFF] to-black"
+    >
+      <div className="w-full h-full rounded-2xl shadow-lg backdrop-blur-3xl p-6 flex flex-col overflow-hidden bg-black relative">
+        <h3 className={`text-[40px] text-[rgba(255,255,255,1)] font-black uppercase mb-2 text-left mt-3 ${poppins.className}`}>
+          {card.title}
+        </h3>
+        <p className={`${outfit.className} text-[rgba(224,224,224,0.8)] text-xl`}>{card.desc}</p>
+        <h1
+          className={`mt-5 lg:text-9xl stroke-blur md:text-7xl md:-ml-6 ${inter.className} text-center`}
+        >
+          STUDIO
+        </h1>
+
+        {/* --- Image to extreme right --- */}
+        <div className="absolute right-0 bottom-0 flex items-end justify-end">
+          <Image
+            src={card.img}
+            alt={card.title}
+            width={450}
+            height={450}
+            className="rounded-xl object-contain"
+          />
         </div>
+      </div>
+    </div>
+  ))}
+</div>
+
       </div>
     </section>
   );

@@ -6,6 +6,10 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import img1 from "../../../public/gautampodcast 1.png";
 import img2 from "../../../public/youtube.png";
+import img3 from "@/../public/video2.png"
+import img4 from "@/../public/video3.png"
+import NewsletterFooter from "../Common/footer";
+import bg from "@/../public/second.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -86,9 +90,18 @@ export default function VideoSection() {
   }, []);
 
   return (
-    <section className="px-4 md:px-12 lg:px-20 py-12 bg-black flex flex-col items-center mb-10">
+    <section className="px-4 md:px-12 lg:px-20 lg:py-12 bg-black flex flex-col items-center lg:mb-30 ">
+
+<Image
+        src={bg}
+        alt="Background"
+        fill
+        priority
+        className="object-cover object-center -z-0 mt-[1800px]"
+      />
+      
       {/* Character image */}
-      <div ref={charRef} className="relative flex justify-center items-center w-full mb-8 pt-10">
+      <div  className="relative flex justify-center items-center w-full mb-8 pt-10">
         <Image
           src={img1}
           alt="Character"
@@ -100,10 +113,10 @@ export default function VideoSection() {
       </div>
 
       {/* Mobile: Single video */}
-      <div className="block md:hidden w-full">
+      <div className="block md:hidden w-full mb-30">
         <div
           ref={mobileVideoRef}
-          className="w-full border border-white rounded-2xl overflow-hidden relative -mt-25"
+          className="w-full border border-white rounded-2xl overflow-hidden relative"
         >
           <Image
             src={img2}
@@ -129,7 +142,7 @@ export default function VideoSection() {
       </div>
 
       {/* Desktop: Stacked videos */}
-      <div className="hidden md:block pb-10 -pt-10">
+      <div className="hidden md:block pb-10 -pt-10 lg:mb-50">
         <div
           ref={(el: HTMLDivElement | null): void => { desktopVideoRefs.current[0] = el; }}
           className="max-w-9xl backdrop-blur relative px-5 py-5 -mt-50 border-1 border-white rounded-3xl z-20"
@@ -140,13 +153,13 @@ export default function VideoSection() {
           ref={(el: HTMLDivElement | null): void => { desktopVideoRefs.current[1] = el; }}
           className="max-w-[76rem] flex flex-col blur-xs px-5 backdrop-blur-2xl glow-box items-center justify-center relative ml-10 -mt-155 border-1 border-white rounded-3xl z-10 py-5"
         >
-          <Image src={img2} alt="Videos" width={1200} height={400} className="object-contain rounded" priority />
+          <Image src={img3} alt="Videos" width={1200} height={400} className="object-contain rounded" priority />
         </div>
         <div
           ref={(el: HTMLDivElement | null): void => { desktopVideoRefs.current[2] = el; }}
           className="max-w-[70rem] flex flex-col glow-box blur-xs px-5 items-center justify-center relative ml-18 -mt-140 border-1 border-white rounded-3xl py-5"
         >
-          <Image src={img2} alt="Videos" width={1200} height={400} className="object-contain" priority />
+          <Image src={img4} alt="Videos" width={1200} height={400} className="object-contain" priority />
         </div>
 
         <div className="relative flex items-center justify-center -mt-50 z-30">
@@ -163,6 +176,13 @@ export default function VideoSection() {
             </svg>
           </div>
         </div>
+      </div>
+
+
+     
+
+      <div className="z-30">
+      <NewsletterFooter/>
       </div>
     </section>
   );

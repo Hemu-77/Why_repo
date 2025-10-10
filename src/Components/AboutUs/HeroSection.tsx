@@ -8,27 +8,25 @@ import { useGSAP } from "@gsap/react";
 import character from "@/../public/Sitting.png";
 import bg from "@/../public/header.png";
 
-gsap.registerPlugin();
-
 export default function HeroSection() {
   const containerRef = useRef(null);
 
   useGSAP(() => {
-    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+    const tl = gsap.timeline({ defaults: { ease: "power2.out", duration: 2 } });
 
-    // Character comes from top
+    // Character comes from bottom
     tl.fromTo(
       ".character",
-      { y: -300, opacity: 0 },
-      { y: 0, opacity: 1, duration: 3 }
+      { y: 150, opacity: 0 },
+      { y: 0, opacity: 1 }
     );
 
-    // Words slide from left one by one
+    // Words slide up one by one
     tl.fromTo(
       ".word",
-      { x: -500, opacity: 0 },
-      { x: 0, opacity: 1, duration: 2.8, stagger: 0.25 },
-      "-=0.5" // overlap a bit with character animation
+      { y: 80, opacity: 0 },
+      { y: 0, opacity: 1, stagger: 0.25 },
+      "-=1.5" // overlap with character animation
     );
   }, { scope: containerRef });
 
@@ -37,6 +35,8 @@ export default function HeroSection() {
       ref={containerRef}
       className="relative h-[800px] flex flex-col items-center justify-center overflow-hidden"
     >
+
+
       {/* Background Image */}
       <Image
         src={bg}
@@ -46,6 +46,7 @@ export default function HeroSection() {
         className="object-cover object-center"
       />
 
+<div className="absolute top-0 left-0 w-full h-1/6 bg-gradient-to-b from-black to-transparent z-30 pointer-events-none"></div>
       {/* ---------- Desktop Version ---------- */}
       <div className="w-full max-w-7xl mx-auto">
         <div className="hidden lg:flex relative z-10 flex-nowrap -ml-10 overflow-hidden mt-30">
@@ -95,6 +96,8 @@ export default function HeroSection() {
           Brand Go <span className="text-red-500">Viral</span>
         </h1>
       </div>
+      <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black to-transparent z-30 pointer-events-none"></div>
+
     </section>
   );
 }

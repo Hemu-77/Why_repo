@@ -26,31 +26,28 @@ const HeroSection: FC = () => {
           x: e.clientX,
           y: e.clientY,
           duration: 0.1,
-          ease: "none"
+          ease: "none",
         });
       };
-
-      window.addEventListener('mousemove', moveCursor);
-
+      window.addEventListener("mousemove", moveCursor);
       gsap.set(cursor, { opacity: 1, scale: 1 });
     }
 
-    // Calculate dynamic center offset
     const getCenterOffset = () => {
       if (!container || !smallHeading) return 0;
-      
       const containerRect = container.getBoundingClientRect();
       const headingRect = smallHeading.getBoundingClientRect();
-
       const containerCenter = containerRect.left + containerRect.width / 2;
       const headingLeft = headingRect.left;
       const headingCenter = headingRect.width / 2;
-      
       return containerCenter - headingLeft - headingCenter;
     };
 
-    const tl = gsap.timeline({ defaults: { ease: "power3.out" },
-    delay:2.8 });
+    const tl = gsap.timeline({
+      defaults: { ease: "power3.out" },
+      delay: 2.8,
+    });
+
     const centerOffset = getCenterOffset();
 
     gsap.set("#small-heading", {
@@ -73,75 +70,20 @@ const HeroSection: FC = () => {
       zIndex: 1000,
     });
 
-    gsap.set("#description .word", {
-      opacity: 0,
-      filter: "blur(10px)",
-    });
+    gsap.set("#description .word", { opacity: 0, filter: "blur(10px)" });
+    gsap.set("#cta-btn", { opacity: 0, y: 20 });
+    gsap.set("#character", { opacity: 0, x: 100 });
 
-    gsap.set("#cta-btn", {
-      opacity: 0,
-      y: 20,
-    });
-
-    gsap.set("#character", {
-      opacity: 0,
-      x: 100,
-    });
-
-    tl.to("#small-heading", {
-      opacity: 1,
-      duration: 1,
-      
-      ease: "power3.out",
-    });
-
-    tl.to("#main-heading .line:first-child", {
-      opacity: 1,
-      duration: 1.2,
-      ease: "power3.out",
-    }, "-=0.3")
-    .to("#small-heading", {
-      y: "60vh",
-      duration: 1.2,
-      ease: "power3.out",
-    }, "<");
-
-    tl.to("#main-heading .line:last-child", {
-      opacity: 1,
-      duration: 1.5,
-      ease: "power3.out",
-    }, "-=0.5")
-    .to("#small-heading", {
-      y: "30vh",
-      duration: 1.5,
-      ease: "power3.out",
-    }, "<")
-    .to("#main-heading .line:first-child", {
-      y: "40vh",
-      duration: 1.5,
-      ease: "power3.out",
-    }, "<");
-
-    tl.to("#third-heading .line", {
-      opacity: 1,
-      duration: 1.8,
-      ease: "power3.out",
-    }, "-=0.3")
-    .to("#small-heading", {
-      y: "0vh",
-      duration: 1.8,
-      ease: "power3.out",
-    }, "<")
-    .to("#main-heading .line:first-child", {
-      y: "5vh",
-      duration: 1.8,
-      ease: "power3.out",
-    }, "<")
-    .to("#main-heading .line:last-child", {
-      y: "15vh",
-      duration: 1.8,
-      ease: "power3.out",
-    }, "<");
+    tl.to("#small-heading", { opacity: 1, duration: 1 });
+    tl.to("#main-heading .line:first-child", { opacity: 1, duration: 1.2 }, "-=0.3")
+      .to("#small-heading", { y: "60vh", duration: 1.2 }, "<");
+    tl.to("#main-heading .line:last-child", { opacity: 1, duration: 1.5 }, "-=0.5")
+      .to("#small-heading", { y: "30vh", duration: 1.5 }, "<")
+      .to("#main-heading .line:first-child", { y: "40vh", duration: 1.5 }, "<");
+    tl.to("#third-heading .line", { opacity: 1, duration: 1.8 }, "-=0.3")
+      .to("#small-heading", { y: "0vh", duration: 1.8 }, "<")
+      .to("#main-heading .line:first-child", { y: "5vh", duration: 1.8 }, "<")
+      .to("#main-heading .line:last-child", { y: "15vh", duration: 1.8 }, "<");
 
     tl.to("#small-heading", {
       y: 0,
@@ -152,77 +94,43 @@ const HeroSection: FC = () => {
       fontSize: "3rem",
       zIndex: 1,
       duration: 1.8,
-      ease: "power3.out",
     }, "+=0.3");
 
-    tl.to(
-      "#main-heading .line",
-      {
-        y: 0,
-        x: 0,
-        xPercent: 0,
-        yPercent: 0,
-        scale: 1,
-        fontSize: "inherit",
-        zIndex: 1,
-        duration: 1.8,
-        ease: "power3.out",
-      },
-      "<"
-    );
-
-    tl.to(cursor, {
-      opacity: 0,
-      scale: 0,
-      duration: 0.5,
-      ease: "power2.out",
+    tl.to("#main-heading .line", {
+      y: 0,
+      x: 0,
+      xPercent: 0,
+      yPercent: 0,
+      scale: 1,
+      fontSize: "inherit",
+      zIndex: 1,
+      duration: 1.8,
     }, "<");
 
-    tl.to(
-      "#description .word",
-      {
-        opacity: 1,
-        filter: "blur(0px)",
-        duration: 0.5,
-        stagger: 0.1,
-        ease: "power2.out",
-      },
-      "-=0.5"
-    );
+    tl.to(cursor, { opacity: 0, scale: 0, duration: 0.5 }, "<");
 
-    tl.to(
-      "#cta-btn",
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: "power3.out",
-      },
-      "-=0.3"
-    );
+    tl.to("#description .word", {
+      opacity: 1,
+      filter: "blur(0px)",
+      duration: 0.5,
+      stagger: 0.1,
+    }, "-=0.5");
 
-    tl.to(
-      "#character",
-      {
-        x: 0,
-        opacity: 1,
-        duration: 1.2,
-        ease: "power3.out",
-      },
-      "-=1"
-    );
+    tl.to("#cta-btn", { opacity: 1, y: 0, duration: 0.8 }, "-=0.3");
+    tl.to("#character", { x: 0, opacity: 1, duration: 1.2 }, "-=1");
   }, []);
 
   return (
     <div>
+      {/* Custom cursor */}
       <div
         ref={cursorRef}
         className="fixed w-10 h-10 pointer-events-none z-[9999]"
         style={{
           left: 0,
           top: 0,
-          transform: 'translate(-50%, -50%)',
-          opacity: 0
+          transform: "translate(-50%, -50%)",
+          opacity: 0,
         }}
       >
         <div className="w-full h-full border-2 border-white rounded-full relative">
@@ -232,80 +140,91 @@ const HeroSection: FC = () => {
         </div>
       </div>
 
-      <section className="relative h-screen flex text-white overflow-hidden  bg-center mx-auto">
-      <Image
-        src={bg}
-        alt="Background"
-        fill
-        priority
-        quality={100}
-        className="object-cover z-10"
-      />
-      <div ref={containerRef} className="w-full max-w-7xl mx-auto my-auto z-20">
-        <div className="relative container px-4 lg:px-16 lg:pt-10 grid grid-cols-1 lg:grid-cols-6 items-center pt-20 -ml-20">
-          {/* Right Character */}
-          <div
-            id="character"
-            className="relative opacity-0 mx-auto  lg:mx-0 mt-8 lg:mt-0 w-[220px] sm:w-[280px] md:w-[320px] lg:w-[450px] lg:col-span-1 pl-0 lg:pl-4 order-1 lg:order-2"
-          >
-            <Image src={character} alt="Character" className="object-contain" priority />
-          </div>
+      {/* Hero Section */}
+      <section className="relative h-screen flex text-white overflow-hidden bg-center mx-auto">
+        {/* Background */}
+        <Image
+          src={bg}
+          alt="Background"
+          fill
+          priority
+          quality={100}
+          className="object-cover z-10"
+        />
 
-          {/* Left Content */}
-          <div className="lg:col-span-5 space-y-6 text-center lg:text-left order-2 lg:order-1">
-            {/* Small heading */}
-            <p
-              ref={smallHeadingRef}
-              id="small-heading"
-              className="text-xl opacity-0 sm:text-2xl md:text-3xl lg:text-[2.7rem] font-extrabold"
-            >
-              We&apos;re Not A{" "}
-              <span className="text-yellow px-2 py-1 rounded-md inline-flex items-center">
-                Studio
-                <Image
-                  src={microphone}
-                  alt="microphone"
-                  className="w-13 h-13 object-contain ml-3"
-                />
-              </span>
-            </p>
+<div className="absolute top-0 left-0 w-full h-1/6 bg-gradient-to-b from-black to-transparent z-30 pointer-events-none"></div>
 
-            {/* Main heading  */}
-            <h1
-              ref={mainHeadingRef}
-              id="main-heading"
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[75px] font-black leading-tight tracking-tight"
+        {/* Content */}
+        <div ref={containerRef} className="w-full max-w-7xl mx-auto my-auto z-20 relative">
+          <div className="relative container px-4 lg:px-16 lg:pt-10 grid grid-cols-1 lg:grid-cols-6 items-center pt-20 -ml-20">
+            {/* Character (Right) */}
+            <div
+              id="character"
+              className="relative opacity-0 mx-auto lg:mx-0 mt-8 lg:mt-0 w-[220px] sm:w-[280px] md:w-[320px] lg:w-[450px] lg:col-span-1 pl-0 lg:pl-4 order-1 lg:order-2"
             >
-              <div className="line opacity-0">We&apos;re the reason</div>
-              <div className="line opacity-0">your competitors panic.</div>
-            </h1>
-            <p
-              id="description"
-              className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-[1.3rem] text-white max-w-full lg:max-w-[60rem] font-light"
-            >
-              {[
-                "From", "high-converting", "ads", "to", "studio-grade", "videos,", 
-                "podcasts", "to", "PR", "—", "we", "create", "content", "that", 
-                "builds", "authority,", "drives", "traffic,", "and", "fuels", 
-                "serious", "brand", "growth."
-              ].map((word, index) => (
-                <span key={index} className="word inline-block mr-1 opacity-0">
-                  {word}
+              <Image src={character} alt="Character" className="object-contain" priority />
+            </div>
+
+            {/* Text Content (Left) */}
+            <div className="lg:col-span-5 space-y-6 text-center lg:text-left order-2 lg:order-1">
+              {/* Small heading */}
+              <p
+                ref={smallHeadingRef}
+                id="small-heading"
+                className="text-xl opacity-0 sm:text-2xl md:text-3xl lg:text-[2.7rem] font-extrabold"
+              >
+                We&apos;re Not A{" "}
+                <span className="text-yellow px-2 py-1 rounded-md inline-flex items-center">
+                  Studio
+                  <Image
+                    src={microphone}
+                    alt="microphone"
+                    className="w-13 h-13 object-contain ml-3"
+                  />
                 </span>
-              ))}
-            </p>
+              </p>
 
-            {/* Button */}
-            <button
-              id="cta-btn"
-              className="px-5 sm:px-6 py-2 opacity-0 sm:py-3 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 rounded-full text-white font-semibold shadow-lg transition mt-6 lg:mt-10"
-            >
-              DOWNLOAD PORTFOLIO
-            </button>
+              {/* Main heading */}
+              <h1
+                ref={mainHeadingRef}
+                id="main-heading"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[75px] font-black leading-tight tracking-tight"
+              >
+                <div className="line opacity-0">We&apos;re the reason</div>
+                <div className="line opacity-0">your competitors panic.</div>
+              </h1>
+
+              {/* Description */}
+              <p
+                id="description"
+                className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-[1.3rem] text-white max-w-full lg:max-w-[60rem] font-light"
+              >
+                {[
+                  "From", "high-converting", "ads", "to", "studio-grade", "videos,", 
+                  "podcasts", "to", "PR", "—", "we", "create", "content", "that", 
+                  "builds", "authority,", "drives", "traffic,", "and", "fuels", 
+                  "serious", "brand", "growth."
+                ].map((word, index) => (
+                  <span key={index} className="word inline-block mr-1 opacity-0">
+                    {word}
+                  </span>
+                ))}
+              </p>
+
+              {/* CTA Button */}
+              <button
+                id="cta-btn"
+                className="px-5 sm:px-6 py-2 opacity-0 sm:py-3 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 rounded-full text-white font-semibold shadow-lg transition mt-6 lg:mt-10"
+              >
+                DOWNLOAD PORTFOLIO
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+
+       
+        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black to-transparent z-30 pointer-events-none"></div>
+      </section>
     </div>
   );
 };

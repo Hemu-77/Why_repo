@@ -52,6 +52,8 @@ export default function HeroSection() {
         className="object-cover object-center"
       />
 
+<div className="absolute top-0 left-0 w-full h-1/6 bg-gradient-to-b from-black to-transparent z-30 pointer-events-none"></div>
+
       {/* Main content */}
       <div
         className="relative z-10 flex items-center w-full max-w-7xl mx-auto pt-20 sm:pt-28 md:pt-32 lg:pt-60"
@@ -88,6 +90,8 @@ export default function HeroSection() {
           />
         </div>
       </div>
+      <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black to-transparent z-20 pointer-events-none"></div>
+
     </section>
   );
 }

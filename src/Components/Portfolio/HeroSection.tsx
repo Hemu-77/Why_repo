@@ -24,84 +24,86 @@ export default function PortfolioSection() {
   useGSAP(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
-        defaults: { ease: "power2.out", duration: 2 },
+        defaults: { ease: "power2.out", duration: 1 }, // ⏩ was 2 → now 1 (global speed-up)
       });
-
+  
       // Title slides down gently from top
       tl.from(".heading-title", {
-        y: -100,
+        y: -80,
         opacity: 1,
+        duration: 0.8,
       });
-
+  
       // Paragraph fades in from bottom
       tl.from(
         ".intro-text",
         {
-          y: 60,
+          y: 40,
           opacity: 0,
-          duration: 2.2,
+          duration: 1,
         },
-        "-=1.2"
+        "-=0.6"
       );
-
+  
       // Pills fade up one by one
       tl.from(
         ".nav-pill",
         {
-          y: 40,
+          y: 30,
           opacity: 0,
-          stagger: 0.3,
+          stagger: 0.2, // faster stagger
+          duration: 0.8,
         },
-        "-=1.4"
+        "-=0.8"
       );
-
+  
       // Red circle fades up softly
       tl.from(
         ".circle-red",
         {
-          y: 60,
+          y: 40,
           opacity: 0,
-          duration: 1.5,
-          ease: "power3.out",
+          duration: 0.8,
+          ease: "power2.out",
         },
-        "-=1"
+        "-=0.6"
       );
-
+  
       // Circle outline fades in after
       tl.from(
         ".circle-outline",
         {
-          y: 40,
+          y: 30,
           opacity: 0,
-          duration: 1.8,
+          duration: 0.9,
           ease: "power2.out",
         },
-        "-=1.2"
+        "-=0.6"
       );
-
+  
       // Character image comes up from bottom
       tl.from(
         ".character-image",
         {
-          y: 120,
+          y: 100,
           opacity: 0,
-          duration: 2.4,
+          duration: 1.2,
           ease: "power3.out",
         },
-        "-=1.8"
+        "-=1"
       );
-
+  
       // "EXPLORE ALL OUR PORTFOLIO" text fades up
       tl.from(
         ".explore-text",
         {
-          y: 60,
+          y: 40,
           opacity: 0,
-          duration: 2,
+          duration: 1,
         },
-        "-=1.2"
+        "-=0.8"
       );
-
+  
       // Parallax scroll effect (character moves upward on scroll)
       gsap.to(".character-image", {
         y: -60,
@@ -113,7 +115,7 @@ export default function PortfolioSection() {
           scrub: 1.5,
         },
       });
-
+  
       // Heading slow float on scroll
       gsap.to(".heading-title", {
         y: 40,
@@ -125,23 +127,24 @@ export default function PortfolioSection() {
           scrub: 1.5,
         },
       });
-
+  
       // Infinite rotation for circular text
       gsap.to(".circle-text", {
         rotate: 360,
-        duration: 40,
+        duration: 25, // was 40 → faster rotation
         repeat: -1,
         ease: "linear",
       });
     }, sectionRef);
-
+  
     return () => ctx.revert();
   }, []);
+  
 
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen flex flex-col items-center justify-start md:justify-center overflow-visible py-5 mb-10"
+      className="relative lg:min-h-screen flex flex-col items-center justify-start md:justify-center  py-5 lg:mb-10"
     >
       {/* Background */}
       <Image
@@ -152,6 +155,7 @@ export default function PortfolioSection() {
         className="object-cover object-center z-10"
       />
 
+<div className="absolute top-0 left-0 w-full h-1/6 bg-gradient-to-b from-black to-transparent z-30 pointer-events-none"></div>
       {/* Blur overlay */}
       <div className="absolute right-0 top-0 h-full w-3/4 backdrop-blur-[60px] -z-10 hidden md:block"></div>
 
@@ -182,18 +186,18 @@ export default function PortfolioSection() {
         </div>
 
         {/* Right Character */}
-        <div className="flex flex-col h-[1000px] w-screen rounded-4xl items-center space-y-4 md:space-y-6 lg:-mb-120 md:mt-0 lg:-ml-90 lg:pl-10 overflow-visible backdrop">
+        <div className="flex flex-col lg:h-[1000px] w-screen rounded-4xl items-center space-y-4 md:space-y-6 lg:-mb-120 md:mt-0 lg:-ml-90 lg:pl-10 overflow-visible lg:backdrop">
           <h3
             className={`explore-text relative text-white font-bold text-2xl md:text-5xl pr-0 md:pr-10 md:pt-35 lg:text-[48px] lg:-ml-80px lg:-mt-25 ${ptMono.className}`}
           >
             EXPLORE ALL OUR PORTFOLIO
           </h3>
-          <div className="relative w-[280px] h-[350px] md:w-[420px] md:h-[520px] ml-60 lg:mt-0 lg:-mr-10 overflow-visible">
+          <div className="relative w-[280px] h-[350px] md:w-[420px] md:h-[520px] ml-60 lg:mt-0 lg:-mr-10 overflow-visible z-50">
             <Image
               src={character}
               alt="Character"
               fill
-              className="character-image object-contain z-20"
+              className="character-image object-contain z-50"
               priority
             />
           </div>
@@ -212,6 +216,8 @@ export default function PortfolioSection() {
           Gallery
         </span>
       </div>
+      <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black to-transparent z-20 pointer-events-none"></div>
+
     </section>
   );
 }
