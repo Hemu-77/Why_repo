@@ -144,7 +144,7 @@ export default function PortfolioSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative lg:min-h-screen flex flex-col items-center justify-start md:justify-center  py-5 lg:mb-10"
+      className="relative min-h-screen flex flex-col items-center  md:justify-center  py-5"
     >
       {/* Background */}
       <Image
@@ -160,7 +160,7 @@ export default function PortfolioSection() {
       <div className="absolute right-0 top-0 h-full w-3/4 backdrop-blur-[60px] -z-10 hidden md:block"></div>
 
       {/* Content */}
-      <div className="relative flex flex-col md:flex-row items-center justify-between w-full max-w-7xl px-4 md:px-8 py-8 md:py-16 mt-25 z-20">
+      <div className="relative flex flex-col md:flex-row  w-full max-w-7xl px-4 md:px-8 py-8 z-20 lg:-mt-20">
         {/* Left Content */}
         <div className="flex flex-col space-y-4 md:space-y-6 pt-12 md:pt-0 z-10">
           <h1 className="heading-title text-white text-7xl md:text-[11rem] font-extrabold leading-none">
@@ -192,12 +192,12 @@ export default function PortfolioSection() {
           >
             EXPLORE ALL OUR PORTFOLIO
           </h3>
-          <div className="relative w-[280px] h-[350px] md:w-[420px] md:h-[520px] ml-60 lg:mt-0 lg:-mr-10 overflow-visible z-50">
+          <div className="relative w-[280px] h-[350px] md:w-[420px] md:h-[520px] lg:ml-60 lg:mt-0 lg:-mr-10 overflow-visible z-50 ">
             <Image
               src={character}
               alt="Character"
               fill
-              className="character-image object-contain z-50"
+              className="character-image object-contain z-[9999] overflow-visible"
               priority
             />
           </div>
@@ -205,17 +205,7 @@ export default function PortfolioSection() {
       </div>
 
       {/* Pills */}
-      <div className="absolute top-10 left-1/2 -translate-x-1/2 gap-4 mt-30 lg:mt-20 z-20 lg:flex hidden md:block mb-30">
-        <span className="nav-pill px-6 py-2 rounded-full bg-red-500 text-white font-medium">
-          Portfolio
-        </span>
-        <span className="nav-pill px-6 py-2 rounded-full bg-black/40 backdrop-blur-lg text-white">
-          Case Studies
-        </span>
-        <span className="nav-pill px-6 py-2 rounded-full bg-black/40 backdrop-blur-lg text-white">
-          Gallery
-        </span>
-      </div>
+      
       <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black to-transparent z-20 pointer-events-none"></div>
 
     </section>

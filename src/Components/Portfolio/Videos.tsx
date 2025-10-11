@@ -90,7 +90,7 @@ export default function VideoSection() {
   }, []);
 
   return (
-    <section className="px-4 md:px-12 lg:px-20 lg:py-12 bg-black flex flex-col items-center lg:mb-30 ">
+    <section className="px-4 md:px-12 lg:px-20  bg-black flex flex-col items-center lg:mb-30 ">
 
 <Image
         src={bg}

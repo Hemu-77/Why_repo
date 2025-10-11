@@ -67,7 +67,7 @@ body {
 
 
 .stroke-blur {
-  color: rgba(255, 255, 255, 0); /* faint fill so blur shows */
+  color: rgba(255, 255, 255, 0.2); /* faint fill so blur shows */
   -webkit-text-stroke: 1.5px #ffffff; /* solid stroke */
   
 }
