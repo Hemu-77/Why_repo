@@ -1,22 +1,28 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Inter, Outfit } from "next/font/google";
-import banner from "@/../public/banner.png"
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import banner from "@/../public/banner.png";
 import bg from "@/../public/second.png";
 import NewsletterFooter from "@/Components/Common/footer";
 
-const inter = Inter({
-    weight: ["700"],
-    subsets: ["latin"],
-    display: "swap",
-  });
+gsap.registerPlugin(ScrollTrigger);
 
-  const outfit = Outfit({
-    weight: ["400"],
-    subsets: ["latin"],
-    display: "swap",
-  });
-  
+const inter = Inter({
+  weight: ["700"],
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const outfit = Outfit({
+  weight: ["400"],
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export default function VideoDetail({ params }: { params: { slug: string } }) {
   const { slug } = params;
@@ -38,11 +44,58 @@ export default function VideoDetail({ params }: { params: { slug: string } }) {
       title: "Bootstrap To 10CR+",
       subtitle: "Invested in 60+ Startups",
       mainImage: "/youtube.png",
-      sectionImage:banner,
+      sectionImage: banner,
     },
   };
 
   const video = videoData[slug];
+
+  // Refs for animation
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const imageRef = useRef<HTMLDivElement | null>(null);
+  const titleRef = useRef<HTMLHeadingElement | null>(null);
+  const sectionsRef = useRef<HTMLDivElement[]>([]);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    const ctx = gsap.context(() => {
+      // Initial fade in for main image
+      gsap.from(imageRef.current, {
+        opacity: 0,
+        scale: 0.95,
+        y: 30,
+        duration: 1.2,
+        ease: "power3.out",
+      });
+
+      // Title animation
+      gsap.from(titleRef.current, {
+        opacity: 0,
+        y: 40,
+        delay: 0.3,
+        duration: 1,
+        ease: "power3.out",
+      });
+
+      // Section animations on scroll
+      sectionsRef.current.forEach((section, index) => {
+        gsap.from(section, {
+          scrollTrigger: {
+            trigger: section,
+            start: "top 85%",
+          },
+          opacity: 0,
+          y: 50,
+          duration: 1,
+          ease: "power3.out",
+          delay: index * 0.1,
+        });
+      });
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
 
   if (!video) {
     return (
@@ -53,14 +106,10 @@ export default function VideoDetail({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white px-6 md:px-20 py-10 pt-20">
-        {/* <Image
-        src={bg}
-        alt="Background"
-        fill
-       
-        className="relative mt-[1400px]"
-      /> */}
+    <div
+      ref={containerRef}
+      className="min-h-screen bg-black text-white px-6 md:px-20 py-10 pt-20 overflow-hidden"
+    >
       <Link href="/portfolio">
         <button className="bg-white/10 text-white px-4 py-2 rounded-full mb-6 hover:bg-white/20 transition">
           Back
@@ -68,37 +117,69 @@ export default function VideoDetail({ params }: { params: { slug: string } }) {
       </Link>
 
       <div className="w-full max-w-7xl mx-auto z-30 mb-40">
-
-      
-        <div className="bg-white/10 backdrop-blur-3xl p-3 rounded-3xl z-20">
-        <Image
-          src={video.mainImage}
-          alt={video.title}
-          width={1300}
-          height={814}
-          className="rounded-3xl shadow-lg w-full object-cover"
-        />
+        {/* Main Image */}
+        <div
+          ref={imageRef}
+          className="bg-white/10 backdrop-blur-3xl p-3 rounded-3xl z-20"
+        >
+          <Image
+            src={video.mainImage}
+            alt={video.title}
+            width={1300}
+            height={814}
+            className="rounded-3xl shadow-lg w-full object-cover"
+          />
         </div>
 
-        <h1 className={`text-4xl md:text-5xl font-bold mt-8 ${inter.className}`}>{video.title}</h1>
-        
+        {/* Title */}
+        <h1
+          ref={titleRef}
+          className={`text-4xl md:text-5xl font-bold mt-8 ${inter.className}`}
+        >
+          {video.title}
+        </h1>
 
-        <section className="mt-10">
+        {/* Section 1 */}
+        <section
+          ref={(el) => {
+            if (el && !sectionsRef.current.includes(el as HTMLDivElement)) {
+              sectionsRef.current.push(el as HTMLDivElement);
+            }
+          }}
+          className="mt-10"
+        >
           <h2 className={`text-2xl font-semibold mb-3 ${inter.className}`}>
             Invested in 60+ Startups
           </h2>
           <p className={`text-gray-400 leading-relaxed ${outfit.className}`}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
           </p>
         </section>
 
-        <section className="mt-10 grid md:grid-cols-2 gap-6 items-center">
+        {/* Section 2 */}
+        <section
+          ref={(el) => {
+            if (el && !sectionsRef.current.includes(el as HTMLDivElement)) {
+              sectionsRef.current.push(el as HTMLDivElement);
+            }
+          }}
+          className="mt-10 grid md:grid-cols-2 gap-6 items-center"
+        >
           <div>
             <h3 className={`text-2xl font-semibold mb-3 ${inter.className}`}>
               How to start 60+ Startups
             </h3>
             <p className={`text-gray-400 leading-relaxed ${outfit.className}`}>
-            Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+              Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
+              faucibus ex sapien vitae pellentesque sem placerat. In id cursus
+              mi pretium tellus duis convallis. Tempus leo eu aenean sed diam
+              urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum
+              egestas. Iaculis massa nisl malesuada lacinia integer nunc
+              posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad
+              litora torquent per conubia nostra inceptos himenaeos.
             </p>
           </div>
           <Image
@@ -109,25 +190,48 @@ export default function VideoDetail({ params }: { params: { slug: string } }) {
             className="rounded-2xl shadow-md object-cover"
           />
         </section>
-        <div className="mt-30">
-            <p className={`${outfit.className} text-gray-400 text-[18px]`}>
-            Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
-            </p>
 
+        {/* Section 3 */}
+        <div
+          ref={(el) => {
+            if (el && !sectionsRef.current.includes(el)) {
+              sectionsRef.current.push(el);
+            }
+          }}
+          className="mt-20"
+        >
+          <p className={`${outfit.className} text-gray-400 text-[18px]`}>
+            Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
+            faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi
+            pretium tellus duis convallis. Tempus leo eu aenean sed diam urna
+            tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas.
+            Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut
+            hendrerit semper vel class aptent taciti sociosqu. Ad litora
+            torquent per conubia nostra inceptos himenaeos.
+          </p>
         </div>
 
-        <div className="mt-30">
-            <p className={`${outfit.className} text-gray-400 text-[18px]`}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </p>
-
+        {/* Section 4 */}
+        <div
+          ref={(el) => {
+            if (el && !sectionsRef.current.includes(el)) {
+              sectionsRef.current.push(el);
+            }
+          }}
+          className="mt-20"
+        >
+          <p className={`${outfit.className} text-gray-400 text-[18px]`}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
+          </p>
         </div>
-
       </div>
 
-<div className="z-50">
-    <NewsletterFooter/>
-</div>
+      <div className="z-50">
+        <NewsletterFooter />
+      </div>
     </div>
   );
 }

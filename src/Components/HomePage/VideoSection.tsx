@@ -105,7 +105,7 @@ export default function VideoSection() {
 
 
 
-      <div ref={charRef} className="relative flex justify-center items-center w-full mb-8 pt-10 backdro">
+      <div ref={charRef} className="relative flex justify-center items-center w-full mb-8 pt-10 backdro -mt-20">
         <Image
           src={img1}
           alt="Character"
@@ -117,7 +117,7 @@ export default function VideoSection() {
       </div>
 
       {/* Mobile: Single video */}
-      <div className="block md:hidden w-full">
+      <div className="block md:hidden w-full ">
         <div
           ref={mobileVideoRef}
           className="w-full border border-white rounded-2xl overflow-hidden relative -mt-25"

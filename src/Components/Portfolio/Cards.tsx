@@ -1,14 +1,18 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import card1 from "@/../public/card1.png";
 import card2 from "@/../public/card2.png";
 import card3 from "@/../public/youtube.png";
 import bg from "@/../public/second.png";
 import { Outfit, Inter } from "next/font/google";
 import NewsletterFooter from "../Common/footer";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const outfit = Outfit({
   weight: ["400"],
@@ -53,25 +57,58 @@ const cards = [
 ];
 
 const VideoCards: React.FC = () => {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const cards = gsap.utils.toArray<HTMLDivElement>(".card-item");
+
+      cards.forEach((card, i) => {
+        gsap.fromTo(
+          card,
+          { opacity: 0, y: 100, scale: 0.95 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 1.2,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
+            },
+            delay: i * 0.1, // slight stagger effect
+          }
+        );
+      });
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <div className="relative w-full bg-black flex flex-col items-center justify-center gap-8 py-10">
+    <div
+      ref={containerRef}
+      className="relative w-full bg-black flex flex-col items-center justify-center gap-8 py-10 overflow-hidden"
+    >
       {/* Background Image */}
       <Image
         src={bg}
         alt="Background"
         fill
         priority
-        className=" -z-0 mt-[500px]"
+        className="object-cover object-center opacity-60"
       />
 
       {/* Cards */}
       {cards.map((card) => (
         <div
           key={card.id}
-          className="flex flex-col md:flex-row items-center md:items-start 
+          className="card-item flex flex-col md:flex-row items-center md:items-start 
           bg-[rgba(255,255,255,0.1)] backdrop-blur-3xl rounded-3xl 
           p-6 md:p-8 w-[90%] md:w-[80%] max-w-6xl shadow-xl 
-          hover:scale-[1.02] transition-transform duration-300"
+          hover:scale-[1.02] transition-transform duration-300 z-20 relative"
         >
           {/* Image Section */}
           <div className="w-full md:w-1/2 rounded-2xl overflow-hidden shadow-md">

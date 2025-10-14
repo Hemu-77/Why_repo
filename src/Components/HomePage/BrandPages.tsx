@@ -132,12 +132,12 @@ export default function BrandsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-[100vh] flex flex-col h-full items-center justify-center text-white overflow-hidden bg-cover bg-center px-4 sm:px-6 lg:px-12 -mt-15 lg:-ml-20"
+      className="relative min-h-[100vh] flex flex-col h-full items-center mb-20 -mt-20 justify-center text-white overflow-hidden bg-cover bg-center px-4 sm:px-6 lg:px-12 lg:-mt-15 lg:-ml-20 md:mt-30"
       style={{ backgroundImage: `url(${bg.src})` }}
     >
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/50"></div>
-      <div className="absolute top-0 left-0 w-full h-1/6 bg-gradient-to-b from-black to-transparent z-30 pointer-events-none"></div>
+      <div className="hidden absolute top-0 left-0 w-full h-1/6 bg-gradient-to-b from-black to-transparent z-30 pointer-events-none"></div>
 
 
 
@@ -202,7 +202,7 @@ export default function BrandsSection() {
           </p>
         </div>
       </div>
-      <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black to-transparent z-30 pointer-events-none"></div>
+      <div className="hidden absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black to-transparent z-30 pointer-events-none"></div>
 
     </section>
   );

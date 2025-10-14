@@ -51,7 +51,7 @@ const GallerySection = () => {
         ease: "power3.out",
         scrollTrigger: {
           trigger: ".podcast-img3",
-          start: "top 90%",
+          start: "top 80%",
           toggleActions: "play none none reverse",
         },
       });
@@ -75,12 +75,12 @@ const GallerySection = () => {
 
   return (
     <div>
-        <div
+    <div
       ref={containerRef}
-      className="grid grid-cols-11 gap-4 p-4 bg-black px-10 lg:py-5 mb-7 mt-10 lg:mb-30"
+      className="grid lg:grid-cols-11 gap-4 p-4 col-span-12 grid-cols-1 bg-black px-10 lg:py-5 mb-7 mt-10 lg:mb-30"
     >
       {/* Top Left */}
-      <div className="podcast-img1 col-span-6 overflow-hidden lg:rounded-tr-[150px] lg:rounded-tl-[60px] lg:rounded-bl-[60px]">
+      <div className="podcast-img1 col-span-12 lg:col-span-6 overflow-hidden rounded-3xl lg:rounded-tr-[150px] lg:rounded-tl-[60px] lg:rounded-bl-[60px]">
         <Image
           src={img1}
           alt="Interview with tripod"
@@ -89,9 +89,9 @@ const GallerySection = () => {
           className="object-cover w-full h-full"
         />
       </div>
-
+  
       {/* Top Right */}
-      <div className="podcast-img2 col-span-5 overflow-hidden lg:rounded-tl-[150px] lg:rounded-tr-[60px] lg:rounded-br-[60px]">
+      <div className="podcast-img2 col-span-12 lg:col-span-5 overflow-hidden rounded-3xl lg:rounded-tl-[150px] lg:rounded-tr-[60px] lg:rounded-br-[60px]">
         <Image
           src={img2}
           alt="Interview with bookshelf"
@@ -100,9 +100,9 @@ const GallerySection = () => {
           className="object-cover w-full h-full"
         />
       </div>
-
+  
       {/* Bottom Full Width */}
-      <div className="podcast-img3 col-span-12 overflow-hidden lg:rounded-tl-[60px] lg:rounded-bl-[60px] lg:rounded-tr-[150px]">
+      <div className="podcast-img3 col-span-12 overflow-hidden rounded-3xl lg:rounded-tl-[60px] lg:rounded-bl-[60px] lg:rounded-tr-[150px]">
         <Image
           src={img3}
           alt="Close-up with plant background"
@@ -111,9 +111,9 @@ const GallerySection = () => {
           className="object-cover w-full h-full"
         />
       </div>
-
-      {/* ✅ Last Two Images Row */}
-      <div className="last-row col-span-12 grid grid-cols-1 md:grid-cols-5 gap-4 mt-4">
+  
+      {/* Last Two Images Row */}
+      <div className="last-row col-span-12 grid grid-cols-1 md:grid-cols-5 gap-4 lg:mt-4">
         {/* Left Small Image */}
         <div className="podcast-img4 overflow-hidden rounded-3xl md:col-span-2 lg:rounded-tr-[150px] lg:rounded-tl-[50px] lg:rounded-bl-[60px]">
           <Image
@@ -124,7 +124,7 @@ const GallerySection = () => {
             className="object-cover w-full h-full"
           />
         </div>
-
+  
         {/* Right Wide Image */}
         <div className="podcast-img5 overflow-hidden rounded-3xl md:col-span-3 lg:rounded-tl-[150px] lg:rounded-br-[50px]">
           <Image
@@ -136,12 +136,13 @@ const GallerySection = () => {
           />
         </div>
       </div>
-     
     </div>
+  
     <div>
-        <NewsletterFooter/>
+      <NewsletterFooter />
     </div>
-    </div>
+  </div>
+  
   );
 };
 

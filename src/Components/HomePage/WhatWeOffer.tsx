@@ -180,7 +180,7 @@ export default function ReflectedServices() {
                   {card.title}
                 </h3>
                 <p className={`text-gray-300 text-[10px] text-center ${outfit.className}`}>{card.desc}</p>
-                <h1 className="mt-5 text-6xl text-black/50 stroke-white font-extrabold">
+                <h1 className="mt-5 text-5xl text-black/50 stroke-white font-extrabold">
                   <span className={`stroke-blur ${outfit.className}`}>STUDIO</span>
                 </h1>
                 <Image

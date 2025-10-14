@@ -52,7 +52,7 @@ const PodcastLayout = () => {
         ease: "power3.out",
         scrollTrigger: {
           trigger: ".podcast-img3",
-          start: "top 85%",
+          start: "top 90%",
           toggleActions: "play none none reverse",
         },
       });
