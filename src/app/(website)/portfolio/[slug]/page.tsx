@@ -26,7 +26,7 @@ const outfit = Outfit({
 
 export default function VideoDetail({ params }: { params: { slug: string } }) {
   const { slug } = params;
-
+ // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const videoData: Record<string, any> = {
     "how-to-crack-interview": {
       title: "How to Crack Interview",

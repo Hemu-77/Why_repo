@@ -8,15 +8,22 @@ import img1 from "../../../public/gautampodcast 1.png";
 import img2 from "../../../public/youtube.png";
 import img3 from "@/../public/video2.png"
 import img4 from "@/../public/video3.png"
+import { Public_Sans } from "next/font/google";
 import NewsletterFooter from "../Common/footer";
-import bg from "@/../public/second.png";
+
+
+const publicSans = Public_Sans({
+  weight: ["600"],
+  subsets: ["latin"],
+  display: "swap",
+});
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function VideoSection() {
   const charRef = useRef<HTMLDivElement | null>(null);
   const mobileVideoRef = useRef<HTMLDivElement | null>(null);
-  const desktopVideoRefs = useRef<Array<HTMLDivElement | null>>([]); // array of nodes (may contain null)
+  const desktopVideoRefs = useRef<Array<HTMLDivElement | null>>([]); 
   const playBtnRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -90,18 +97,16 @@ export default function VideoSection() {
   }, []);
 
   return (
-    <section className="px-4 md:px-12 lg:px-20  bg-black flex flex-col items-center lg:mb-30 ">
-
-<Image
-        src={bg}
-        alt="Background"
-        fill
-        priority
-        className="object-cover object-center -z-0 mt-[1800px]"
-      />
-      
+    <div>
+      <h1 className={`${publicSans.className} text-8xl stroke-blur text-center py-4 mb-6`}>Portfolio</h1>
+      <section className="px-4 md:px-12 lg:px-20 py-12 bg-black flex flex-col items-center mb-10 ">
       {/* Character image */}
-      <div  className="relative flex justify-center items-center w-full mb-8 pt-10">
+
+     
+
+
+
+      <div ref={charRef} className="relative flex justify-center items-center w-full mb-8 pt-10 backdro -mt-20">
         <Image
           src={img1}
           alt="Character"
@@ -113,10 +118,10 @@ export default function VideoSection() {
       </div>
 
       {/* Mobile: Single video */}
-      <div className="block md:hidden w-full mb-30">
+      <div className="block md:hidden w-full ">
         <div
           ref={mobileVideoRef}
-          className="w-full border border-white rounded-2xl overflow-hidden relative"
+          className="w-full border border-white rounded-2xl overflow-hidden relative -mt-25"
         >
           <Image
             src={img2}
@@ -142,7 +147,7 @@ export default function VideoSection() {
       </div>
 
       {/* Desktop: Stacked videos */}
-      <div className="hidden md:block pb-10 -pt-10 lg:mb-50">
+      <div className="hidden md:block">
         <div
           ref={(el: HTMLDivElement | null): void => { desktopVideoRefs.current[0] = el; }}
           className="max-w-9xl backdrop-blur relative px-5 py-5 -mt-50 border-1 border-white rounded-3xl z-20"
@@ -177,13 +182,10 @@ export default function VideoSection() {
           </div>
         </div>
       </div>
-
-
-     
-
-      <div className="z-30">
+      <div className="mt-40">
       <NewsletterFooter/>
       </div>
     </section>
+    </div>
   );
 }
