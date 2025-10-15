@@ -85,36 +85,48 @@ const HeroSection: FC = () => {
       .to("#main-heading .line:first-child", { y: "5vh", duration: 1.8 }, "<")
       .to("#main-heading .line:last-child", { y: "15vh", duration: 1.8 }, "<");
 
-    tl.to("#small-heading", {
-      y: 0,
-      x: 0,
-      xPercent: 0,
-      yPercent: 0,
-      scale: 1,
-      fontSize: "3rem",
-      zIndex: 1,
-      duration: 1.8,
-    }, "+=0.3");
+    tl.to(
+      "#small-heading",
+      {
+        y: 0,
+        x: 0,
+        xPercent: 0,
+        yPercent: 0,
+        scale: 1,
+        fontSize: "3rem",
+        zIndex: 1,
+        duration: 1.8,
+      },
+      "+=0.3"
+    );
 
-    tl.to("#main-heading .line", {
-      y: 0,
-      x: 0,
-      xPercent: 0,
-      yPercent: 0,
-      scale: 1,
-      fontSize: "inherit",
-      zIndex: 1,
-      duration: 1.8,
-    }, "<");
+    tl.to(
+      "#main-heading .line",
+      {
+        y: 0,
+        x: 0,
+        xPercent: 0,
+        yPercent: 0,
+        scale: 1,
+        fontSize: "inherit",
+        zIndex: 1,
+        duration: 1.8,
+      },
+      "<"
+    );
 
     tl.to(cursor, { opacity: 0, scale: 0, duration: 0.5 }, "<");
 
-    tl.to("#description .word", {
-      opacity: 1,
-      filter: "blur(0px)",
-      duration: 0.5,
-      stagger: 0.1,
-    }, "-=0.5");
+    tl.to(
+      "#description .word",
+      {
+        opacity: 1,
+        filter: "blur(0px)",
+        duration: 0.5,
+        stagger: 0.1,
+      },
+      "-=0.5"
+    );
 
     tl.to("#cta-btn", { opacity: 1, y: 0, duration: 0.8 }, "-=0.3");
     tl.to("#character", { x: 0, opacity: 1, duration: 1.2 }, "-=1");
@@ -134,7 +146,7 @@ const HeroSection: FC = () => {
         }}
       >
         <div className="w-full h-full border-2 border-white rounded-full relative">
-          <div className="absolute left-22 inset-0 flex items-center justify-center">
+          <div className="absolute inset-0 flex items-center justify-center">
             <span className="text-white text-xs font-bold">Loading...</span>
           </div>
         </div>
@@ -152,26 +164,29 @@ const HeroSection: FC = () => {
           className="object-cover z-10"
         />
 
-<div className="absolute top-0 left-0 w-full h-1/6 bg-gradient-to-b from-black to-transparent z-30 pointer-events-none"></div>
+        <div className="absolute top-0 left-0 w-full h-1/6 bg-gradient-to-b from-black to-transparent z-30 pointer-events-none"></div>
 
         {/* Content */}
-        <div ref={containerRef} className="w-full max-w-7xl mx-auto my-auto z-20 relative">
-          <div className="relative container px-4 lg:px-16 lg:pt-10 grid grid-cols-1 lg:grid-cols-6 items-center pt-20 -ml-20">
-            {/* Character (Right) */}
+        <div
+          ref={containerRef}
+          className="w-full max-w-7xl mx-auto my-auto z-20 relative px-4 sm:px-6 md:px-8 lg:px-16 lg:mr-55"
+        >
+          <div className="relative grid grid-cols-1 lg:grid-cols-6 items-center gap-6 pt-20">
+            {/* Character */}
             <div
               id="character"
-              className="relative opacity-0 mx-auto lg:mx-0 mt-8 lg:mt-0 w-[220px] sm:w-[280px] md:w-[320px] lg:w-[450px] lg:col-span-1 pl-0 lg:pl-4 order-1 lg:order-2"
+              className="relative opacity-0 mx-auto lg:mx-0 w-[180px] sm:w-[220px] md:w-[280px] lg:w-[450px] lg:col-span-1 order-1 lg:order-2"
             >
               <Image src={character} alt="Character" className="object-contain" priority />
             </div>
 
-            {/* Text Content (Left) */}
-            <div className="lg:col-span-5 space-y-6 text-center lg:text-left order-2 lg:order-1">
+            {/* Text Content */}
+            <div className="lg:col-span-5 space-y-4 sm:space-y-6 text-center lg:text-left order-2 lg:order-1">
               {/* Small heading */}
               <p
                 ref={smallHeadingRef}
                 id="small-heading"
-                className="text-xl opacity-0 sm:text-2xl md:text-3xl lg:text-[2.7rem] font-extrabold"
+                className="text-xl sm:text-2xl md:text-3xl lg:text-[2.7rem] font-extrabold opacity-0"
               >
                 We&apos;re Not A{" "}
                 <span className="text-yellow px-2 py-1 rounded-md inline-flex items-center">
@@ -179,7 +194,7 @@ const HeroSection: FC = () => {
                   <Image
                     src={microphone}
                     alt="microphone"
-                    className="w-13 h-13 object-contain ml-3"
+                    className="w-10 h-10 sm:w-12 sm:h-12 object-contain ml-2"
                   />
                 </span>
               </p>
@@ -214,7 +229,7 @@ const HeroSection: FC = () => {
               {/* CTA Button */}
               <button
                 id="cta-btn"
-                className="px-5 sm:px-6 py-2 opacity-0 sm:py-3 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 rounded-full text-white font-semibold shadow-lg transition mt-6 lg:mt-10"
+                className="px-5 sm:px-6 py-2 opacity-0 sm:py-3 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 rounded-full text-white font-semibold shadow-lg transition mt-4 sm:mt-6 lg:mt-10"
               >
                 DOWNLOAD PORTFOLIO
               </button>
@@ -222,7 +237,6 @@ const HeroSection: FC = () => {
           </div>
         </div>
 
-       
         <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black to-transparent z-30 pointer-events-none"></div>
       </section>
     </div>

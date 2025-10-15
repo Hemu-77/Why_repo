@@ -15,134 +15,85 @@ gsap.registerPlugin(ScrollTrigger);
 
 const GallerySection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!containerRef.current) return;
+    if (!containerRef.current || !scrollContainerRef.current) return;
 
-    const ctx = gsap.context(() => {
-      gsap.from(".podcast-img1", {
-        y: -150,
-        opacity: 0,
-        duration: 2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".podcast-img1",
-          start: "top 80%",
-          toggleActions: "play none none reverse",
-        },
-      });
+    const sections = gsap.utils.toArray<HTMLElement>(".panel");
 
-      gsap.from(".podcast-img2", {
-        y: -150,
-        opacity: 0,
-        duration: 2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".podcast-img2",
-          start: "top 80%",
-          toggleActions: "play none none reverse",
-        },
-      });
+    gsap.to(sections, {
+      xPercent: -100 * (sections.length - 1),
+      ease: "none",
+      scrollTrigger: {
+        trigger: containerRef.current,
+        pin: true,
+        scrub: 1,
+        end: () => "+=" + scrollContainerRef.current!.offsetWidth,
+      },
+    });
 
-      gsap.from(".podcast-img3", {
-        y: 150,
-        opacity: 0,
-        duration: 2.0,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".podcast-img3",
-          start: "top 80%",
-          toggleActions: "play none none reverse",
-        },
-      });
-
-      gsap.from(".podcast-img4, .podcast-img5", {
-        y: 100,
-        opacity: 0,
-        duration: 2.0,
-        stagger: 0.3,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".last-row",
-          start: "top 90%",
-          toggleActions: "play none none reverse",
-        },
-      });
-    }, containerRef);
-
-    return () => ctx.revert();
+    // Cleanup on unmount
+    return () => ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
   }, []);
 
   return (
-    <div>
-    <div
-      ref={containerRef}
-      className="grid lg:grid-cols-11 gap-4 p-4 col-span-12 grid-cols-1 bg-black px-10 lg:py-5 mb-7 mt-10 lg:mb-30"
-    >
-      {/* Top Left */}
-      <div className="podcast-img1 col-span-12 lg:col-span-6 overflow-hidden rounded-3xl lg:rounded-tr-[150px] lg:rounded-tl-[60px] lg:rounded-bl-[60px]">
-        <Image
-          src={img1}
-          alt="Interview with tripod"
-          width={800}
-          height={500}
-          className="object-cover w-full h-full"
-        />
-      </div>
-  
-      {/* Top Right */}
-      <div className="podcast-img2 col-span-12 lg:col-span-5 overflow-hidden rounded-3xl lg:rounded-tl-[150px] lg:rounded-tr-[60px] lg:rounded-br-[60px]">
-        <Image
-          src={img2}
-          alt="Interview with bookshelf"
-          width={200}
-          height={500}
-          className="object-cover w-full h-full"
-        />
-      </div>
-  
-      {/* Bottom Full Width */}
-      <div className="podcast-img3 col-span-12 overflow-hidden rounded-3xl lg:rounded-tl-[60px] lg:rounded-bl-[60px] lg:rounded-tr-[150px]">
-        <Image
-          src={img3}
-          alt="Close-up with plant background"
-          width={1200}
-          height={600}
-          className="object-cover w-full h-full"
-        />
-      </div>
-  
-      {/* Last Two Images Row */}
-      <div className="last-row col-span-12 grid grid-cols-1 md:grid-cols-5 gap-4 lg:mt-4">
-        {/* Left Small Image */}
-        <div className="podcast-img4 overflow-hidden rounded-3xl md:col-span-2 lg:rounded-tr-[150px] lg:rounded-tl-[50px] lg:rounded-bl-[60px]">
-          <Image
-            src={img1}
-            alt="Behind the scenes"
-            width={600}
-            height={600}
-            className="object-cover w-full h-full"
-          />
+    <section ref={containerRef} className="relative bg-black overflow-hidden">
+      {/* Horizontal scroll container */}
+      <div
+        ref={scrollContainerRef}
+        className="flex w-[400vw] h-screen items-center"
+      >
+        {/* Panel 1 */}
+        <div className="panel flex-shrink-0 w-screen h-screen flex items-center justify-center">
+          <div className="w-[80%] h-[80%] overflow-hidden rounded-[60px]">
+            <Image
+              src={img1}
+              alt="Gallery Image 1"
+              className="object-cover w-full h-full"
+            />
+          </div>
         </div>
-  
-        {/* Right Wide Image */}
-        <div className="podcast-img5 overflow-hidden rounded-3xl md:col-span-3 lg:rounded-tl-[150px] lg:rounded-br-[50px]">
-          <Image
-            src={img4}
-            alt="Podcast setup"
-            width={600}
-            height={600}
-            className="object-cover w-full h-full"
-          />
+
+        {/* Panel 2 */}
+        <div className="panel flex-shrink-0 w-screen h-screen flex items-center justify-center">
+          <div className="w-[80%] h-[80%] overflow-hidden rounded-[60px]">
+            <Image
+              src={img2}
+              alt="Gallery Image 2"
+              className="object-cover w-full h-full"
+            />
+          </div>
+        </div>
+
+        {/* Panel 3 */}
+        <div className="panel flex-shrink-0 w-screen h-screen flex items-center justify-center">
+          <div className="w-[80%] h-[80%] overflow-hidden rounded-[60px]">
+            <Image
+              src={img3}
+              alt="Gallery Image 3"
+              className="object-cover w-full h-full"
+            />
+          </div>
+        </div>
+
+        {/* Panel 4 */}
+        <div className="panel flex-shrink-0 w-screen h-screen flex items-center justify-center">
+          <div className="w-[80%] h-[80%] overflow-hidden rounded-[60px]">
+            <Image
+              src={img4}
+              alt="Gallery Image 4"
+              className="object-cover w-full h-full"
+            />
+          </div>
         </div>
       </div>
-    </div>
-  
-    <div>
-      <NewsletterFooter />
-    </div>
-  </div>
-  
+
+      {/* Footer (appears after horizontal scroll ends) */}
+      <div className="bg-black py-16">
+        <NewsletterFooter />
+      </div>
+    </section>
   );
 };
 
