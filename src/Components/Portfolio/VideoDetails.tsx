@@ -8,8 +8,17 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import banner from "@/../public/banner.png";
 import NewsletterFooter from "@/Components/Common/footer";
+import type { StaticImageData } from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
+
+interface Video {
+    title: string;
+    subtitle: string;
+    mainImage: string;
+    sectionImage: StaticImageData | string;
+  }
+  
 
 const inter = Inter({
   weight: ["700"],
@@ -28,7 +37,7 @@ interface VideoDetailClientProps {
 }
 
 export default function VideoDetailClient({ slug }: VideoDetailClientProps) {
-  const videoData: Record<string, any> = {
+  const videoData: Record<string, Video> = {
     "how-to-crack-interview": {
       title: "How to Crack Interview",
       subtitle: "My Life Story (Kannada)",
