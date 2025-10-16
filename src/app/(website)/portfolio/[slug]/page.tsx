@@ -7,15 +7,19 @@ import { Inter, Outfit } from "next/font/google";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import banner from "@/../public/banner.png";
-// import bg from "@/../public/second.png"; // bg is unused, removed for clean up
+// NOTE: Removed unused 'bg' import
 import NewsletterFooter from "@/Components/Common/footer";
-// Removed 'FC' import as it's often the cause of this specific Next.js type error
+// NOTE: Removed 'FC' import to avoid type constraint conflicts
 
-interface VideoDetailProps {
+/**
+ * Renamed interface to VideoPageProps to prevent potential conflict
+ * with a globally misconfigured 'PageProps' or 'VideoDetailProps' type.
+ */
+interface VideoPageProps {
   params: {
     slug: string;
   };
-  // NOTE: You might also need to include searchParams here if you use them:
+  // Add searchParams if you ever need query parameters:
   // searchParams: { [key: string]: string | string[] | undefined };
 }
 
@@ -33,10 +37,15 @@ const outfit = Outfit({
   display: "swap",
 });
 
-// FIX: Change 'FC<VideoDetailProps>' to a standard function signature
-const VideoDetail = ({ params }: VideoDetailProps) => {
+/**
+ * FIX: Defined as a standard, typed function component.
+ * This structure prevents the component from being implicitly constrained
+ * by a faulty global type that expects a Promise for 'params'.
+ */
+const VideoDetail = ({ params }: VideoPageProps) => {
   const { slug } = params;
- // eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const videoData: Record<string, any> = {
     "how-to-crack-interview": {
       title: "How to Crack Interview",
@@ -64,11 +73,11 @@ const VideoDetail = ({ params }: VideoDetailProps) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const imageRef = useRef<HTMLDivElement | null>(null);
   const titleRef = useRef<HTMLHeadingElement | null>(null);
-  // Type sectionsRef to hold HTMLDivElement
   const sectionsRef = useRef<(HTMLDivElement | null)[]>([]);
 
-  // Cleanup for sectionsRef in the rendering logic
+  // Helper function for assigning refs to sections and collecting them
   const setSectionRef = (el: HTMLDivElement | null) => {
+    // Only push if the element exists and isn't already in the array
     if (el && !sectionsRef.current.includes(el)) {
         sectionsRef.current.push(el);
     }
@@ -80,6 +89,9 @@ const VideoDetail = ({ params }: VideoDetailProps) => {
 
     // Filter out null values for ScrollTrigger
     const sectionsToAnimate = sectionsRef.current.filter((el): el is HTMLDivElement => el !== null);
+    
+    // Clear the array after use for next renders (important for dynamic refs)
+    sectionsRef.current = [];
 
     const ctx = gsap.context(() => {
       // Initial fade in for main image
@@ -117,7 +129,7 @@ const VideoDetail = ({ params }: VideoDetailProps) => {
     }, containerRef);
 
     return () => ctx.revert();
-  }, [slug]); // Added slug to dependency array
+  }, [slug]);
 
   if (!video) {
     return (
