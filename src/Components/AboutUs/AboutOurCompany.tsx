@@ -83,7 +83,7 @@ const AboutCompany = () => {
     <section ref={sectionRef} className="bg-black text-white py-16 px-6">
       <div className="max-w-[84rem] mx-auto text-center">
         <h2
-          className={`about-heading text-4xl md:text-6xl lg:text-[64px] font-[600] mb-12 relative inline-block text-black/50 stroke-white ${inter.className}`}
+          className={`about-heading text-6xl md:text-6xl lg:text-[64px] font-[600] mb-12 relative inline-block text-black/50 stroke-white ${inter.className}`}
         >
           <span className="stroke-blur">About Our Company</span>
         </h2>
@@ -96,7 +96,7 @@ const AboutCompany = () => {
             >
               <div className="rounded-xl bg-gradient-to-br from-black via-black to-[#5b0808] p-6 text-left hover:shadow-red-600/30 transition duration-300 lg:h-[230px]">
                 <h3
-                  className={`text-[36px] font-bold mb-3 ${montserrat.className}`}
+                  className={`lg:text-[36px] text-[25px] font-bold mb-3 ${montserrat.className}`}
                 >
                   {item.id}. {item.title}
                 </h3>

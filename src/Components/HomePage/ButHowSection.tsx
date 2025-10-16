@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Public_Sans } from "next/font/google";
 import character from "../../../public/cirkitgautam 1.png";
+import Link from "next/link";
 
 const publicSans = Public_Sans({
   weight: ["600"],
@@ -86,7 +87,7 @@ const HowSection = () => {
     >
       <div className="flex flex-col lg:flex-row items-center w-full max-w-[1400px] px-4 sm:px-8 md:px-10 lg:px-12 gap-10 lg:gap-0">
         {/* Character (Image) */}
-        <div className="flex-shrink-0 flex justify-center lg:justify-start w-full md:w-[80%] lg:w-[900px] mt-6 md:mt-8 lg:-mt-50">
+        <div className="flex-shrink-0 flex justify-center lg:justify-start w-full md:w-[80%] lg:w-[900px] mt-6 md:mt-8 lg:-mt-60">
           <Image
             src={character}
             alt="Character"
@@ -95,13 +96,16 @@ const HowSection = () => {
             className="object-contain w-[380px] sm:w-[450px] md:w-[550px] lg:w-[750px]"
             priority
           />
+          <div className="absolute top-50 left-0 w-full h-1/4 bg-gradient-to-t from-black to-transparent z-30 pointer-events-none lg:hidden md:hidden sm:hidden"></div>
         </div>
+        
+
 
         {/* Content Section */}
         <div className="flex flex-col w-full text-center lg:text-left lg:absolute lg:top-10 lg:left-1/3 gap-6 md:gap-8 lg:gap-4 lg:pl-2 ">
           {/* Title */}
           <h2
-            className={`how-title gradient-stroke text-[36px] sm:text-[42px] md:text-5xl lg:text-7xl xl:text-9xl font-bold ${publicSans.className}`}
+            className={`how-title gradient-stroke text-[65px] sm:text-7xl md:text-5xl lg:text-7xl xl:text-9xl font-bold ${publicSans.className}`}
           >
             BUT HOW ?
           </h2>
@@ -114,7 +118,7 @@ const HowSection = () => {
           </p>
 
           {/* Buttons */}
-          <div className="flex flex-col gap-3 sm:gap-4 md:gap-5 lg:gap-10 mt-4 items-center lg:items-start lg:ml-30">
+          <div className="flex flex-col gap-4 sm:gap-4 md:gap-5 lg:gap-10 -mt-10 items-center lg:items-start lg:ml-30 lg:mt-8">
             {[
               "STRATEGY FIRST",
               "CONVERSION COPY",
@@ -123,7 +127,7 @@ const HowSection = () => {
             ].map((label, idx) => (
               <button
                 key={idx}
-                className="how-btn relative w-full max-w-[280px] sm:max-w-[350px] md:max-w-[400px] lg:max-w-[500px] px-5 py-3 sm:py-4 lg:py-5 rounded-full font-black text-white uppercase shadow-lg overflow-hidden transition-transform hover:scale-105 text-sm sm:text-base md:text-lg lg:text-xl flex items-center justify-center gap-3"
+                className="how-btn relative w-full max-w-[360px] sm:max-w-[350px] md:max-w-[400px] lg:max-w-[500px] px-5 py-3 sm:py-4 lg:py-5 rounded-full font-black text-white uppercase shadow-lg overflow-hidden transition-transform hover:scale-105 text-[15px] sm:text-base md:text-lg lg:text-xl flex items-center justify-center gap-3"
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-red-500 to-red-600"></span>
                 <span className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.15)_25%,transparent_25%,transparent_50%,rgba(255,255,255,0.15)_50%,rgba(255,255,255,0.15)_75%,transparent_75%,transparent)] bg-[length:20px_20px] opacity-20"></span>
@@ -138,16 +142,18 @@ const HowSection = () => {
 
       
       <div className=" how-play lg:-mt-85 mt-20 lg:ml-280 md:mt-12 flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 z-50">
-        <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-full bg-gradient-to-br from-red-500 to-red-600 border-4 border-white flex items-center justify-center shadow-xl cursor-pointer transition-transform hover:scale-110">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-white"
-            fill="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path d="M8 5v14l11-7z" />
-          </svg>
-        </div>
+      <Link href="https://youtu.be/H7VJVuP1Iq8?si=mcXs_nIMVGb0HmZ5" passHref>
+  <div className="w-20 h-20 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-full bg-gradient-to-br from-red-500 to-red-600 border-4 border-white flex items-center justify-center shadow-xl cursor-pointer transition-transform hover:scale-110">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-12 h-12 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-white"
+      fill="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path d="M8 5v14l11-7z" />
+    </svg>
+  </div>
+</Link>
         <p className="text-white text-sm sm:text-base font-semibold">
           Play Sample
         </p>

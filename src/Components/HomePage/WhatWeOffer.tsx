@@ -154,41 +154,41 @@ export default function ReflectedServices() {
   }, [index]);
 
   return (
-    <section className="relative flex items-center justify-center bg-black text-white lg:py-10 px-16 overflow-hidden mb-20">
+    <section className="relative flex items-center justify-center bg-black text-white lg:py-30 lg:px-16 overflow-hidden mb-20">
       {/*  Mobile View */}
-      <div className="flex flex-col items-center w-full px-4 lg:hidden">
-        <div className="w-full text-center px-6">
+      <div className="flex flex-col w-full lg:hidden">
+        <div className="w-full text-center">
           <h2
             ref={headingRef}
-            className="text-7xl font-bold leading-tight text-black/50 stroke-white"
+            className="text-8xl font-bold leading-tight text-black/50 stroke-white"
           >
             What we Offer
           </h2>
         </div>
 
-        <div className="relative w-full h-[600px] flex justify-center items-center mt-8 overflow-hidden">
+        <div className="relative w-full h-[600px] flex justify-center items-center mt-10 overflow-hidden">
           {cards.map((card, i) => (
             <div
               key={i}
               ref={(el) => {
                 if (el) mobileRefs.current[i] = el;
               }}
-              className="absolute w-11/12 rounded-2xl p-[2px] bg-gradient-to-b from-[#80FBFF] to-black"
+              className="absolute w-11/12 rounded-2xl p-[2px] bg-gradient-to-b from-[#80FBFF] to-black mt-4"
             >
               <div className="rounded-2xl p-6 flex flex-col items-center justify-center backdrop-blur-3xl bg-black">
-                <h3 className={`text-2xl uppercase mb-2 text-center mt-3 ${poppins.className}`}>
+                <h3 className={`text-3xl uppercase mb-2 text-center mt-3 ${poppins.className}`}>
                   {card.title}
                 </h3>
                 <p className={`text-gray-300 text-[10px] text-center ${outfit.className}`}>{card.desc}</p>
-                <h1 className="mt-5 text-5xl text-black/50 stroke-white font-extrabold">
+                <h1 className="mt-5 text-[80px] text-black/50 stroke-white font-extrabold">
                   <span className={`stroke-blur ${outfit.className}`}>STUDIO</span>
                 </h1>
                 <Image
                   src={card.img}
                   alt={card.title}
-                  width={300}
-                  height={200}
-                  className="rounded-xl object-contain mt-5"
+                  width={350}
+                  height={250}
+                  className="rounded-xl object-contain -mt-15"
                 />
               </div>
             </div>

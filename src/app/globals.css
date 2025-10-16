@@ -80,12 +80,23 @@ body {
 
    
 
-.backdrop{
-  clip-path: polygon(0% 0%, 99.75% 0%, 100% 58%, 45% 58%, 45% 13%, 0% 13%);
-  background-color: rgba(255, 255, 255, 0.1); 
-  backdrop-filter: blur(2px); 
-  -webkit-backdrop-filter: blur(5px);
-  border-radius: 40px;
+
+.backdrop {
+  background: none;
+  clip-path: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-radius: 0;
+}
+
+@media (min-width: 1024px) {
+  .backdrop {
+    clip-path: polygon(0% 0%, 99.75% 0%, 100% 58%, 45% 58%, 45% 13%, 0% 13%);
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 40px;
+  }
 }
 
 

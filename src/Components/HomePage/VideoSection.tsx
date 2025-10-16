@@ -9,6 +9,7 @@ import img2 from "../../../public/youtube.png";
 import img3 from "@/../public/video2.png"
 import img4 from "@/../public/video3.png"
 import { Public_Sans } from "next/font/google";
+import Link from "next/link";
 
 
 const publicSans = Public_Sans({
@@ -132,7 +133,8 @@ export default function VideoSection() {
           />
 
           {/* Play button */}
-          <div
+         <Link href='https://youtu.be/H7VJVuP1Iq8?si=mcXs_nIMVGb0HmZ5' passHref>
+         <div
             ref={playBtnRef}
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
           >
@@ -142,6 +144,7 @@ export default function VideoSection() {
               </svg>
             </div>
           </div>
+         </Link>
         </div>
       </div>
 
@@ -171,6 +174,7 @@ export default function VideoSection() {
           <div className="absolute w-50 h-50 rounded-full bg-white/10 backdrop-blur-2xl border border-white/30 shadow-lg"></div>
 
           {/* Inner Circle (Play Button Background) */}
+          <Link href='https://youtu.be/H7VJVuP1Iq8?si=mcXs_nIMVGb0HmZ5' passHref>
           <div
             ref={playBtnRef}
             className="relative w-38 h-38 rounded-full bg-red-600 flex items-center justify-center border-4 border-white shadow-xl"
@@ -179,6 +183,7 @@ export default function VideoSection() {
               <path d="M8 5v14l11-7z" />
             </svg>
           </div>
+          </Link>
         </div>
       </div>
     </section>

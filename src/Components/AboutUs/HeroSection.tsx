@@ -78,11 +78,11 @@ export default function HeroSection() {
 
       {/* ---------- Mobile Version ---------- */}
       <div className="lg:hidden relative z-10 flex flex-col items-center text-center px-4">
-        <h1 className="word text-6xl sm:text-4xl font-extrabold text-white mt-10">
+        <h1 className="word text-7xl sm:text-4xl font-extrabold text-white mt-10">
           Where The
         </h1>
 
-        <div className="relative w-full h-[450px] sm:h-[400px] my-6">
+        <div className="relative w-full h-[450px] sm:h-[400px]">
           <Image
             src={character}
             alt="Character"
@@ -91,13 +91,14 @@ export default function HeroSection() {
             priority
           />
         </div>
+        <div className="absolute top-75 left-0 w-full h-1/3 bg-gradient-to-t from-black to-transparent z-30 pointer-events-none"></div>
 
-        <h1 className="word text-6xl sm:text-4xl font-extrabold text-white">
+        <h1 className="word text-7xl sm:text-4xl font-extrabold text-white">
           Brand Go <span className="text-red-500">Viral</span>
         </h1>
       </div>
+    
       <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black to-transparent z-30 pointer-events-none"></div>
-
     </section>
   );
 }

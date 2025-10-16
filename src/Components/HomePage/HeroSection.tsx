@@ -42,6 +42,7 @@ const HeroSection: FC = () => {
       const headingCenter = headingRect.width / 2;
       return containerCenter - headingLeft - headingCenter;
     };
+    const isMobile = window.innerWidth < 768;
 
     const tl = gsap.timeline({
       defaults: { ease: "power3.out" },
@@ -56,7 +57,8 @@ const HeroSection: FC = () => {
       xPercent: 0,
       scale: 1.2,
       opacity: 0,
-      fontSize: "5rem",
+      fontSize: isMobile ? "2rem" : "5rem",
+      marginLeft: isMobile ? "10px" : "0px", 
       zIndex: 1000,
     });
 
@@ -66,7 +68,8 @@ const HeroSection: FC = () => {
       xPercent: 15,
       scale: 1.5,
       opacity: 0,
-      fontSize: "4.5rem",
+      fontSize: isMobile ? "1.5rem" : "4.5rem",
+      marginLeft: isMobile ? "15px" : "0px", 
       zIndex: 1000,
     });
 
@@ -171,42 +174,36 @@ const HeroSection: FC = () => {
           ref={containerRef}
           className="w-full max-w-7xl mx-auto my-auto z-20 relative px-4 sm:px-6 md:px-8 lg:px-16 lg:mr-55"
         >
-          <div className="relative grid grid-cols-1 lg:grid-cols-6 items-center gap-6 pt-20">
-            {/* Character */}
-            <div
-              id="character"
-              className="relative opacity-0 mx-auto lg:mx-0 w-[180px] sm:w-[220px] md:w-[280px] lg:w-[450px] lg:col-span-1 order-1 lg:order-2"
-            >
-              <Image src={character} alt="Character" className="object-contain" priority />
-            </div>
-
+          {/* ✅ Mobile: flex layout | Desktop: grid layout */}
+          <div className="relative flex flex-col sm:flex-row lg:grid lg:grid-cols-6 items-center gap-6 pt-20">
             {/* Text Content */}
-            <div className="lg:col-span-5 space-y-4 sm:space-y-6 text-center lg:text-left order-2 lg:order-1">
+            <div className="lg:col-span-5 space-y-4 sm:space-y-6  text-left order-2 lg:order-1 md:order-1">
               {/* Small heading */}
               <p
-                ref={smallHeadingRef}
-                id="small-heading"
-                className="text-xl sm:text-2xl md:text-3xl lg:text-[2.7rem] font-extrabold opacity-0"
-              >
-                We&apos;re Not A{" "}
-                <span className="text-yellow px-2 py-1 rounded-md inline-flex items-center">
-                  Studio
-                  <Image
-                    src={microphone}
-                    alt="microphone"
-                    className="w-10 h-10 sm:w-12 sm:h-12 object-contain ml-2"
-                  />
-                </span>
-              </p>
+  ref={smallHeadingRef}
+  id="small-heading"
+  className="text-sm sm:text-base md:text-3xl lg:text-6xl font-extrabold opacity-0"
+>
+  We&apos;re Not A{" "}
+  <span className="text-yellow px-2 py-1 rounded-md inline-flex items-center">
+    Studio
+    <Image
+      src={microphone}
+      alt="microphone"
+      className="w-6 h-6 sm:w-8 sm:h-8 object-contain ml-2"
+    />
+  </span>
+</p>
+
 
               {/* Main heading */}
               <h1
                 ref={mainHeadingRef}
                 id="main-heading"
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[75px] font-black leading-tight tracking-tight"
+                className="text-3xl md:text-5xl lg:text-6xl xl:text-[75px] font-black leading-tight tracking-tight"
               >
-                <div className="line opacity-0">We&apos;re the reason</div>
-                <div className="line opacity-0">your competitors panic.</div>
+                <div className="line opacity-0 text-3xl">We&apos;re the reason</div>
+                <div className="line opacity-0 text-3xl">your competitors panic.</div>
               </h1>
 
               {/* Description */}
@@ -234,10 +231,20 @@ const HeroSection: FC = () => {
                 DOWNLOAD PORTFOLIO
               </button>
             </div>
+
+            {/* Character */}
+            <div
+              id="character"
+              className="relative opacity-0 ml-auto w-[200px]  md:w-[680px] lg:w-[450px] lg:col-span-1 order-1 lg:order-2 md:order-2"
+            >
+              <Image src={character} alt="Character" className="object-contain" priority />
+              
+            </div>
           </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black to-transparent z-30 pointer-events-none"></div>
+        <div className="hidden absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black to-transparent z-30 pointer-events-none"></div>
+        <div className="absolute top-48 left-0 w-full h-1/3 bg-gradient-to-t from-black to-transparent z-30 pointer-events-none lg:hidden md:hidden"></div>
       </section>
     </div>
   );
