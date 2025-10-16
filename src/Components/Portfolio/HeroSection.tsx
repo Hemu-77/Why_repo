@@ -146,6 +146,7 @@ export default function PortfolioSection() {
       ref={sectionRef}
       className="relative min-h-screen flex flex-col items-center  md:justify-center  py-5"
     >
+       <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-black to-transparent z-30 pointer-events-none"></div>
       {/* Background */}
       <Image
         src={bg}

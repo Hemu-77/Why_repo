@@ -7,14 +7,16 @@ import { Inter, Outfit } from "next/font/google";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import banner from "@/../public/banner.png";
-import bg from "@/../public/second.png";
+// import bg from "@/../public/second.png"; // bg is unused, removed for clean up
 import NewsletterFooter from "@/Components/Common/footer";
-import { FC } from "react";
+// Removed 'FC' import as it's often the cause of this specific Next.js type error
 
 interface VideoDetailProps {
   params: {
     slug: string;
   };
+  // NOTE: You might also need to include searchParams here if you use them:
+  // searchParams: { [key: string]: string | string[] | undefined };
 }
 
 gsap.registerPlugin(ScrollTrigger);
@@ -31,7 +33,8 @@ const outfit = Outfit({
   display: "swap",
 });
 
-const VideoDetail: FC<VideoDetailProps> = ({ params }) => {
+// FIX: Change 'FC<VideoDetailProps>' to a standard function signature
+const VideoDetail = ({ params }: VideoDetailProps) => {
   const { slug } = params;
  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const videoData: Record<string, any> = {
@@ -61,10 +64,22 @@ const VideoDetail: FC<VideoDetailProps> = ({ params }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const imageRef = useRef<HTMLDivElement | null>(null);
   const titleRef = useRef<HTMLHeadingElement | null>(null);
-  const sectionsRef = useRef<HTMLDivElement[]>([]);
+  // Type sectionsRef to hold HTMLDivElement
+  const sectionsRef = useRef<(HTMLDivElement | null)[]>([]);
+
+  // Cleanup for sectionsRef in the rendering logic
+  const setSectionRef = (el: HTMLDivElement | null) => {
+    if (el && !sectionsRef.current.includes(el)) {
+        sectionsRef.current.push(el);
+    }
+  };
+
 
   useEffect(() => {
     if (!containerRef.current) return;
+
+    // Filter out null values for ScrollTrigger
+    const sectionsToAnimate = sectionsRef.current.filter((el): el is HTMLDivElement => el !== null);
 
     const ctx = gsap.context(() => {
       // Initial fade in for main image
@@ -86,7 +101,7 @@ const VideoDetail: FC<VideoDetailProps> = ({ params }) => {
       });
 
       // Section animations on scroll
-      sectionsRef.current.forEach((section, index) => {
+      sectionsToAnimate.forEach((section, index) => {
         gsap.from(section, {
           scrollTrigger: {
             trigger: section,
@@ -102,7 +117,7 @@ const VideoDetail: FC<VideoDetailProps> = ({ params }) => {
     }, containerRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [slug]); // Added slug to dependency array
 
   if (!video) {
     return (
@@ -148,11 +163,7 @@ const VideoDetail: FC<VideoDetailProps> = ({ params }) => {
 
         {/* Section 1 */}
         <section
-          ref={(el) => {
-            if (el && !sectionsRef.current.includes(el as HTMLDivElement)) {
-              sectionsRef.current.push(el as HTMLDivElement);
-            }
-          }}
+          ref={setSectionRef}
           className="mt-10"
         >
           <h2 className={`text-2xl font-semibold mb-3 ${inter.className}`}>
@@ -168,11 +179,7 @@ const VideoDetail: FC<VideoDetailProps> = ({ params }) => {
 
         {/* Section 2 */}
         <section
-          ref={(el) => {
-            if (el && !sectionsRef.current.includes(el as HTMLDivElement)) {
-              sectionsRef.current.push(el as HTMLDivElement);
-            }
-          }}
+          ref={setSectionRef}
           className="mt-10 grid md:grid-cols-2 gap-6 items-center"
         >
           <div>
@@ -200,11 +207,7 @@ const VideoDetail: FC<VideoDetailProps> = ({ params }) => {
 
         {/* Section 3 */}
         <div
-          ref={(el) => {
-            if (el && !sectionsRef.current.includes(el)) {
-              sectionsRef.current.push(el);
-            }
-          }}
+          ref={setSectionRef}
           className="mt-20"
         >
           <p className={`${outfit.className} text-gray-400 text-[18px]`}>
@@ -220,11 +223,7 @@ const VideoDetail: FC<VideoDetailProps> = ({ params }) => {
 
         {/* Section 4 */}
         <div
-          ref={(el) => {
-            if (el && !sectionsRef.current.includes(el)) {
-              sectionsRef.current.push(el);
-            }
-          }}
+          ref={setSectionRef}
           className="mt-20"
         >
           <p className={`${outfit.className} text-gray-400 text-[18px]`}>
@@ -242,3 +241,5 @@ const VideoDetail: FC<VideoDetailProps> = ({ params }) => {
     </div>
   );
 }
+
+export default VideoDetail;
