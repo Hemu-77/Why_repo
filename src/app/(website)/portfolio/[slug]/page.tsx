@@ -9,6 +9,13 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import banner from "@/../public/banner.png";
 import bg from "@/../public/second.png";
 import NewsletterFooter from "@/Components/Common/footer";
+import { FC } from "react";
+
+interface VideoDetailProps {
+  params: {
+    slug: string;
+  };
+}
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -24,7 +31,7 @@ const outfit = Outfit({
   display: "swap",
 });
 
-export default function VideoDetail({ params }: { params: { slug: string } }) {
+const VideoDetail: FC<VideoDetailProps> = ({ params }) => {
   const { slug } = params;
  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const videoData: Record<string, any> = {
