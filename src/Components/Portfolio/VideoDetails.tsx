@@ -36,8 +36,7 @@ interface VideoDetailClientProps {
   slug: string;
 }
 
-export default function VideoDetailClient({ slug }: VideoDetailClientProps) {
-  const videoData: Record<string, Video> = {
+const videoData: Record<string, Video> = {
     "how-to-crack-interview": {
       title: "How to Crack Interview",
       subtitle: "My Life Story (Kannada)",
@@ -57,6 +56,9 @@ export default function VideoDetailClient({ slug }: VideoDetailClientProps) {
       sectionImage: banner,
     },
   };
+
+export default function VideoDetailClient({ slug }: VideoDetailClientProps) {
+  
 
   const video = videoData[slug];
 
