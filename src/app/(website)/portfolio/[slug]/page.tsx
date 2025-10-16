@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,20 +5,12 @@ import { Inter, Outfit } from "next/font/google";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import banner from "@/../public/banner.png";
-// NOTE: Removed unused 'bg' import
 import NewsletterFooter from "@/Components/Common/footer";
-// NOTE: Removed 'FC' import to avoid type constraint conflicts
 
-/**
- * Renamed interface to VideoPageProps to prevent potential conflict
- * with a globally misconfigured 'PageProps' or 'VideoDetailProps' type.
- */
 interface VideoPageProps {
   params: {
     slug: string;
   };
-  // Add searchParams if you ever need query parameters:
-  // searchParams: { [key: string]: string | string[] | undefined };
 }
 
 gsap.registerPlugin(ScrollTrigger);
@@ -37,15 +27,9 @@ const outfit = Outfit({
   display: "swap",
 });
 
-/**
- * FIX: Defined as a standard, typed function component.
- * This structure prevents the component from being implicitly constrained
- * by a faulty global type that expects a Promise for 'params'.
- */
-const VideoDetail = ({ params }: VideoPageProps) => {
+export default function VideoDetail({ params }: VideoPageProps) {
   const { slug } = params;
- 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
   const videoData: Record<string, any> = {
     "how-to-crack-interview": {
       title: "How to Crack Interview",
@@ -69,32 +53,27 @@ const VideoDetail = ({ params }: VideoPageProps) => {
 
   const video = videoData[slug];
 
-  // Refs for animation
   const containerRef = useRef<HTMLDivElement | null>(null);
   const imageRef = useRef<HTMLDivElement | null>(null);
   const titleRef = useRef<HTMLHeadingElement | null>(null);
   const sectionsRef = useRef<(HTMLDivElement | null)[]>([]);
 
-  // Helper function for assigning refs to sections and collecting them
   const setSectionRef = (el: HTMLDivElement | null) => {
-    // Only push if the element exists and isn't already in the array
     if (el && !sectionsRef.current.includes(el)) {
-        sectionsRef.current.push(el);
+      sectionsRef.current.push(el);
     }
   };
-
 
   useEffect(() => {
     if (!containerRef.current) return;
 
-    // Filter out null values for ScrollTrigger
-    const sectionsToAnimate = sectionsRef.current.filter((el): el is HTMLDivElement => el !== null);
-    
-    // Clear the array after use for next renders (important for dynamic refs)
+    const sectionsToAnimate = sectionsRef.current.filter(
+      (el): el is HTMLDivElement => el !== null
+    );
+
     sectionsRef.current = [];
 
     const ctx = gsap.context(() => {
-      // Initial fade in for main image
       gsap.from(imageRef.current, {
         opacity: 0,
         scale: 0.95,
@@ -103,7 +82,6 @@ const VideoDetail = ({ params }: VideoPageProps) => {
         ease: "power3.out",
       });
 
-      // Title animation
       gsap.from(titleRef.current, {
         opacity: 0,
         y: 40,
@@ -112,7 +90,6 @@ const VideoDetail = ({ params }: VideoPageProps) => {
         ease: "power3.out",
       });
 
-      // Section animations on scroll
       sectionsToAnimate.forEach((section, index) => {
         gsap.from(section, {
           scrollTrigger: {
@@ -151,7 +128,6 @@ const VideoDetail = ({ params }: VideoPageProps) => {
       </Link>
 
       <div className="w-full max-w-7xl mx-auto z-30 mb-40">
-        {/* Main Image */}
         <div
           ref={imageRef}
           className="bg-white/10 backdrop-blur-3xl p-3 rounded-3xl z-20"
@@ -165,7 +141,6 @@ const VideoDetail = ({ params }: VideoPageProps) => {
           />
         </div>
 
-        {/* Title */}
         <h1
           ref={titleRef}
           className={`text-4xl md:text-5xl font-bold mt-8 ${inter.className}`}
@@ -173,23 +148,16 @@ const VideoDetail = ({ params }: VideoPageProps) => {
           {video.title}
         </h1>
 
-        {/* Section 1 */}
-        <section
-          ref={setSectionRef}
-          className="mt-10"
-        >
+        <section ref={setSectionRef} className="mt-10">
           <h2 className={`text-2xl font-semibold mb-3 ${inter.className}`}>
             Invested in 60+ Startups
           </h2>
           <p className={`text-gray-400 leading-relaxed ${outfit.className}`}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
         </section>
 
-        {/* Section 2 */}
         <section
           ref={setSectionRef}
           className="mt-10 grid md:grid-cols-2 gap-6 items-center"
@@ -200,12 +168,7 @@ const VideoDetail = ({ params }: VideoPageProps) => {
             </h3>
             <p className={`text-gray-400 leading-relaxed ${outfit.className}`}>
               Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
-              faucibus ex sapien vitae pellentesque sem placerat. In id cursus
-              mi pretium tellus duis convallis. Tempus leo eu aenean sed diam
-              urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum
-              egestas. Iaculis massa nisl malesuada lacinia integer nunc
-              posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad
-              litora torquent per conubia nostra inceptos himenaeos.
+              faucibus ex sapien vitae pellentesque sem placerat.
             </p>
           </div>
           <Image
@@ -217,32 +180,16 @@ const VideoDetail = ({ params }: VideoPageProps) => {
           />
         </section>
 
-        {/* Section 3 */}
-        <div
-          ref={setSectionRef}
-          className="mt-20"
-        >
+        <div ref={setSectionRef} className="mt-20">
           <p className={`${outfit.className} text-gray-400 text-[18px]`}>
-            Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
-            faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi
-            pretium tellus duis convallis. Tempus leo eu aenean sed diam urna
-            tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas.
-            Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut
-            hendrerit semper vel class aptent taciti sociosqu. Ad litora
-            torquent per conubia nostra inceptos himenaeos.
+            Lorem ipsum dolor sit amet consectetur adipiscing elit.
           </p>
         </div>
 
-        {/* Section 4 */}
-        <div
-          ref={setSectionRef}
-          className="mt-20"
-        >
+        <div ref={setSectionRef} className="mt-20">
           <p className={`${outfit.className} text-gray-400 text-[18px]`}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+            eiusmod tempor incididunt ut labore.
           </p>
         </div>
       </div>
@@ -253,5 +200,3 @@ const VideoDetail = ({ params }: VideoPageProps) => {
     </div>
   );
 }
-
-export default VideoDetail;
