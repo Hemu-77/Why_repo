@@ -161,9 +161,9 @@ export default function PortfolioSection() {
       <div className="absolute right-0 top-0 h-full w-3/4 backdrop-blur-[60px] -z-10 hidden md:block"></div>
 
       {/* Content */}
-      <div className="relative flex flex-col md:flex-row  w-full max-w-7xl px-4 md:px-8 py-8 z-20 lg:-mt-20">
+      <div className="relative flex flex-col md:flex-row  w-full max-w-7xl px-4 md:px-8 py-8 z-20 lg:mt-10">
         {/* Left Content */}
-        <div className="flex flex-col space-y-4 md:space-y-6 pt-12 md:pt-0 z-10 -mt-15">
+        <div className="flex flex-col space-y-4 md:space-y-6 pt-12 md:pt-0 z-10 -mt-15 ">
           <h1 className="heading-title text-white text-7xl md:text-[11rem] font-extrabold leading-none">
             Our <br /> Portfolio
           </h1>
