@@ -1,11 +1,8 @@
 import VideoDetailClient from "@/Components/Portfolio/VideoDetails";
 
-interface Params {
-  slug: string;
-}
 
 // Mark the page as `async` if you need to fetch data
-export default async function Page({ params }: { params: Params }) {
+export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
 
   // Example: fetch additional data
