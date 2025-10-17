@@ -1,11 +1,6 @@
 import VideoDetailClient from "@/Components/Portfolio/VideoDetails";
 
-/* eslint-disable */
 
-interface VideoPageProps {
-  params: { slug: string };
-}
-
-export default function Page({ params }: VideoPageProps) {
+export default function Page({ params }: { params: { slug: string } }) {
   return <VideoDetailClient slug={params.slug} />;
 }
