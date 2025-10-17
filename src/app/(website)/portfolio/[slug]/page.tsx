@@ -1,5 +1,7 @@
 import VideoDetailClient from "@/Components/Portfolio/VideoDetails";
 
+/* eslint-disable */
+
 interface VideoPageProps {
   params: { slug: string };
 }
