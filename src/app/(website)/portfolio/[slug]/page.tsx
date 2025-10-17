@@ -1,9 +1,7 @@
 import VideoDetailClient from "@/Components/Portfolio/VideoDetails";
 
-interface PageProps {
-  params: { slug: string };
-}
-
-export default function Page({ params }: PageProps) {
+// Notice: no explicit PageProps type
+export default function Page({ params }: { params: { slug: string } }) {
+  // Just pass the slug to the client component
   return <VideoDetailClient slug={params.slug} />;
 }
