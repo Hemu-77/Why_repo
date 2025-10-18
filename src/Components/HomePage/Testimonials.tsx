@@ -108,7 +108,7 @@ export default function ReflectedTestimonials() {
   return (
     <section
       ref={sectionRef}
-      className="relative flex flex-col mb-20 h-[650px] items-center lg:justify-center bg-black text-white px-6 -pt-40 lg:pt-28 md:py-0 overflow-hidden transform scale-x-[-1]"
+      className="relative flex flex-col mb-20 h-[650px] items-center lg:justify-center bg-black text-white px-6 -pt-40 lg:pt-28 md:py-0 md:-mt-15 overflow-hidden transform scale-x-[-1] md:mb-90 lg:mb-0 md:pb-30"
     >
       <div className="flex flex-col-reverse lg:flex-row items-center w-full max-w-7xl mx-auto transform scale-x-[-1] gap-10 lg:gap-20">
         {/* LEFT SIDE — TEXT */}
@@ -142,7 +142,7 @@ export default function ReflectedTestimonials() {
           </p>
 
           {/* Buttons */}
-          <div className="mt-10 flex justify-center lg:justify-start gap-6">
+          <div className="mt-10 flex justify-center lg:justify-start gap-6 md:mb-10">
             <button
               ref={(el) => {
                 if (el) buttonRefs.current[0] = el;
@@ -182,7 +182,7 @@ export default function ReflectedTestimonials() {
 
             return (
               <div key={i} className={wrapperClasses}>
-                <div className="rounded-[inherit] w-full h-full p-6 bg-white/5 shadow-xl flex flex-col justify-between backdrop-blur-md border border-white/10 mt-40">
+                <div className="rounded-[inherit] w-full h-full p-6 bg-white/5 shadow-xl flex flex-col justify-between backdrop-blur-md border border-white/10 mt-40 md:mt-60">
                   <div className="flex items-center gap-3 mb-4">
                     <Image
                       src={t.img}

@@ -152,13 +152,13 @@ export default function VideoSection() {
       <div className="hidden md:block">
         <div
           ref={(el: HTMLDivElement | null): void => { desktopVideoRefs.current[0] = el; }}
-          className="max-w-9xl backdrop-blur relative px-5 py-5 -mt-50 border-1 border-white rounded-3xl z-20"
+          className="max-w-9xl backdrop-blur relative px-5 py-5 -mt-50 border-1 border-white rounded-3xl z-20 md:-mt-60"
         >
           <Image src={img2} alt="Videos" width={1350} height={400} className="object-contain" priority />
         </div>
         <div
           ref={(el: HTMLDivElement | null): void => { desktopVideoRefs.current[1] = el; }}
-          className="max-w-[76rem] flex flex-col blur-xs px-5 backdrop-blur-2xl glow-box items-center justify-center relative ml-10 -mt-155 border-1 border-white rounded-3xl z-10 py-5"
+          className="max-w-[76rem] flex flex-col blur-xs px-5 backdrop-blur-2xl glow-box items-center justify-center relative ml-10 -mt-155 border-1 border-white rounded-3xl z-10 py-5 md:mt-350"
         >
           <Image src={img3} alt="Videos" width={1200} height={400} className="object-contain rounded" priority />
         </div>

@@ -7,6 +7,7 @@ import { useGSAP } from "@gsap/react";
 import character from "../../../public/gautamleaningwall 1.png";
 import bg from "../../../public/header.png";
 import microphone from "@/../public/microphone.png";
+import Link from "next/link";
 
 const HeroSection: FC = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
@@ -200,7 +201,7 @@ const HeroSection: FC = () => {
               <h1
                 ref={mainHeadingRef}
                 id="main-heading"
-                className="text-3xl md:text-5xl lg:text-6xl xl:text-[75px] font-black leading-tight tracking-tight"
+                className="text-3xl md:text-[45px] lg:text-6xl xl:text-[75px] font-black leading-tight tracking-tight"
               >
                 <div className="line opacity-0 text-3xl">We&apos;re the reason</div>
                 <div className="line opacity-0 text-3xl">your competitors panic.</div>
@@ -224,12 +225,14 @@ const HeroSection: FC = () => {
               </p>
 
               {/* CTA Button */}
+              <Link href="/portfolio">
               <button
                 id="cta-btn"
                 className="px-5 sm:px-6 py-2 opacity-0 sm:py-3 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 rounded-full text-white font-semibold shadow-lg transition mt-4 sm:mt-6 lg:mt-10"
               >
                 DOWNLOAD PORTFOLIO
               </button>
+              </Link>
             </div>
 
             {/* Character */}
